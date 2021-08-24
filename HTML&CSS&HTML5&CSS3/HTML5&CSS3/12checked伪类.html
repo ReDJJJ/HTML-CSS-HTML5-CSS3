@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"> 
+        <title></title>
+        <style>
+            input[type="checkbox"]{
+                width:50px;
+                height:50px;
+                /* 调整大小 不用清除默认input样式  直接覆盖就好*/
+                background: rgb(255, 169, 169);
+                appearance: none;
+                /* 但是调整背景色 需要清除默认的input样式 */
+                /* 老师视频比较过时，其实只需要使用 appearance:none 即可清除 */
+            }
+            input[type="checkbox"]:checked{
+                border: 1px solid red;
+                background: blue;
+            }
+
+            /* 
+                :focus用于输入栏的鼠标聚焦点
+                而:checked 用于选择栏的被选中时候的状态
+                而 有一些input默认样式 需要清除  才可以生效
+                appearance:none;
+             */
+        </style>
+    </head>
+    
+    <body>
+        <input type="checkbox" name="" id="">
+    </body>
+</html>

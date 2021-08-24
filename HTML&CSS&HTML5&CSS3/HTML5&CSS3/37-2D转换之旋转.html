@@ -1,0 +1,46 @@
+<!-- rotate:循环 旋转
+    转化transform 之 旋转 rotate 单位deg 角
+ -->
+
+ <!doctype html>
+ <html>
+     <head>
+         <meta charset="utf-8"> 
+         <title></title>
+         <style>
+             img{
+                 display:block;
+                 margin:300px auto;
+                 width:200px;
+                 transition:width 1s 0s linear;
+                 /* 若使用默认图片宽度 不自己设置宽度的话 过渡效果不会生效 */
+                 /* ！！！一定要明确的写出 开始和结尾的状态值 例如图片大小想过渡 哪怕图片一开始大小不需要变  也要设置width:默认图片宽度 不然过渡不起作用 */
+                
+             }
+             img:hover{
+                 /* 2D转换之旋转 rotate :沿着网页Z轴旋转  正值为顺时针旋转 负值为逆时针旋转 转动单位为deg */
+                 transition:width 3s 0s linear; 
+                 transform:rotate(6000deg);      
+                 width:600px;
+             }
+         </style>
+     </head>
+     
+     <body>
+            <img src="../images/xiaomisp2.jpg" alt="">
+            <img src="../images/transition.png" alt="">
+     </body>
+ </html>
+
+ <!-- 
+    本人解决了之前没搞懂的问题:
+    若 从默认状态到hover 是一个效果  而hover 到默认是另一个效果怎么办
+    之前只会 默认设置transition 有来有回来回一样
+            或者只设置hover 只有来没有回
+    可以默认和hover都设置
+    则默认到hover效果为在hover里设置的效果
+      hover到默认的效果为在默认里设置的效果
+      分清楚transition 的效果的归属方
+
+      而transfrom中的某些属性 配合transiton配合得不是很好 回导致一些效果失效
+  -->

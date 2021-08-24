@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"> 
+        <title></title>
+        <style>
+            *{margin:0;padding:0;list-style-type: none;}
+            div.box1 ul{
+                width:100%;
+                height:100px;
+                border:1px solid black;
+                margin-bottom: 100px;
+
+                display:flex;
+                justify-content:space-around;
+              
+            }
+            
+            div.box2 ul{
+                width:100%;
+                height:100px;
+                border:1px solid black;
+                margin-bottom: 100px;
+
+                display:flex;
+                justify-content:space-evenly;
+            }
+          
+            div.box3-wrap{
+                border: 1px solid black;
+            }
+            div.box3{
+                max-width:900px;
+                margin: 0 auto;
+            }
+            div.box3 ul{
+                width:100%;
+                height:100px;
+                border:1px solid red;
+               
+
+                display:flex;
+                justify-content:space-between;
+              
+            }
+
+              
+            div li{
+                width:100px;
+                height:100px;
+                background: pink;
+            }
+            
+        </style>
+    </head>
+    
+    <body>
+        <div class="box1">
+            <ul>
+                <li></li><li></li><li></li><li></li>
+            </ul>
+        </div>
+
+        <div class="box2">
+            <ul>
+                <li></li><li></li><li></li><li></li>
+            </ul>
+        </div>
+        <div class="box3-wrap">
+        <div class="box3">
+            <ul>
+                <li></li><li></li><li></li><li></li>
+            </ul>
+        </div>
+        </div>
+        <!-- 
+            justify-content:space-around; (左右间距)
+            justify-content:space-evenly; (间距等距)
+
+            第一种:是弹性元素左右各包含空间,会导致弹性父盒子左右边距是 弹性元素之间边距的一半
+            第二种:是将多余的空间 均匀地分配给元素与元素,元素与弹性盒子之间 ,所以弹性父盒子左右边距和弹性元素之间边距一样长 
+
+         -->
+         <!-- 
+            max-width:最大宽度
+            用户场景:当设定了浮动自适应, 那么当宽度无限拉宽的时候,边距也无限拉宽,不太美观,可以使用一个限定了max-width的盒子 来约束拉伸宽度
+            套一个max-width 来实现灵活版心
+
+            这就是那个 整体居中 最大宽度自适应
+
+          -->
+    </body>
+</html>

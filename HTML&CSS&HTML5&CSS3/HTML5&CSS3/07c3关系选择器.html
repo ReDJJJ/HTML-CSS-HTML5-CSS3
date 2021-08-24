@@ -1,0 +1,159 @@
+<!-- 
+    >表示一级后代(亲儿子) 空格表示所有后代子子孙孙(所有级)
+    常用的也就> 一级后代 和多重一级后代 找同级元素
+-->
+
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"> 
+        <title></title>
+        <style>
+            .box1>p{
+                color:pink;
+                /* box1的所有亲儿子p */
+            }
+
+            .box1 li>p{
+                color:green;
+                /* box1中所有子子孙孙li,li的亲儿子p */
+            }
+
+            .box2>ul>li{
+                /* 
+                .box2 ul li
+                box2中 所有ul中的 后代li
+
+                .box2>ul li
+                box2中 一级后代亲儿子ul中 的所有后代li
+                .box2>ul>li
+                 box2中 一级后代亲儿子ul中 的一级后代亲儿子li
+                 */
+                background: rgb(149, 111, 255);
+                border:1px solid rgb(223, 83, 83);
+                
+                /* 
+                    此处背景颜色和字体颜色好像不生效  只有边框起作用了 很奇怪
+                    不是不生效 而是视觉出错了!!
+                    因为第二层ul li包裹在第一层ul li 中  那么给第一次li添加背景色 第二层ul li都是透明的 不就显得第二层ul li 有背景色了么
+                    可以去浏览器调试查看
+                 */
+            }
+
+            .box3 h2+p{
+                color: aqua;
+                /* h2+p:h2后面紧挨着的p标签 中间不能有其他元素 */
+            }
+
+            .box4 h2~p{
+                color: aqua;
+                /* h2~p:h2位置后面所有的同级的p标签 */
+            }
+
+            
+        </style>
+    </head>
+    
+    <body>
+        <div class="box1">
+            <h2>区域标题</h2>
+            <p>段落一</p>
+            <p>段落二</p>
+            <ul>
+                <li>
+                    <p>我是li里的p元素，不是box1的亲儿子</p>
+                </li>
+            </ul>
+            <div class="one">
+                区块一
+            </div>
+
+            <p>我是最后一个段落</p>
+            <p>段落一</p>
+            <span>
+                哈哈哈哈哈哈
+            </span>
+            <p>段落二</p>
+        </div>
+        <hr><hr><hr><hr>
+        <img src="../images/guanxi1.png" alt="">
+        <img src="../images/guanxi2.png" alt=""><br>
+        <img src="../images/guanxi3.png" alt="">
+        <img src="../images/guanxi4.png" alt="">
+        <P> >表示一级后代(亲儿子) 空格表示所有后代子子孙孙(所有级)<br>
+            >在以上场景中经常使用  
+            例如左侧头部是一个ul 每个li左浮动 并且每个样式基本相同
+            但是中国大陆选择界面也是还有一个ul li 
+            此时若想只控制  中国大陆 登录 注册界面 的三个li的话 
+            利用 box>ul>li 大于号 一级后代选择器即可 box中的一级ul中一级li
+        </P>
+        <div class="box2">
+            <ul>
+                <li>box2中ul1的大儿子
+                        <ul>
+                            <li>box2中 ul1的重孙</li>
+                            <li></li>
+                            <li></li>
+                            <li>
+                                /* 
+                                此处背景颜色和字体颜色好像不生效  只有边框起作用了 很奇怪
+                                不是不生效 而是视觉出错了!!
+                                因为第二层ul li包裹在第一层ul li 中  那么给第一次li添加背景色 第二层ul li都是透明的 不就显得第二层ul li 有背景色了么
+                                可以去浏览器调试查看
+                             */
+                            </li>
+                        </ul>
+                </li>
+                <li>box2中ul1的二儿子</li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <hr><hr><hr><hr>
+        <div class="box3">
+            <h2>区域标题</h2>
+            <!-- <span>h2+p:h2后面紧挨着的p标签 中间不能有其他元素</span> -->
+            <p>段落一</p>
+            <p>段落二</p>
+            <ul>
+                <li>
+                    <p>我是li里的p元素，不是box1的亲儿子</p>
+                </li>
+            </ul>
+            <div class="one">
+                区块一
+            </div>
+
+            <p>我是最后一个段落</p>
+            <p>段落一</p>
+            <span>
+                哈哈哈哈哈哈
+            </span>
+            <p>段落二</p>
+        </div>
+        <hr><hr><hr><hr>
+        <div class="box4">
+            <h2>区域标题</h2>
+            <!-- <span>h2+p:h2后面紧挨着的p标签 中间不能有其他元素</span> -->
+            <p>段落一</p>
+            <p>段落二</p>
+            <ul>
+                <li>
+                    <p>我是li里的p元素，不是box1的亲儿子</p>
+                </li>
+            </ul>
+            <div class="one">
+                区块一
+            </div>
+
+            <p>我是最后一个段落</p>
+            <p>段落一</p>
+            <span>
+                哈哈哈哈哈哈
+            </span>
+            <p>段落二</p>
+        </div>
+
+    </body>
+</html>

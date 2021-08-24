@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            margin: 10px 40px 10px;
+            background: pink;
+            float:left;
+        }
+        .box:first-of-type {
+            background: pink;
+            /* 常数代表 圆弧类三角形的短边长度  百分比代表圆弧类三角形短边长度 与 边框长度的比值 */
+            /* 更好的解释  常数代表 x轴y轴到角顶点的距离(或百分比) 并在两点之间 连接一条圆弧 */
+            border-radius: 20px 10px 50% 0px;
+
+            /* 圆角单属性 */
+            border-bottom-right-radius: 50%;
+            /* 先 top bottom  再left right  */
+        }
+        .box:nth-of-type(2){
+            height:100px;
+            /* 画半圆 利用圆角效果 */
+            border-top-left-radius: 100px;
+            border-top-right-radius: 100px;
+        }
+        .box:nth-of-type(3){
+            border-top-left-radius:200px;
+        }
+        /* 以上三个 都是单属性值 就一个值 , 那个值就定义了 x轴和y轴 两者的位置   */
+        .box:nth-child(4){
+            width: 200px;
+            height: 100px;
+            border-radius:100px  50px;
+            /* 这个的意思是 左上右下 100px  右上左下50px */
+            border-top-left-radius:50% 50%;
+            /* 先定x轴 再定y轴  看属性名字也看得出来  top bottom 优先定点 left  right其次 先水平后垂直 */
+            /* 所以小米图标那种  不规则的曲线 则是通过 双属性值 来模仿的 */
+        }
+        .box:nth-child(5){
+            /* 复合属性的写法 可以利用注释看看  */
+            border-radius: 30px;
+            /*四个角一致 且x轴y轴也一致 */
+
+            border-radius: 30px 100px;
+            /* 左上右下(↖↘对角一组) 右上左下(↙↗一组) 且x轴y轴一致 */
+
+            border-radius: 60px 100px 20px;
+            /* 三个值分别 代表↖  ↙↗  ↘ 且x轴y轴一致 */
+
+            /* border-radius: 60px 100px 20px 0px; */
+            /* 四个值 ↖ ↗  ↘  ↙ */
+        }
+        .box:last-child{
+            /* 复合属性 x轴 y轴 写法 */
+            /* 水平x轴的集合 /  垂直y轴的集合 */
+            border-radius: 30px 100pX / 60px 100px;
+
+            border-radius: 30px 100px 50px / 30px 10px 50px;
+            /*  */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">文本</div>
+    <div class="box">圆角只改变形状 不改变占地面积</div>
+    <div class="box">但是</div>
+    <div class="box">若改变overflow:hidden</div>
+    <div class="box">则可以改变显示面积</div>
+    <div class="box"></div>
+    注意除了指定了单角属性 例: border-top-left-radius:10px 20px 为水平垂直 分别设置
+    其余的水平垂直设置 都需要 / 来区分水平的集和垂直的集
+</body>
+
+</html>

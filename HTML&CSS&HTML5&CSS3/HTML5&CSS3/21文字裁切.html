@@ -1,0 +1,40 @@
+<!-- 
+    文字裁剪
+    文字裁剪 不是 让文字变形 而是让文字裁剪背景图
+-->
+
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"> 
+        <title></title>
+        <style>
+            h1{
+                text-align: center;
+                font-size:60px;
+                background:url(../images/下载.png) no-repeat 0px 0px;
+                /* 透明 */
+                color:transparent !important;
+                -webkit-background-clip:text;
+                -moz-background-clip:text;
+                /* 谷歌 和 火狐 */
+
+            }
+        </style>
+    </head>
+    
+    <body>
+        <h1>文字裁切效果</h1>
+        <h1>属性值 transparent 设置所有的透明 颜色</h1>
+        <h1>测试属性 -前缀-background-clip 负责裁切效果 </h1>
+        <!-- 
+            裁剪 需要两步
+            1把颜色设置成透明 
+            2设置 -webkit-background-clip : 对象
+            文字裁剪:
+            1 COLOR:TRANSPARENT
+            2 -WEBKIT-BACKGOUND-CLIP : TEXT;
+            所有类型的颜色 设置成透明  都是 transparent 穿透成父母颜色
+         -->
+    </body>
+</html>

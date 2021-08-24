@@ -1,0 +1,137 @@
+<!-- 
+    做法:先写静态的开始结尾 开始和结尾的状态值 在选定属性 过程时间 延时 和过渡方式
+         ！！！一定要明确的写出 开始和结尾的状态值 例如图片大小想过渡 哪怕图片一开始大小不需要变  也要设置width:默认图片宽度 不然过渡不起作用
+    过渡属性:属性从当前值在一定时间内容 通过某种方式,达到目标值
+    transition 中文意思:过渡
+    property 中文意思:属性
+    duration 中文意思:持续时间
+    function 中文意思:函数function 
+
+    单属性: 
+    transition-property: 负责选定过渡的属性  width,height 或者 填入all 也可
+    transition-duration: 选定过渡的时间 单位s 或 ms
+    transition-timing-funtion: 负责选定过渡方式  
+    
+    /* 过渡的方式 
+						linear： 线性过渡。等同于贝塞尔曲线(0.0, 0.0, 1.0, 1.0) 
+						ease： 由慢到快到慢。等同于贝塞尔曲线(0.25, 0.1, 0.25, 1.0) 
+						ease-in： 由慢到快。等同于贝塞尔曲线(0.42, 0, 1.0, 1.0) 
+						ease-out： 由快到慢。等同于贝塞尔曲线(0, 0, 0.58, 1.0) 
+						ease-in-out： 由慢到快再到慢。等同于贝塞尔曲线(0.42, 0, 0.58, 1.0) 
+						贝塞尔曲线: https://cubic-bezier.com/
+						
+					*/
+
+    注意 可过渡的属性只包含  属性可从一个值转换到另一个值  例如width margin padding color height 等 
+         不可过渡的属性 包裹 属性从一个状态切换到另一个状态的情况 例如 positon display 等 
+
+    复合属性: transition : 过渡属性 过渡时间 延时时间 过渡方式
+    transition: all 2s 1s ease-in
+ -->
+
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"> 
+        <title></title>
+        <style>
+            .box{
+                width:100%;
+                height:350px;
+                border:1px solid rgb(0, 0, 0);
+            }
+            .box p:first-of-type{
+                width:200px;
+                height:100px;
+                color:rosybrown;
+                background: rgb(115, 190, 162);
+            }
+            .box p:nth-child(2){
+                width:200px;
+                height:100px;
+                color:royalblue;
+                background: rgb(247, 132, 231);
+
+                transition-property: width,color,background;
+                transition-duration:2s;
+                transition-timing-function: ease-in-out;
+                /* 有始有终 hover和离开hover 都有过渡 */
+            }
+            /* .box:hover p:first-of-type{
+                width:600px;
+                color:royalblue;
+                background: rgb(247, 132, 231);
+            }
+            .box:hover p:nth-child(2){
+                min-width:600px;
+                color:rosybrown;
+                background: rgb(115, 190, 162);
+            } */
+            /* 在普通状态下 CSS都是瞬间切换的 所以可以利用过渡属性 进行过渡 */
+
+            .box:hover p:first-of-type{
+                transition-property: width,color,background;
+                transition-duration:2s;
+                transition-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+                width:600px;
+                color:royalblue;
+                background: rgb(247, 132, 231);
+            }
+              /* 以上过程 只在hover 时产生过渡  鼠标离开div还是瞬间变化值
+                若想过渡有始有终,一般将过渡的三步(选定属性 选定时间 选定范围 )放在默认状态中
+             */
+
+            .box:hover p:nth-child(2){
+               
+                width:600px;
+                color:rosybrown;
+                background: rgb(115, 190, 162);
+            }
+
+          
+             div.box2{
+                width:40%;
+                height:600px;
+                border:1px solid rgb(0, 0, 0);
+                margin:0 auto;
+
+                
+             }
+             div>span{
+                display: block;
+                text-align: center;
+                font:normal 700 80px/200px "微软雅黑";
+                color: royalblue;
+                margin-top: 200px;
+                opacity:0;
+                /* transition-property: line-height,opacity,color;
+                transition-duration:700ms;
+                transition-timing-function: ease-in-out; */
+                transition:all 600ms 0ms ease-in-out;
+             }
+             div>span:hover{
+                 line-height: 80px;
+                color: cyan;
+                opacity:1;
+             }
+
+
+
+             
+        </style>
+    </head>
+    
+    <body>
+        <div class="box">
+            <p> transitiontransitiontransition</p>
+            <p> transitiontransitiontransition</p>
+        </div>
+
+        <div class="box2">
+            <span>
+                过渡配合透明度 opacity
+            </span>
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,87 @@
+<!-- 
+    本人开发存在的问题:
+    给div使用了固定宽度  固定高度没问题 但是固定宽度问题很大 
+    应该使用 百分比 自适应窗口大小 例如 width=100% 再利用背景图center 来真正的保持 背景图在浏览器窗口显示居中  而不是背景图在固定的盒子内居中
+
+    ！！！默认情况下 背景图的大小 和元素内容区域大小width height 无关系  
+    但 background-size:contain 和 cover  就有区别了 
+    想要按比例缩放 需要的是 background-size: xpx   \  auto xpx  \  xpx xpx 来自动或者强制缩放
+ -->
+
+
+
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"> 
+        <title></title>
+        <style>
+            *{
+                margin:0;
+                padding: 0;
+            }
+            div{
+                width:100%;
+                /* width:1901px; 不合理 因为每个人的电脑分辨率不同  应该利用 背景图的水平居中  */
+                /* 初步响应式开发 宽度自适应100% 高度自定  */
+                height:956px;
+            }
+            div:nth-of-type(1){
+                background:url(./01.jpg) no-repeat center 0;
+                background-origin:padding-box;
+                /* 此处本人想用多重背景 , 上面是蓝色的01背景图图 下面跟着02背景图  I am QQ 沟通每一天 可惜还没学*/
+                background-size:contain;
+                /* 利用双属性值 来规定 长宽比 强制缩放 */
+            }
+            div:nth-of-type(2){
+                background:url(./02.png) no-repeat center 0;
+                background-size:contain;
+                height:500px;
+                /* 使其适应内容区域 扩展 */
+            }
+            /* 可以拖动窗口大小 (在自适应宽度 width:百分比的情况下 )来对比以下 背景图 center 和 不center 的区别 */
+            div:nth-of-type(3){
+                background:url(./03.jpg) no-repeat center 0;
+                /* 利用center进行 背景图居中是会实时适应 包含元素内容区域大小的变化 而自动居中 哪怕背景图大于内容区域也不怕 */
+                background-attachment:fixed;
+                background-size:contain;
+                   /* 伸缩图片 以适应内容区域高度(起始就是那边先铺满就按照那个比例伸缩) */
+                height:700px;
+                    /* 使窗口 窄一点 高级感 */
+            }
+            
+            div:nth-of-type(5){
+                background:url(./04.jpg) no-repeat center 0;
+                background-attachment:fixed;
+                background-size:cover;
+                height:700px;
+            }
+            div:nth-of-type(7){
+                background:url(./05.jpg) no-repeat center 0;
+                background-size:cover;
+                background-attachment: fixed;
+                height:700px;
+            }
+
+            div:nth-of-type(4),div:nth-of-type(6),div:nth-of-type(8){
+                background: #fff;
+                height:580px;
+              
+            }
+           
+        </style>
+    </head>
+    
+    <body>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div>留白</div>
+        <div></div>
+        <div>留白</div>
+        <div></div>
+        <div>留白</div>
+
+    </body>
+</html>
+

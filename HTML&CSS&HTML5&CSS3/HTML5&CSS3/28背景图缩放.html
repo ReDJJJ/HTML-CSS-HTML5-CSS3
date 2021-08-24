@@ -1,0 +1,69 @@
+<!-- 在CSS 中 背景图大小和盒子大小无关 不能进行缩放 CSS3中可以进行缩放-->
+<!-- 
+    background-size 可以负责背景图的缩放 
+    单属性值: 背景图以宽度200px 进行缩放(保持比例) 
+    background-size: 200px ; background-size :50%; 50%为盒子可显示区域的百分之50%;
+    双属性值: 背景图以指定的宽度高度 来进行缩放(按照双属性值比例强行缩放)
+    background-size: 300px 200px ; 50% 40%;
+    特殊属性: cover 背景图以铺满 可显示区域 为准 进行等比例缩放 ,可能会导致背景图内容的显示缺失
+    background-size:cover;
+    特殊属性: contain 背景图延伸直到某边碰到元素指定的background-clip边界  进行等比例缩放 , 可能会导致背景图铺不满盒子的可显示区域
+
+    最正确的说明 :
+    三：cover
+      把背景图像扩展至足够大，以使背景图像完全覆盖背景区域。
+
+   四：contain
+
+      把图像缩小或扩展至最大尺寸，以使宽度或高度其中一项  完全适应内容区域。 
+ -->
+
+ <!doctype html>
+ <html>
+     <head>
+         <meta charset="utf-8"> 
+         <title></title>
+         <style>
+             div{
+                width:700px;
+                height:900px;
+                border:1px solid blue;
+                background:url(../images/yourname.webp) no-repeat 0 0;
+                margin:50px auto 50px;
+             }
+             diV:nth-child(2){
+                background-size:300px;
+             }
+             div:nth-child(3){
+                 background-size: 600px 300px;
+             }
+             div:nth-child(4){
+                background-size:cover;
+                /*  比例不变 扩展图片来填满元素 可能缺失部分背景图  */
+             }
+             div:nth-child(5){
+                background-size:contain;
+                /* 扩展或缩小图片来适应元素尺寸 比例不变 可能铺不满盒子 */
+             }
+         </style>
+     </head>
+     
+     <body>
+         <div>
+            默认
+         </div>
+         <div>
+            单属性300px 等比例缩放
+         </div>
+         <div>
+            双属性600px 200px 强制比例缩放
+         </div>
+         <div>
+            cover 铺满等比例缩放
+         </div>
+         <div>
+            contain 适应内容区域等比例缩放
+         </div>
+        
+     </body>
+ </html>

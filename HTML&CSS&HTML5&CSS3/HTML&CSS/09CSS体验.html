@@ -1,0 +1,73 @@
+<!--
+     一般开发中，是一个结构一个样式 一个HTMLdiv 可能？ 一个样式css 配套搭配上
+     但是学习中 ，比较简单的 就全部结构写完 再写样式 
+     标签的语义化：一种书写规范，在使用纯结构标签时，能够最大程度的体现 层级关系
+
+
+     CSS三种摆放位置:外部样式表 内部样式表 内联样式表 本人已经掌握 不过多介绍
+     CSS中都是属性的表现形式
+
+     CSS选择器 :
+     标签名 :{属性名1:属性值1 ; 属性名2:属性值2;....}
+     CSS中属性名和属性值用:间隔，而不是像HTML中属性名=""  来形成键值对
+
+     颜色:color 设置字体颜色
+     颜色的三种设置方式：#xxxxxx 十六进制x 红绿蓝  颜色英文名red/blue/gray..  十进制rgb (x,x,x) x为0-255; 红绿蓝 
+     十六进制颜色的简写: 当每个颜色的两位数相同， 可以缩写 #ffaabb -- #fab; 必须每个颜色的两位数都是一样的
+     
+     字号：font-size
+     字号的默认单位也为px
+
+     字体: font-family : arial "宋体" "arial black"  当一种字体由多个单词组成时候 用双引号括起来，代表是一种字体
+     不同的浏览器默认字体不同
+
+     文本位置:text-align:center /right /left 
+     居中 偏右 偏左
+
+     字重 font-weight: 是否加粗 调细
+     设置不同的字重,bold/normal 加粗或者正常 
+     数字的话 400为normal默认值 其他的为加粗或者加细
+     加粗和加细的具体归为字体本身的设置，一般400以下统一设置为细 700为bold的默认值
+
+     字样 font-style: 斜体还是normal等等
+
+     ！！首行缩进text-indent  
+     INDENT就是缩进的英文 ,单位可以用em px
+     px比较少用，1em = 当前字体大小， x em  =  目标大小px / 当前字体大小 px
+     text-indent: 2em
+
+     调试：
+     作用：可以利用浏览发现自己书写的错误 ,并且可以自由切换样式 不用重新写 查看效果
+     使用方法 ，对想查看的样式 右键 选择查看 
+     划掉的是注释掉的效果
+
+-->
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>CSS体验</title>
+
+    <style type="text/css">
+    /* style 样式表中 类型是css文本 */
+    h1{
+        color: #E779B0;
+        text-align: center;
+        font-family: "宋体";
+        font-size: 60px;
+        /* font: size 80px;  */
+    }
+    p{
+        color:aqua;
+        font-style: italic;
+        font-weight:400;
+        text-indent: 2em;
+    }
+    </style>
+</head>
+<body>
+    <h1>这是一个标题</h1>
+    <p>这是一个段落</p>
+</body>
+</html>

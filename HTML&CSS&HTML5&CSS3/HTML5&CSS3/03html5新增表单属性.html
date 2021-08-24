@@ -1,0 +1,82 @@
+<!doctype html>
+ <html>
+     <head>
+         <meta charset="utf-8"> 
+         <title></title>
+         <style>
+             .box1{
+                 width: 300px;
+                 background: rgb(250, 120, 120);
+                 margin: 100px auto;
+             }
+         </style>
+     </head>
+     
+     <body>
+        <form action=""  style="visibility:visiable;"> 
+            <input type="text" size="15">
+            <input type="password" size="20">
+            <input type="radio" name="1" value="传给服务器的值">男
+            <input type="radio" name="1" value="传给服务器的值">女
+            <input type="radio" name="1" value="传给服务器的值" checked="checked">其他
+            <input type="checkbox" name="2" value="传给服务器的值">西瓜
+            <input type="checkbox" name="2" value="传给服务器的值">苹果
+            <input type="checkbox" name="2" value="传给服务器的值" checked>雪梨
+
+            <input type="button" value="按钮的显示值，也是传给服务器的值">
+            <input type="reset" value="按钮的显示值，也是传给服务器的值">
+            <input type="submit" value="按钮的显示值，也是传给服务器的值">
+            <button>芜湖</button>
+
+            <select>
+                <optgroup label="文字">
+                    <option value="传给服务器的值">文字</option>
+                    <option value="传给服务器的值">文字</option>
+                    <option value="传给服务器的值">文字</option>
+                    <option value="传给服务器的值">文字</option>
+                </optgroup>
+            </select>
+        </form>
+
+        <form class="box1">
+            <!-- 
+                placeholder :用户提示文字
+             -->
+             placeholder :用户提示文字<br>
+             <input type="text" placeholder="我的天"><br>
+             <input type="text" value="我的天" size="30"><br><br>
+
+             <!-- 
+                disabled :不可用状态
+              -->
+              disabled :不可用状态<br>
+              <input type="text" disabled="disabled"><br>
+              <input type="submit" value="提交" disabled="disabled"><br><br>
+
+            <!-- 
+                required :必填项 (不填无法提交)  
+            -->
+            required :必填项 (不填无法提交) <br>
+            <input type="text" required="">
+            <input type="submit" value="submit"><br><br>
+
+            <!-- 
+                autofocus :自动聚焦（自动捕获鼠标光标）
+            -->
+            autofocus :自动聚焦（自动捕获鼠标）<br>
+            <input type="text" autofocus><br><br>
+
+            <!-- 
+                autocomplete:on 自动补齐 
+                需要配合name使用, 统一name为同一小组， 一个小组公用一个浏览器缓存记录内容， 达到记忆补齐效果
+             -->
+             autocomplete:自动补齐<br>需要配合name使用
+             <input type="text" autocomplete="on" name="HONGJIANG1">
+             <input type="submit" value="提交">
+             <br><br>
+
+        </form>
+
+
+     </body>
+ </html>

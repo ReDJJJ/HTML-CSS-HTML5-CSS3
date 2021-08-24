@@ -1,0 +1,50 @@
+<!-- 过滤器 filter  -->
+
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"> 
+        <title>模糊背景</title>
+        <style>
+            .box{
+                display:block;
+                width:200px;
+               
+                margin:0 auto;
+                /* background:url(../images/xiaomisp1.jpg) no-repeat 0 0; */
+                border:1px solid #000;
+                position:relative;
+                filter:blur(2px);
+                /* 当父级添加模糊时,会将盒子内的内部元素一并模糊掉 */
+                overflow:hidden;
+                /* 解决溢出 */
+            }
+            img{
+                display: block;
+                width: 100%;
+                filter:blur(2px);       
+                    /* 当fliter:blur()内部的模糊程度过大 模糊部分会溢出 所以可以利用overflow:hidden 来解决溢出  */
+                 }
+            .box::before{
+                width:100px;
+                height:40px;
+                content: "付费内容解锁";
+                position: absolute;
+                top:50%;
+                left: 50%;
+                margin-left: -50pX;
+                margin-top: -20pX;
+                z-index: 1;
+                /* 伪元素 层级是比 标准流低的 所以要加提高层级 */
+            }
+        </style>
+    </head>
+    
+    <body>
+        <!-- 模糊过滤器 filter:blur(xpx) -->
+        <div class="box">
+            <img src="../images/xiaomisp1.jpg" alt="">
+            <img src="../images/xiaomisp2.jpg" alt="">
+        </div>
+    </body>
+</html>

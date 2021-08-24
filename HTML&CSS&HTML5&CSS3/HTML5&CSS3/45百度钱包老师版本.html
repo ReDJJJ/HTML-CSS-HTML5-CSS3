@@ -1,0 +1,64 @@
+<!doctype html>
+
+<html>
+    <head>
+        <meta charset="utf-8"> 
+        <title></title>
+        <style>
+            *{
+                margin:0px ;padding:0px;
+            }
+            body{
+                background: pink;
+            }
+            .box{
+                width:300px;
+                height:300px;
+                margin:100px auto;
+                background:transparent;
+                position: relative;
+
+                transform-origin: center 0px;
+                /* 选定旋转轴 */
+                transition:all 0.8s 0s ease-in-out;
+                /* 设定过渡 */
+                transform-style:preserve-3d;
+                /* 开启3D空间 给3D效果元素的父元素设置 */
+            }
+            .box .top,.box .bottom{
+                height:100%;
+                width:100%;
+                border-radius: 50%;
+                /* 基本图像形状 */
+                
+                position:absolute;
+                top:0;left:0;
+                /* 定位 让两个重叠 */
+            }
+            .box>.top{  
+                background: url(../images/bg.png) no-repeat -304px bottom;
+                transform:rotateY(180deg);
+                backface-visibility: hidden;
+                /* 预先反转 为了后续反转正确显示 */
+            }
+            .box>.bottom{  
+                background: url(../images/bg.png) no-repeat 0px bottom;
+
+                /* 背对屏幕不可见  此功能需要父元素添加3D功能 */
+                backface-visibility: hidden;
+             
+            }
+            .box:hover {
+                transform:rotateY(180deg);
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div class="box">
+            <div class="top"></div>
+            <div class="bottom"></div>
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,43 @@
+<!-- 
+    inherite from 继承
+
+    CSS继承性:标签可以继承祖先所有关于设置文本的属性  注意是关于文本的！
+    font...  text...等等
+    在CSS调试中，能继承的都是不透明的 不能继承的都是透明的
+ -->
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta char="UTF-8">
+    <title>CSS继承性</title>
+    <style>
+        .box{
+            color:red;
+            font-style: italic;
+            font-weight: 700;
+            height: 300px;
+            width:300px;
+            background-color: greenyellow;
+        }
+        p {
+            color:aqua;
+        }
+    </style>
+</head>
+<body>
+        <div class="box">
+            改文本继承了div中的box样式 红色<br>
+            <p>标签选择器选择的段落</p>
+            <div>
+                继承爷爷的文本属性
+            </div>
+        </div>
+</body>
+</html>
+<!-- 
+    继承跟后代一样 可以跨代继承 ,若有多个继承冲突,继承关系最近的祖先元素,权重也为0;
+    继承的权重及其小 ,为0;
+    哪怕继承的样式中 有！important 也无法改变权重 就是0
+    （一般情况下，跟文字类的都会继承，而属于块级元素的就不继承）
+ -->

@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+    <!--
+         视觉效果是 四面边框 从两边延展
+         实现:利用两个与li一样大的子元素 利用子元素的边框和缩放来模拟li的边框 然后子元素的content内容为空照常显示背景图
+         
+         视觉上 :从中心或者中点扩散的 使用 scale 多  由左到右 由右到左 width渐变多
+     -->
+    <head>
+        <meta charset="utf-8"> 
+        <title></title>
+        <style>
+            *{
+                margin: 0;
+                padding:0;
+                list-style-type: none;
+            }
+            body{
+                background: #ccc;
+            }
+            .clearfix::after{
+                display:block;
+                content: "";
+                height:0;
+                clear:both;
+            }
+            ul{
+                width:500px;
+                margin:100px auto;
+            }
+            li{
+                width:233px;
+                height:130px;
+                float:left;
+                margin-right: 10px;
+                background: url(../images/yifu1.png) no-repeat 0 0;
+                position: relative;
+            }
+            li:first-of-type::before{
+                /* 默认为行内元素 宽高不起作用*/
+                display:block;
+                content:"";
+                width:100%;
+                height:100%;
+                box-sizing:border-box;
+                border:1px solid orangered;
+               /* 与父元素li一样大小的自减模型  */
+                transition:all 1s 0s ease-in-out;
+                transform:scale(0,0);
+            }
+            li:first-of-type:hover::before{
+                transform:scale(1,1);
+            }
+
+            /* 第二种 */
+            /* before 负责模拟上下  after负责模拟左右 */
+            li:last-of-type::before{
+                /* 默认为行内元素 宽高不起作用*/
+                display:block;
+                content:"";
+                width:100%;
+                height:100%;
+                box-sizing:border-box;
+                border:1px solid orangered;
+                border-left:none;
+                border-right: none;
+               /* 与父元素一样大小的自减模型  */
+                transition:all 1s 0s ease-in-out;
+                transform:scale(0,1);
+                /* 视觉上 中间从两边延伸 实际上是高度不变 宽度由0变成100% */
+
+                position:absolute;
+                top: 0;left: 0;
+            }
+            li:last-of-type:hover::after{
+                transform:scale(1,1);
+            }
+
+            li:last-of-type::after{
+                /* 默认为行内元素 宽高不起作用*/
+                display:block;
+                content:"";
+                width:100%;
+                height:100%;
+                box-sizing:border-box;
+                border:1px solid orangered;
+                border-top:none;
+                border-bottom: none;
+               /* 与父元素一样大小的自减模型  */
+                transition:all 1s 0s ease-in-out;
+                transform:scale(1,0);
+                /* 视觉上 中间从两边延伸 实际上是高度不变 宽度由0变成100% */
+                /* 定位 */
+                position:absolute;
+                top: 0;left: 0;
+            }
+            li:last-of-type:hover::before{
+                transform:scale(1,1);
+            }
+
+
+        </style>
+    </head>
+    
+    <body>
+        <ul class="clearfix">
+            <li></li>
+            <li></li>
+        </ul>
+    </body>
+</html>

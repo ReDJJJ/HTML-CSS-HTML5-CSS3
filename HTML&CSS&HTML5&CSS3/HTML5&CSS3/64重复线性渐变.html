@@ -1,0 +1,34 @@
+<!-- 
+    重复线性渐变
+    repeating-linear-gradient
+    将渐变区域的颜色进行 重复平铺的状态  省略纯色区域
+ -->
+
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"> 
+        <title></title>
+        <style>
+            .box{
+                height:300px;
+                width:300px;
+                background-image:linear-gradient(to right,red 0%,blue 20%);
+            }
+
+            .box1{
+                height:300px;
+                width:300px;
+                background-image:repeating-linear-gradient(to right,red 0%,blue 20%);
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div class="box"></div>
+        <hr>
+        
+        <div class="box1"></div>
+
+    </body>
+</html>

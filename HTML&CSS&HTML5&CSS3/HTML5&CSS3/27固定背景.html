@@ -1,0 +1,59 @@
+<!--
+    固定背景:
+    background-attachment:scroll (默认)
+    background-attachment:fixed (固定)
+
+    默认:背景图的参考点在盒子内部,因此随着盒子移动,背景图也移动
+    固定:与固定定位类似,默认参考点为浏览器页面左上角,具体位置通过 background:颜色 url路径 平铺 Xpx Xpx来调整 距离选定的参考点的位置
+         并且,只有设置了该背景图的元素 划过固定定位的背景图时候 才能看见 背景图
+  -->
+
+
+
+
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"> 
+        <title></title>
+        <style>
+            body{height:3000px;}
+            .box1{
+                width:400px;
+                height:400px;
+                border:2px solid #000;
+                background:url(../images/xiaomisp2.jpg) no-repeat 40px 40px;
+                background-attachment:scroll;
+                margin: 20px ;
+            }
+            .box2{
+                width:400px;
+                height:400px;
+                border:2px solid #000;
+                background:url(../images/xiaomisp2.jpg) no-repeat 40px 40px;
+                background-attachment:fixed;
+                margin: 20px ;
+            }
+            .box3{
+                width:400px;
+                height:400px;
+                border:2px solid #000;
+                background:url(../images/xiaomisp2.jpg) no-repeat 140px 140px;
+                background-attachment:fixed;
+                margin: 20px ;
+            }
+            .box4{
+                width:400px;
+                height:400px;
+                border:2px solid #000;
+                margin: 20px ;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+        <div class="box4"></div>
+    </body>
+</html>

@@ -1,0 +1,85 @@
+<!-- 
+    关键问题：
+    1浮动 挤兑 发生的条件 
+    2搞清楚块元素的特性  设置width:100% 和 不设置width:100% 的区别
+    3布局使用CSS 元素 ,最好不要使用CSS3的样式, 兼容性,所以移动元素用margin 不用transfrom:translate
+
+    思路:
+    块元素本身自带自适应 父元素大小
+    
+    先实现:再细说思路:
+ -->
+
+  <!-- 
+1浮动挤兑的条件:
+   浮动元素正常并列浮动,当包含元素显示不下的时候,会发生挤兑,超出屏幕的浮动元素会被另起一行挤兑  
+   此时,若给超屏幕的元素一个位移,让他能够"完整"位移至 屏幕内(通过margin+ 负数) ,则后写的浮动元素 会覆盖在先写的浮动元素 上面显示,
+   
+1解决方案   所以可以利用这个方式 来解决左侧的摆放问题, 因为右侧要填100%整个body
+
+关键问题: 块元素的特性与width:100%; (标准盒子模型)
+当块元素不设置width也不设置padding时候,  独占一行(总宽度=父元素) , 
+当块元素设置width:100%,不设置padding时候, 总宽度还是=父元素, 
+！！3！！当块元素不设置width,单纯设置padding 时候, width+padding=总宽度,总宽度还是等于父元素,相当于padding侵占了内容宽度width 来保持总宽度不变
+当块元素即设置width,又设置padding时候,两者都生效,width+padding = 总宽度 ,此时总宽度就可以超过父元素的宽度 例如:width:100%; padding:100px  此时 总宽度就是 父元素100%宽度+100px 
+
+
+由于1解决方案 左侧会压在右侧上方,会覆盖其部分内容,而右侧模块在标准盒子模型下不能在设置100%width之后再添加padding,否则会导致右侧模组总宽度超过 窗口总宽度
+因此有两种解决方案:
+1 将右侧调整成 怪异盒子模型 ，再添加padding ,这样子总宽度:100% = padding+content宽度
+
+2 在右侧模组成 添加盒子.content 让content利用块元素的特性！！3！！ ,在标准盒子模型下添加padding ,并且计算后总宽度为 右侧模组的总宽度 ,而右侧模组总宽度又是窗口宽度,还避开了左侧模组遮挡内容的烦恼
+
+其余:其实可以看出,右侧模组和左侧模组除了位置关系,其他都是独立的,右侧模组内容的右移都是右侧模组内部的时，那么左侧模组不一定非要用 浮动+margin,直接定位不久好了
+  -->
+ <!doctype html>
+ <html>
+     <head>
+         <meta charset="utf-8"> 
+         <title></title>
+         <style>
+             *{
+                 margin:0;padding:0;
+             }
+             .box{
+                 width:100%;
+                 overflow:hidden;
+                 background: pink;
+             }
+             .right{
+                 width:100%;
+                 height:600px;
+                 background: yellow;
+                 float:left;
+                 
+                 /* box-sizing:border-box;
+                 padding-left:200px; */
+                 /* 第二种 右侧内容右移的方式*/
+             }
+             .content{
+                 /* 第二个关键 */
+                 height:100%;
+                 padding-left:200px;
+             }
+             .left{
+                 width:200px;
+                 height:600px;
+                 background: green;
+                 float:left;
+
+                 margin-left:-100%;
+                 /* 第一个关键步骤  */
+             }
+         </style>
+     </head>
+     
+     <body>
+         <div class="box">
+            <!-- 浮动先右后左 再移动左 -->
+            <div class="right"><div class="content">右侧</div></div>
+            <div class="left">左侧</div>
+         </div>
+
+     </body>
+ </html>
+

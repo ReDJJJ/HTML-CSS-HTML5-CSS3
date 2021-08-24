@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"> 
+        <title></title>
+        
+        <!-- 
+            开发经验:
+                    真正开发时，小图是小图，大图是大图，主要是为了节省空间和加载速度。
+
+            在点击图片后切换大图，本人一开始想的是通过锚点目标状态 然后切换显示隐藏 
+
+            老师指点:每个图都是真实存在的,只不过层叠了起来,通过锚点状态切换z-index来达到切换效果
+                    大结构比如 top bottom还是用类名区分,小结构再用结构伪类选择器来选择
+         -->
+        <style>
+            *{margin:0;padding:0;list-style-type:none;}
+            body{padding:10px}
+
+         section.box{
+            width:805px;
+            height:590px;
+            margin:0 auto;
+            
+            position: relative;
+         }
+
+         section ul:first-of-type {
+             height:506px;
+             background: red;
+         }
+
+         section ul:first-of-type li{
+             position:absolute;
+             top:0;
+             left:0;
+         }
+
+         section ul:first-of-type li:first-child{
+             z-index:1;
+             /* 后写压先写 所以先提前提高 第一个li的层级 注意是li 而不是img */
+         }
+
+         section ul:first-child li>a>img{
+             width:805px;
+             height:506px;
+             display:block;
+         }
+
+         section ul:nth-child(2) li{
+             float:left;
+             margin-right: 5px;
+             margin-top:5px;
+         }
+
+         section ul:nth-child(2) li:last-child{
+             margin-right: 0px;
+         }
+
+         section ul:nth-child(2) li>a>img{
+             width:130px;
+             height:80px;
+         }
+/* 
+         li[id="bigone"]:target,li[id="bigtwo"]:target,li[id="bigthree"]:target,li[id="bigfour"]:target,li[id="bigfive"]:target
+         ,li[id="bigsix"]:target{
+            z-index: 2;} */
+            /*  
+                这里改img的层级肯定不能实现效果的 img属于a属于li  需要改的是li的层级
+                然后li的子子孙孙都继承层级并显示
+            */
+            /* 绝对定位默认z-index为0 */
+         
+         /* 全网页的target状态只有一个  */
+         li:target{
+             z-index: 2;
+         }
+
+        </style>
+    </head>
+    
+    <body>
+        <section class="box">
+            <ul>
+                <!-- 大图部分 -->
+                <li  id="bigone"><a href="##"><img src="./jd001.jpg" alt=""></a></li>
+                <li  id="bigtwo"><a href="##"><img src="./jd002.jpg" alt=""></a></li>
+                <li  id="bigthree"><a href="##"><img src="./jd003.jpg" alt=""></a></li>
+                <li  id="bigfour"><a href="##"><img src="./jd004.jpg" alt=""></a></li>
+                <li id="bigfive"><a href="##"><img src="./jd005.jpg" alt="" ></a></li> 
+                <li id="bigsix"><a href="##"><img src="./jd006.jpg" alt="" ></a></li> 
+            </ul>
+            <ul style="overflow: hidden;">
+                <!-- 小图部分 -->
+                <li><a href="#bigone"><img src="./jd001.jpg"></a></li>
+                <li><a href="#bigtwo"><img src="./jd002.jpg"></a></li>
+                <li><a href="#bigthree"><img src="./jd003.jpg"></a></li>
+                <li><a href="#bigfour"><img src="./jd004.jpg"></a></li>
+                <li><a href="#bigfive"><img src="./jd005.jpg"></a></li>
+                <li><a href="#bigsix"><img src="./jd006.jpg"></a></li>
+            </ul>
+        </section>
+
+    </body>
+</html>

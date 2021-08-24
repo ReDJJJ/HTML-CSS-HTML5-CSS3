@@ -1,0 +1,82 @@
+<!-- 
+    
+    思路:
+    1 整个配送信息 模块 距离网页左右有自适应边距
+      --给最外层盒子设置 width:90% 并居中  ; 自适应边距完成
+    2 配送信息模块 是自适应的 ul开启弹性布局 主轴默认 左到右 上至下
+      每个小红点 距离相同 铺满整个 ul  ,不换行的情况下 交叉轴位置 align-items 选择 space-between
+      小红点: 使用 径向渐变 配合 边框来完成
+    3 每个节点的文字  给每个li 里一个span 装文字 配合绝对定位
+    4 节点之间的连线  给ul 一个绝对定位盒子  高度1px 垂直居中 
+      此时这个盒子会自适应根据ul宽度而变化,达成了自适应,并且 会被li所遮挡 。
+
+      个人尝试用 透明渐变背景来达到这个效果
+
+    个人思考: 宽度不固定的 考虑局部用 弹性布局来完成 
+              要抓住主要矛盾 ,1样式相似重复的 利用列表完成
+             一些横跨整个局部的 考虑在父盒子 一次性完成 例如本次的线条
+-->
+
+
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"> 
+        <title></title>
+        <style>
+            *{
+                margin:0;
+                padding:0;
+                list-style:none;
+            }
+            .box{
+                width:90%;
+                margin:200px auto;
+                /* 解决左右自适应边距问题 */
+
+            }
+            .box ul{
+                width:100%;
+                height:20px;
+                display:flex;
+                flex-direction: row;
+                justify-content:space-between;
+
+                background-image:linear-gradient(to bottom ,transparent 45%,gray 45%,gray 55%,transparent 55%)
+            }
+            .box ul li{
+                width:18px;
+                height:18px;
+                box-sizing: border-box;
+                /* 总大小长宽20px */
+                position: relative;
+                border:1px solid red;
+                border-radius:50%;
+
+                background-image: radial-gradient(circle closest-side at center, red 60% ,white 60%);
+            }
+            .box ul li span{
+                color:gray;
+                font-size:12px;
+                white-space:nowrap;
+                /* 由于span 是li 的子元素 所以宽度 只有 20px 利用强制不换行white-space:nowrap 来强制文字横置 */
+                position:absolute;
+                top:-16px;
+                left:-10px;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div class="box">
+            <ul>
+                <li><span>已付款</span></li>
+                <li><span>配送中</span></li>
+                <li><span>已收货</span></li>
+                <li><span>未评价</span></li>
+            </ul>
+            <img src="./image/" alt="">
+            <img src="" alt="">
+        </div>
+    </body>
+</html>

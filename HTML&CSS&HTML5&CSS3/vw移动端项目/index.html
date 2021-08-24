@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title></title>
+        <link rel="stylesheet" href="./font/download/font_eu4mi5oavb/iconfont.css">
+        <link rel="stylesheet" href="./css/reset.css">
+        <link rel="stylesheet" href="./css/index.css">
+        <!-- 引入顺序 需注意  先引入图标字体 重置 和首页 -->
+    </head>
+    
+    <body>
+       <div class="header">
+           <i class="iconfont icon-nav-list"></i>
+           <span>I learn</span>
+           <em class="iconfont icon-search"></em>
+       </div>
+
+       <!-- 轮播图的结构 谨记 -->
+       <div class="banner">
+           <ul>
+               <li>
+                   <a href="">
+                       <img src="./images/banner.jpg" alt="">
+                   </a>
+               </li>
+           </ul>
+       </div>
+
+       <!-- 此处 ul开启弹性空间 而ul li a 也开启弹性空间 -->
+       <div class="list">
+            <ul>
+                <li>
+                    <a href="##">
+                        <i class="iconfont icon-suggest"></i>
+                        <span>My Profile</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="##">
+                        <i class="iconfont icon-flag"></i>
+                        <span>My Idea</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="##">
+                        <i class="iconfont icon-phone"></i>
+                        <span>My Suggest</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="##">
+                        <i class="iconfont icon-integral"></i>
+                        <span>My integral</span>
+                    </a>
+                </li>
+            </ul>
+       </div>
+      
+       <div class="last">
+           <h3>Lastest_course</h3>
+           <span>more+_</span>
+       </div>
+
+       <div class="photo">
+           <ul>
+               <!-- 
+                    此处会出现一个适配问题
+                    当屏幕比例变化,例如iphone4
+                    长宽比很小,Photography course 可能会被挤成两层显示
+                    这样子会溢出li的空间显示 
+                    解决方法:在写完li后 将li的高度删除 让li高度靠img h4 div 撑开
+                -->
+               <li>
+                   <img src="./images/p1.png" alt="">
+                   <h4>Photography course</h4>
+                   <div class="girl">
+                       <span>ElieenBella</span>
+                   </div>
+               </li>
+               <li>
+                <img src="./images/p1.png" alt="">
+                <h4>Photography course</h4>
+                <div class="girl">
+                    <span>ElieenBella</span>
+                </div>
+            </li>
+            <li>
+                <img src="./images/p1.png" alt="">
+                <h4>Photography course</h4>
+                <div class="girl">
+                    <span>ElieenBella</span>
+                </div>
+            </li>
+            <li>
+                <img src="./images/p1.png" alt="">
+                <h4>Photography course</h4>
+                <div class="girl">
+                    <span>ElieenBella</span>
+                </div>
+            </li>
+            <li>
+                <img src="./images/p1.png" alt="">
+                <h4>Photography course</h4>
+                <div class="girl">
+                    <span>ElieenBella</span>
+                </div>
+            </li>
+            <li>
+                <img src="./images/p1.png" alt="">
+                <h4>Photography course</h4>
+                <div class="girl">
+                    <span>ElieenBella</span>
+                </div>
+            </li>
+               
+           </ul>
+       </div>
+
+
+    </body>
+</html>

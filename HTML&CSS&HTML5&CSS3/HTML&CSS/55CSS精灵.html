@@ -1,0 +1,36 @@
+<!-- 所谓CSS精灵 就是将各种设计元素放在一张图稿上 ，然后切图使用 -->
+<!-- 实际开发工作: 将精灵图（原生）打开在ps中 然后切图 点击切片 得到长宽 以及坐标位置  配合负数位移切片 -->
+
+<!-- background: url(./images/屏幕截图\ 2021-05-14\ 091055.png) no-repeat 0px 0px; //水平 垂直
+            背景图移动方向: 
+            水平: 背景图 正值向右 负值向左
+            垂直: 背景图 正值向下 负值向右
+-->
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>CSS精灵入门:拼字母</title>
+        <style>
+            .box1{
+                width:102px;
+                height:111px;
+                border:1px solid #eee;
+                background: url(./images/abcd.jpg) no-repeat -389px -138px;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- 很tm失望 所谓CSS精灵 就是将各种设计元素放在一张图稿上 ，然后让切图仔切图使用 -->
+        <!-- 背景图和插入图不同  背景图大小与盒子大小没有关系 就是背景图正常尺寸显示 -->
+        <div class="box1">
+            
+        </div>
+    </body>
+</html>

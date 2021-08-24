@@ -1,0 +1,53 @@
+<!--
+     翻转 
+     网页划分为X轴 Y轴 和Z 轴
+     rotate()是按照指定的z轴旋转
+     rotateX()是按照选定的x轴旋转
+     rotateY()是按照选定的y轴旋转
+
+     当rotateX()时,旋转点transform-origin: 水平量为0 xpx来选定  一条x轴
+     /* 
+					当沿着x轴旋转时,水平设置为0,旋转中心点数值设置y轴
+				 */
+				/* transform-origin: 0px 40px; */
+     当rotateY()时,旋转点transfoem-origin: xpx 垂直量为0来选定一条y轴
+     /* 
+					当沿着y轴旋转式,旋转中心点数值设置x轴
+				 */
+				transform-origin: 60px 0px;
+    rotateX:绕一条平行于x轴的轴转 y=40; 绕x轴转时,从右往左直视 正值为顺,负值为逆
+    rotateY:绕一条平行于y轴的轴转 x=60; 绕y轴旋,从屏幕上往下,正值为顺，负值为逆时针
+-->
+
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"> 
+        <title></title>
+        <style>
+            div{
+                width:250px;
+                height:305px;
+                border:1px solid rgb(0, 0, 0);
+                margin:200px auto;
+            }
+            div img{
+                display:block;
+                width:250px;
+
+                /* 先选定旋转中心点 */
+                /* 此时x轴y轴都可以 */
+                /* 且transform-origin要写在默认状态下 */
+                transform-origin: 0px 0px;
+            }
+            div:hover img{
+                transition:all 3s 0s linear;
+                transform:rotateY(-180deg);
+
+            }
+        </style>
+    </head>
+    <body>
+        <div><img src="../images/PaiDaXin.jpg" alt=""></div>
+    </body>
+</html>

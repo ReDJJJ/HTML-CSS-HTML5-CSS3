@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<!-- 
+    padding 比margin 稳定  没有合并和塌陷
+    
+ -->
+<head>
+    <meta charset="UTF-8" />
+    <title>爱宠知识</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        /* 课程初始化 */
+        .body{
+            background-color: #333;
+        }
+        /* 以上的内容和导师一致 初始化 背景图 */
+        .bigbox{
+            margin:50px auto 0px; 
+            /* 上50px 左右自动居中 下面0px  */
+            padding:10px;
+            /* 由于设置了padding 因此需要再width上减少20px */
+            width:240px;
+            /* 由内容撑开height 所以不设置高度height */
+            background: pink url(../Ps图像/bg.gif) repeat  0px 0px;
+            /* 背景图会覆盖padding 的部分 */ 
+            border:1px solid #009900;
+            /* padding 四面内容缩进 */
+        }
+        .bigbox h2{
+            color: #ffffff;
+            font:normal 700 20px/23px "微软雅黑";
+            border-left:4px solid #c9e143;
+            padding-left:5px;
+            /*  
+            此处直接使用调整外边距不会发生 外边距坍缩 因为大div有个边框
+            但是不建议,因为还有其他的元素 与bigbox边框 有相同间距 使用padding一劳永逸 
+            此处对于标题我使用了 填充 
+            但是导师使用了 缩进 text-indent:5px 视觉上达到更好的效果 并且语义化
+             */
+        }
+        .bigbox .smallbox {
+
+            width:auto;
+            height: auto;
+            /* 和bigbox 加了padding后的宽度一致 */
+            padding:0px 10px;
+            background-color:#ffffff;
+            margin-top:5px;
+            /* 此处div是第二个子元素了 不会发生外边距塌陷 */
+        }
+
+        .bigbox .smallbox li{
+            list-style-type:none;
+            border-bottom: 1px dashed #6d6d6d;
+           /* 假若没有下划线 可以利用基线到基线的距离 统计下划线 */
+           padding-left:5px;
+            /* 其实对于li 来说 也是有高度的 a标签本身也有高度; */
+           /* 此处导师设置了line-height = 30px 行高为30px */
+           /* 
+           文本垂直居中 技巧 行高=父元素高 
+           li设置30行高 可以影响a标签, 若不设置 30行高 只设置30height  li中的a标签的高度只会被文本撑开 不会继承30px
+            根本原因:高度是无法继承的 想通过父子标签来设定行内元素高度 只能通过line-height来继承 line-height是可继承的
+            而以前我觉得高度能继承是错误的 ,那只是块元素的特性 延展到可延展的地区
+            
+            在不设置高度的时候,行高决定了一行的高度 多行的行高决定了高度
+           */
+        }
+
+        .bigbox .smallbox  li a{
+            /* a是块内元素 会被文本撑开 所以 会被下面的字体设置30px行高撑开 */
+            /* 假若设置成display:block  就可以继承 li中设置的line-height 行高 */
+            /* 并且导师此处 设置的是 背景图片 配合 padding-left 设置间距  */
+            font:normal 400 12px/30px "微软雅黑";
+            text-decoration: none;
+            color:#0066cc;
+        }
+        
+        .bigbox .smallbox a:hover{
+            color:rgb(102, 166, 240);
+            text-decoration:underline;
+        }
+        .boxnumber{
+            width: 100px;
+            height: 100px;
+        }
+        
+    </style>
+</head>
+<body class="body">
+        <div class="bigbox">
+            <h2>爱宠知识</h2>
+            <div class="smallbox">
+               <ul>
+                <li><img src="../Ps图像/tb.gif" alt="alt"><a href="##">养狗比养猫对健康更有利</a></li>
+                <li><img src="../Ps图像/tb.gif" alt="alt"><a href="##">养狗比养猫对健康更有利</a></li>
+                <li><img src="../Ps图像/tb.gif" alt="alt"><a href="##">养狗比养猫对健康更有利</a></li>
+                <li><img src="../Ps图像/tb.gif" alt="alt"><a href="##">养狗比养猫对健康更有利</a></li>
+                <li><img src="../Ps图像/tb.gif" alt="alt"><a href="##">养狗比养猫对健康更有利</a></li>
+                <li><img src="../Ps图像/tb.gif" alt="alt"><a href="##">养狗比养猫对健康更有利</a></li>
+                <li><img src="../Ps图像/tb.gif" alt="alt"><a href="##">养狗比养猫对健康更有利</a></li>
+                <li><img src="../Ps图像/tb.gif" alt="alt"><a href="##">养狗比养猫对健康更有利</a></li>
+                <li><img src="../Ps图像/tb.gif" alt="alt"><a href="##">养狗比养猫对健康更有利</a></li>
+                <li><img src="../Ps图像/tb.gif" alt="alt"><a href="##">养狗比养猫对健康更有利</a></li>
+                <li><img src="../Ps图像/tb.gif" alt="alt"><a href="##">养狗比养猫对健康更有利</a></li>
+                <li><img src="../Ps图像/tb.gif" alt="alt"><a href="##">养狗比养猫对健康更有利</a></li>
+                <li><img src="../Ps图像/tb.gif" alt="alt"><a href="##">养狗比养猫对健康更有利</a></li>
+                <li><img src="../Ps图像/tb.gif" alt="alt"><a href="##">养狗比养猫对健康更有利</a></li>
+                <li><img src="../Ps图像/tb.gif" alt="alt"><a href="##">养狗比养猫对健康更有利</a></li>
+                <li><img src="../Ps图像/tb.gif" alt="alt"><a href="##">养狗比养猫对健康更有利</a></li>
+                <li><img src="../Ps图像/tb.gif" alt="alt"><a href="##">养狗比养猫对健康更有利</a></li>
+                <li><img src="../Ps图像/tb.gif" alt="alt"><a href="##">养狗比养猫对健康更有利</a></li>
+               </ul>
+            </div>
+        </div>
+</body>
+</html>
+
+<!-- 
+    不要老想着 利用坍缩来搞垂直方向的排列
+    多利用 行高配合元素高度 来设置高度
+    并且ul就相当于一个 div  包裹起来了列表项目li
+ -->

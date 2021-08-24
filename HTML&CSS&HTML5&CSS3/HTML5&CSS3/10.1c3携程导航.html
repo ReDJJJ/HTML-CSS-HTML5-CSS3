@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"> 
+        <title></title>
+        <!-- 
+            老师的思路就很明确！！
+            第一个 酒店标签 比后面两个特殊 最后进行处理 
+            其余的大体一致  进行样式的共同处理
+
+            本人的问题:1边框问题 2独立的圆角
+            1:每个li拥有右边框和下边框 (牺牲一px的height高度) 是错误的！！33.33%的宽度再添加1pxborder就挤下去了
+              正确答案:给每个浮动的li里面的a添加右下边框
+            2:我的解决方案:直接给最外层nav border-radius 然后overflow hidden
+             
+            老师的方法:体力活 给每个a设置 而不是宏观的概念设置 应该是复习结构伪类元素和>
+                      border-radius: 左上 右上 右下 左下
+         -->
+         <style>
+             *{
+                 margin:0px;
+                 padding:0px;
+                 list-style-type: none;
+             }
+             body{
+                 padding:10px;
+             }
+             nav>ul>li{
+                 float:left;
+                 width:33.33%;
+                 /* 百分比可以拥有小数 */
+                 /* border-right:1px solid #fff; */
+                 /* 此处给li 右下边框 不可取 应该给a 昨天的淘宝也应该给a标签 而不是给嵌套a的li标签 给li就会被挤下去*/
+                 /* border-bottom: 1px solid #fff; */
+             }
+             nav ul li a{
+                 display:block;
+                 height: 39px;
+                 /* 留1px给边框 */
+                 line-height :39px;
+                 border-right:1px solid #fff;
+                 border-bottom:1px solid #fff;
+                 background: orange;
+                 text-decoration: none;
+                 text-align:center;
+                 color:white;
+             }
+             nav{
+                border-radius:10px;
+                overflow:hidden;
+                /* 总体圆角的聪明办法  */
+             }
+
+             
+        /*          利用属性选择器来选择,没上面屌用,还是要起类名
+                    a[class="jiudian"]{
+                        height:79px;
+                        background: rgb(160, 160, 45);
+                        line-height:79px;
+                    } */
+                /* li a:only-child{
+                    height:79px;
+                    background: rgb(160, 160, 45);
+                    line-height:79px;
+                } */
+        /* 真正的语义化:  nav ul 中的第一个li中的a 进行独特设置*/
+                nav>ul>li:first-child a{
+                    height:79px;
+                    background: rgb(160, 160, 45);
+                    line-height:79px;
+
+                    /* 笨方法 */
+                    border-radius: 10px 0 0 10px;
+                }
+                .clearfix::after{
+                    content:"";
+                    clear: both;
+                    display:block;
+                }
+                /* 笨方法 */
+                nav>ul>li:nth-last-of-type(1) a:first-child{
+                    border-radius: 0px 10px 0px 0px;
+                }
+                /* 笨方法 */    
+                nav>ul>li:last-child a:nth-of-type(2){
+                    border-radius: 0px 0px 50px 0px;
+                }
+
+                nav:last-child a{
+                    /* nth 需要有数字的(表达式) */
+                    background: yellowgreen;
+                }
+         </style>
+    </head>
+    
+    <body>
+        <nav>
+            <ul class="clearfix">
+                <li>
+                    <a href="" class="jiudian">酒店</a>
+                </li>
+                <li>
+                    <a href="">速八酒店</a>
+                    <a href="">如家酒店</a>
+                </li>
+                <li>
+                    <a href="">汉庭酒店</a>
+                    <a href="">7天酒店</a>
+                </li>
+            </ul>
+        </nav>
+
+        <nav>
+            <ul class="clearfix">
+                <li>
+                    <a href="" class="jiudian">酒店</a>
+                </li>
+                <li>
+                    <a href="">速八酒店</a>
+                    <a href="">如家酒店</a>
+                </li>
+                <li>
+                    <a href="">汉庭酒店</a>
+                    <a href="">7天酒店</a>
+                </li>
+            </ul>
+        </nav>
+        <!-- <span></span> -->
+    </body>
+</html>

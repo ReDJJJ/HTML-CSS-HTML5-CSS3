@@ -1,0 +1,81 @@
+<!-- 双飞翼布局就是两侧固定 中间自适应 -->
+<!-- 一个问题 :两个固定 当窗口一直缩小时，一直压缩的是 中间模块的宽度  
+                应该给与限定 ,当到达一定宽度时,中间宽度不再"自适应"
+                
+                
+                中间元素为了自适应 width一定是100% 也就是看中间元素的父元素宽度;
+                所以应该给父元素宽度一个最小宽度,当小于最小宽度,父元素宽度不会改变 ,那么中间元素也跟着不改变了
+-->
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"> 
+        <title></title>
+        <style>
+            *{margin:0;padding:0;}
+            .box{
+                width:100%;
+                height:600px;
+                background: #ccc;
+                position:relative;
+                /* 新知识点 */
+                min-width:900px;
+            }
+            .mid{
+                width:100%;
+
+                height:600px;
+                float: left;
+                background: yellow;
+            }
+            .left , .right{
+                width:200px;
+                height:100%;
+                float:left;
+            }
+            .left{
+               
+                background: yellowgreen;
+                margin-left:-100%;
+                /* margin-left后 占地会根据margin-left的改变而移动 所以 right 也移动了 */
+            }
+            .right{
+               
+                background: pink;
+                 /* margin-left:-200px;                                   */
+                /* 利用margin-left + 负值 */
+                /* 定位在右侧 左移自身宽度的距离即可 */
+                /* 此处位移translate 不行 transltate只位移，占地位置不变 无法将right浮动到上层显示 */
+
+
+                /* 利用绝对定位 */
+                position:absolute;
+                top: 0;right:0;
+            }
+            .content{
+                /* 会铺满到 .mid 减去padding 之间的内容  */
+                height:100%;
+                padding:0 200px;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div class="box">
+            <div class="mid">
+                <div class="content">
+
+                    中间自适应内容中间自适应内容中间自适应内容中间自适应中间自适应内容中间自适应内容中间自适应内容中间自适应内容
+                    内容中间自适应内容中间自适应内容中间自适应内容中间自适应内容中间自适应内容中间自适应中间自适应内容中间自适应内容中间自适应内容
+                    内容中间自适应内容中间自适应内容中间自适应内容中间自适应内容中间自适应内容中间自适应内容中间自适应内容中间自适应内容
+                    中间自适应内容中间自适应内容中间自适应内容中间自适应内容中间自适应内容中间自适应内容中间自适应内容中间自适应内容中间自适应内容
+                    中间自适应内容中间自适应内容中间自适应内容中间自适应内容中间自适应内容中间自适应内容中间自适应内容中间自适应内容中间自适应内容
+                </div>
+            </div>
+            <div class="left">左侧利用margin 位移占地位置</div>
+            <div class="right">右侧 也可利用margin 但是此处利用绝对定位</div>
+        </div>
+
+        margin-left
+    </body>
+</html>

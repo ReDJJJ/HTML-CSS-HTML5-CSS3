@@ -1,0 +1,29 @@
+<!-- 背景图和 文字阴影 text-shadow 和盒子box-shadow 阴影一样 利用,隔开 可以导入多个背景图 和阴影 -->
+<!-- 背景图先写的压在后写的上面  很奇怪 先写的压在后写上面  而绝对定位都是 后写的压在后写的上面 -->
+
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"> 
+        <title></title>
+        <style>
+            .box{
+                width: 100%;
+                height:1200px;
+                border: 1px solid #000;
+                background:url(../images/xiaomisp1.jpg) no-repeat center 0, url(../images/xiaomisp2.jpg) no-repeat  center 90px;
+            }
+
+        </style>
+    </head>
+    
+    <body>
+        <div class="box">
+            多重背景 之间用,隔开 
+            先写的会压在后写 上面 
+
+            与定位和选择器相反
+        </div>
+
+    </body>
+</html>

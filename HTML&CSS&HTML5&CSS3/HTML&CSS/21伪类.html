@@ -1,0 +1,84 @@
+<!-- 
+    伪类：具备类选择器的一种特征，具体应用在 超链接的四种状态
+ -->
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta char="UTF-8">
+    <title>伪类</title>
+    <style>
+        /* 
+        伪类
+        利用:间隔 有点类似于类. 
+        伪类也可以无缝衔接到各式各样的选择器中 伪类也有继承 不同属性会直接继承
+
+        可以指定鼠标或动态不同样式的各种状态样式
+        link 原始状态
+        hover 鼠标覆盖
+        active 触发时
+        visited 触发后
+        伪类 最重要的特征 ::: 冒号 加上 各种状态
+        伪类的权重也是10 跟类选择器一样 也有权重之分
+        所以 顺序 link visited hover active   权重相同,位置决定覆盖顺序 只不过伪类还需要一些其他状态触发 例如hover
+
+        a:hover
+        
+        哪怕按下超链接触发active 但由于hover在后面 所以hover会层叠掉active
+        visited 写第二位也是这样子,点击过后一直处于visited hover和acitve无效了
+        
+        visited:访问后的状态这个伪类 A:VISITED{只能设置颜色 不能设置其他的字体样式} 出于隐私安全考虑 
+
+        伪类的最常用两种状态 
+        
+        */
+        a{
+            font: size 30px;
+        }
+        a:link{
+            text-decoration: none;
+            cursor:help;
+            color: pink;
+        }
+        a:visited{
+            color:rgb(255, 0, 0);
+            background-color: pink;
+        }
+        a:hover{
+            text-decoration: underline;
+            color: rgb(68, 0, 255);
+        }
+        a:active{
+            color:aquamarine
+        }
+
+        .one{
+            /* 
+            相当于设置.one:line; 
+            */
+            background-color:pink;
+        }
+
+        .one:visited{
+            color:rgb(1, 211, 141);
+            /* visitied只能设置颜色 */
+        }
+        
+        .one:hover{
+            color:pink;
+        }
+     
+
+        
+        
+    </style>
+</head>
+<body>
+    <a href="##">导航</a><br>
+    <a href="##" class="one">类选择器结合伪类</a>
+</body>
+</html>
+
+<!-- 
+    当超链接跳转地址都一样时候,单击后会实现所有相同链接默认的访问状态
+ -->

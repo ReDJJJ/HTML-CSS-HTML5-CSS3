@@ -1,0 +1,124 @@
+<!--
+      CSS linear-gradient() 函数用于创建一个表示两种或多种颜色线性渐变的图片。其结果属于<gradient>数据类型，是一种特别的<image>数据类型。
+        
+        background:linear-gradient(direction,color-stop1,color-stop2,...);
+        也就是说，设置渐变我们也可以像设置背景图那样设置多个。
+        background-image:linear-gradient(direction,color-stop1,color-stop2,...),
+                linear-gradient(direction,color-stop1,color-stop2,...),
+                linear-gradient(direction,color-stop1,color-stop2,...),
+                linear-gradient(direction,color-stop1,color-stop2,...);
+
+
+     线性渐变  渐变是改变 背景图片来实现的 
+     线性渐变 : linear-gradient 
+     background-images: linear-gradient()
+
+     线性渐变: 定方向  定颜色  定渐变比例
+
+     方向:默认方向由上至下 ,方向与颜色逗号隔开
+     调节方式:
+     1 直接填方向to right /to left /to top /to bottom / to top right /to left top....
+     background:linear-gradient(to top left, red ,blue)
+     2 改变渐变轴 xdeg -xdeg 正值
+     background:linear-gradient(30deg,red,blue);
+
+     颜色:各个颜色之间由逗号隔开
+     调节方式:
+     1  background-image:linear-gradient(red,blue,green )
+
+     定渐变比例: 比例与颜色为一组 中间用空格隔开 可填xpx x%
+
+     细说: 此处的比例数值是 比例,是坐标 , 是将背景划分成各个渐变区域
+     1  background-iamge:linear-gradient(to right,red 20%,green 50%,yellow 70%)
+    含义: 从左到右的方向 0%(无设置颜色) 所以0%到20%都是纯红色 同理70%到100%都是纯黄色 , 20%-50%是红过渡绿色的区域 , 50%-70%是绿色渐变黄的区域
+    简洁: 两色中间为渐变区, 边缘到颜色为纯色区 (前提边缘0% 100% 无设置)
+
+    延申:如果逆序设计的化 覆盖
+    red 10% blue 50% green 30%  blue 60%;
+    那么30%绿色 会覆盖再 红色到蓝色的渐变区域中间
+
+    颜色支持透明度rgba和完全透明色 transparent
+-->
+
+
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        p,img{
+            display: block;
+            text-align: center;
+            margin:0 auto;
+        }
+        .box1 {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            margin: 5px auto;
+
+            background-image: linear-gradient(red, green);
+        }
+        .boxdeg{
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            margin: 5px auto;
+            background-image: linear-gradient(90deg,red, green);
+
+        }
+
+        .box2 {
+
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            margin: 5px auto;
+
+            background-image: linear-gradient(red 20%, green 50%, blue 80%);
+        }
+
+        .box3 {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            margin: 5px auto;
+
+            background-image: linear-gradient(to right, red 10%, green 30%, yellow 70%, blue 90%);
+        }
+        /* 特殊效果 */
+        .box3 {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            margin: 5px auto;
+
+            background-image: linear-gradient(to right, red 0%, red 50%,blue 50%, blue 100%);
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+
+    </div>
+    <div class="boxdeg">
+
+    </div>
+    <P>
+        转动的角度 示意表
+    </P>
+    <img src="../images/linear-gradient-deg.png" alt="">
+    <div class="box2">
+
+    </div>
+    <div class="box3">
+
+    </div>
+
+</body>
+
+</html>

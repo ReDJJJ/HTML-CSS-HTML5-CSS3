@@ -1,0 +1,112 @@
+<!doctype html>
+<!-- 这里的过渡效果和以前的不一样  logo视觉效果是从有到无 这个的是整个存在 往上移动 -->
+
+<!-- 具有文本信息的标签建议保留 不使用伪元素  但是若没有文本信息的纯标签(实现视觉效果)建议使用伪元素 -->
+<html>
+    <head>
+        <meta charset="utf-8"> 
+        <title></title>
+        <style>
+            *{margin:0;padding:0}
+            body{
+                background-color:#f5f5f5;
+            }
+            ul{
+                width:fit-content;
+                background:#f5f5f5;
+                margin:100px auto 0px;
+                list-style-type: none;
+               
+            }
+            ul>li{
+                width:220px;
+                height:300px;
+                background: #fff;
+                float:left;
+                margin-right:10px;
+                overflow:hidden;
+                position: relative;
+                top:0;
+                left:0;
+                box-shadow: 0px 0px 0px 0px rgb(151, 151, 151);
+                transition: all 0.5s 0s linear;
+
+                /* 定位的坐标 可以使用 过渡  边框的可以使用过渡 凡是数值类的都可以利用过渡
+                 */
+                /* 此处有个新的尝试 就是 浮动的同时  添加相对定位 可以实现 */
+            }
+            ul>li:hover{
+                top:auto;
+                left:auto;
+                top:-20px;
+                left:-20px;
+                /* 知识误区  忘记了阴影的模糊属性   */
+                /* 文字阴影: 水平 垂直 模糊量 阴影颜色  边框阴影: 水平 垂直 模糊 扩展 颜色 */
+                box-shadow:0px 10px 30px 0px rgba(0,0,0,.5);
+                cursor:pointer;
+            }
+            ul li img{
+                display:block;
+                width:220px;
+            }
+            ul::after{
+                content:'';
+                height:0;
+                display:block;
+                clear:both;
+            }
+            ul li span{
+                display:block;
+                font-size: 20px;
+                line-height:40px;
+                text-align:center;
+            }
+            ul li span:last-of-type{
+                font-size:14px;
+                line-height:20px;
+            }
+            ul li::after{
+                content: "图片说明";
+                width:220px;
+                background: orange;
+                font:normal 400 30px/40px "黑体";
+                color:#fff;
+                text-align:center;
+                position:absolute;
+                bottom:-40px;
+                /* 定位配合溢出隐藏  */
+                transition:all 0.3s 0s linear;
+            }
+            ul li:hover::after{
+                bottom:auto;
+                bottom:0px;
+                /* 定位也可以进行 过渡  */
+            }
+
+            ul>li:last-of-type{
+                margin:0;
+            }
+        </style>
+    </head>
+    
+    <body>
+            <ul>
+                <li>
+                   <img src="../images/5.jpg" alt="">
+                   <span>10点发售</span>
+                   <span>小米手环2代</span>
+                </li>
+                <li>
+                    <img src="../images/5.jpg" alt="">
+                    <span>10点发售</span>
+                    <span>小米手环2代</span>
+                </li>
+                <li>
+                    <img src="../images/5.jpg" alt="">
+                    <span>10点发售</span>
+                    <span>小米手环2代</span>
+                </li>
+            </ul>
+
+    </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>固定定位</title>
+        <style>
+            .header{
+                height:200px;
+                width:1226px;
+                background: rgb(255, 179, 179);
+                margin:0 auto;
+            }
+
+            .nav{
+                width: 100px;
+                height:100px;
+                background: rgb(129, 188, 255);
+                /*
+                 固定定位 : position:fixed;
+                 特征:将元素设置成固定定位，参考点永远是当前浏览器显示的窗口（配合四个偏移量偏移）
+                 并且固定定位需要 手动指定宽width  哪怕你是块元素 也要手动指定宽width
+
+                 那居中>??? 应该和绝对定位一样，因为偏移原理是一样的。
+
+                 小提以下: position: sticky; 混合了 realtive 和 fixed  在窗口未触发时 在正常文档流  一旦触发了就固定在浏览器窗口 某定位位置
+                */
+               
+                position: fixed;
+                top:0px;
+                left:50%;
+                margin-left:-50px;
+            }
+
+            .main{
+                height:600px;
+                width:1226px;
+                background: rgb(103, 126, 85);
+                margin:10px auto 0px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="header"></div>
+        <div class="nav"></div>
+        <div class="main"></div>
+        <div class="main"></div>
+        <div class="main"></div>
+        <div class="main"></div>
+        <div class="main"></div>
+        <div class="main"></div>
+        <div class="main"></div>
+
+    </body>
+</html>

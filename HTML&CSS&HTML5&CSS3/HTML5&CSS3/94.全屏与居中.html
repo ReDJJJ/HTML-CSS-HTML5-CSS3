@@ -1,0 +1,77 @@
+<!-- 
+    全屏与居中的方式
+ -->
+
+
+ <!doctype html>
+ <html>
+     <head>
+         <meta charset="utf-8"> 
+         <title></title>
+         <style>
+               *{
+                 margin:0;
+                 padding:0;
+             }
+             p{
+                 background: pink;
+                 text-align: center;
+             }
+             div{
+                
+                background: rgba(0,0,0,.3);
+                /*
+                 居中方式:绝对定位配合maring-left translate() 四面自动margin法
+                */
+                /* position:absolute;
+                width:10%;
+                heigth:100px;
+                top:0;
+                left:0;
+                bottom:0;
+                right:0;
+                margin:auto; 
+                绝对定位配合四面0距离和自动margin 实现居中 
+                ！！！记住 此方法只有在设置了固定宽高:xpx x%才起作用
+                */
+                /* 
+                 全屏遮罩cover方式:
+                 第一种绝对定位配合width:100% height:100%;
+                 第二种绝对定位配合不设置宽高的全0定位
+
+                 第二种理解:左右上下无距离,你又无固定宽度,那不就是铺满全屏
+                */
+
+                /*  
+                第一种和第二种的原理分析:
+                第一种: 是先设定一宽高均为当前窗口100%的盒子
+                        通过绝对定位到窗口的左上角(父元素为窗口)
+                        达到了遮罩效果
+                        
+                第二种: 是一个无宽高的盒子,绝对定位后(父元素为窗口)
+                        top:X bottom:X left:X right:X
+                        根据当前距离窗口上下左右的距离来定宽高
+                        所以第二种比较灵活 可用于多种场景
+
+                        例如有头部导航栏,当点击导航栏是,出现模块铺满
+                        导航栏以下的内容,就可以使用第二种
+                        利用top:导航栏的高度 来避开导航栏 
+                        同时又铺满导航栏下面的窗口
+                
+                */
+
+
+
+                position:absolute;
+                top:20px;bottom:0;left:0;right:0;
+
+             }
+           
+         </style>
+     </head>
+     
+     <body>
+         <p>导航栏</p>
+         <div>遮罩栏 第二种全屏方式</div>
+     </body>
+ </html>

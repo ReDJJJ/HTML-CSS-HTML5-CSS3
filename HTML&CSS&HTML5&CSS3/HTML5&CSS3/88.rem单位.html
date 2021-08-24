@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"> 
+        <title></title>
+        <style>
+/* 
+            什么是 rem 单位？
+rem（font size of the root element）是指相对于根元素的字体大小的单位。
+简单的说它就是一个相对单位。看到rem大家一定会想起em单位，em（font size of the element）是指相对于父元素的字体大小的单位。
+它们之间其实很相似，只不过一个计算的规则是依赖根元素一个是依赖父元素计算。
+
+根据 W3C 规范，一个对象单位的定义是:
+相对于根元素上font-size的计算值。 在根元素的font-size属性中指定时，rem单位是指属性的初始值
+
+这意味着1rem等于html元素的字体大小（对于大多数浏览器而言，其默认值为16px）。
+
+            em的单位是相对于父元素的单位 rem是相对于整个html 的默认单位(大部分浏览器默认为16px) 例如 
+            我想h2的标签字体为12px 那么应该是16*0.75 px  想使用0.75em 达成目的 但是h2本身的字体大小远远大于16px 为24px
+            ,所以不能使用0.75em 要使用0.5em,但是下次我想调 12px字体大小的h4  又要去根据h4的字体大小去调整 em前面的系数,导致标准不统一。
+
+            所以同一使用rem,而rem就是定义在html选择器下面的字体大小 (默认16px)
+
+
+            h2{
+                font-size:0.75em;
+            }
+
+*/
+            h2{
+                width:1em;
+                height:1em;
+                background: pink;
+            }
+            span{
+                display:block;
+                width:1em;
+                height:1em;
+                background: pink;
+            }
+            /* h2和span的1em 都根据其标签默认字体大小 变化  所以1em 的em标准不统一
+                并且嵌套会导致 字体一步步的变化或者缩小
+            */
+            div{
+                width:1rem;
+                height:1rem;
+                background: blue;
+            }
+            ul{
+                font-size: 2em;
+                /* font-size: 1rem; */
+            }
+        </style>
+    </head>
+    <body>
+        <h2></h2>
+        <span></span>
+        <hr><hr>
+        <div></div>
+        <ul>
+            字体
+            <ul>
+                字体,都是ul内的字体,但是通过嵌套发生了 逐层扩大 第一次改变了默认字号大小成为了 2em 第二层再其基础上 2em 等于4em原来的ul大小了
+                而rem只在html标签内定义 ,不会层叠导致多重放大缩小 
+            </ul>
+        </ul>
+    </body>
+</html>

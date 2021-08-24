@@ -1,0 +1,953 @@
+body{
+	height:3000px;
+}
+
+.clear{
+	clear: both;
+}
+/* wrap 包裹的意思 */
+.header-wrap{
+    
+    height:35px;
+    border-bottom: 1px solid #eee;
+   
+}
+/* 直接固定高度35px */
+
+.header{
+	width: 1190px;
+	height: 35px;
+	margin: 0 auto;
+}
+/* 版心 固定宽度 居中 */
+
+/* .header .state{
+	float: left;
+	padding:0px 5px 0px ;
+	line-height:35px;
+	position: relative;
+	z-index:9999;
+}
+
+
+.header .state:hover{
+	cursor: pointer;
+	background: #ffffff;
+	border-bottom: 1px solid #fff;
+	border-left: 1px solid #f1f1f1;
+	border-right: 1px solid #f1f1f1;
+}
+
+.header .statelist{
+	width:200px;
+	height:300px;
+	background: #fff;
+	border: 1px solid rgb(255, 162, 162);
+	display:none;
+	position: absolute;
+	top:35px;
+	left:0;
+	z-index:1;
+	overflow:scroll;
+}
+.header .state:hover .statelist{
+	display: block;
+}
+
+.header .statelist li{
+	color:#000;
+	padding-left:8px;
+	line-height: 29px;
+}  
+中国大陆的尝试作品
+*/
+
+/* 中国大陆模块真正作品 */
+ .list-l .china {
+	width:67px;
+	height:35px;
+	padding:0 5px;
+	text-align:center;
+	line-height: 35px;
+	position: relative;
+	/* z-index: 1; */
+}
+.list-l .china span{
+	width:75px;
+	/* 少的2px 给模拟边框腾位置 */
+	height:36px;
+	/* 多1px 是为了压住下面的边框 */
+	background: #fff;
+	text-align:center;
+	line-height: 35px;
+	border-left:1px solid #f40;
+	border-right:1px solid #f40;
+	position:absolute;
+	top:0;
+	left:0;
+	display:none;
+	z-index:2;
+	/* 除了调层级 还可以调位置 来压住部分边框 */
+	/* 有关层级,假若都是默认层级或者相同层级 
+		后写的一定压住前写的;
+		并且层级会继承！！！ 会继承父级
+	*/
+}
+.list-l .china:hover span{
+	display: block;
+}
+
+.list-l .china i{
+	width:77px;
+	height:35px;
+	text-align:center;
+	line-height: 35px;
+	position: absolute;
+	top:0;
+	left:0;
+	display: none;
+	z-index: 2;
+}
+.list-l .china:hover i{
+	display: block;
+}
+
+.header .chinalist{
+	width:200px;
+	height:300px;
+	background: #fff;
+	border: 1px solid rgb(255, 162, 162);
+	display:none;
+	position: absolute;
+	top:35px;
+	left:0;
+	overflow:scroll;
+	/* 此处可以只设置横向或者竖向 滚动条的 但是没交 auto会自动补 */
+	z-index: 1;
+}
+
+.header .chinalist li{
+	color:#000;
+	padding-left:8px;
+	line-height: 29px;
+	clear: both;
+	/* 与下面的float:left起冲突 清除浮动*/
+}
+
+.header .china:hover .chinalist{
+	display: block;
+}
+
+
+
+
+.header .list-l{
+	float:left;
+}
+/* 设置浮动类 是赋值给ul的 因为版心左侧和右侧 各有导航栏 ul不浮动会占据整个版心 */
+/* 不用设置宽度 浮动高宽由内容直接撑开 */
+
+
+.header .list-l li{
+	float:left;
+	/* border:1px solid blue; */
+}
+    /* 设置li为浮动  */
+
+.header .list-l li a{
+	line-height: 35px;
+	display: block;
+	/* border:1px solid red; */
+}   
+    /* 给a设置行高=父元素高度 文字居中 并且块级显示铺满撑开li */
+
+.header .list-l .one{
+	margin-left: 6px;
+}
+    /* 给第一个li 左边距 6px */
+
+.header .list-l .one a{
+	color:#f40;
+}
+    /* 
+	a的标签颜色比较特别 a不继承 
+	给第一个li中的超链接 设置为linked为淘宝色  默认hover已经重构为淘宝色了
+	 */
+
+.header .list-r {
+	float:right;
+}
+
+.header .list-r li {
+	float:left;
+	padding:0 5px;
+	line-height: 35px;
+}
+
+
+.header .list-r li a {
+	float:left;
+	line-height:35px;
+}
+
+.header .list-r li a i {
+	margin-right:4px;
+	color:#9c9c9c;
+}
+
+
+.header .list-r li em{
+	float: left;
+	line-height:35px;
+	margin-left: 5px;
+	color:#9c9c9c;
+}
+
+.header .list-r .iconfontcolor{
+	color:#f40 !important;
+}
+
+/*一次成功的尝试 隐藏与显示菜单
+
+.lx{
+	width:73px;
+	height:36px;
+	border-left:1px solid #f40;
+	border-right:1px solid #f40;
+	background: #fff;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+	display:none;
+	z-index: 2;
+}
+
+.lx2{
+	width:75px;
+	line-height:35px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	display:none;
+	z-index: 2;
+}
+.lx2 span,.lx2 em{
+	float:left;
+	font-weight:400;
+}
+
+.lx2 span{
+	padding-left:5px;
+}
+
+.lx3 {
+	width:100px;
+	height:300px;
+	background: #fff;
+	border:1px solid #f50;
+	overflow:scroll;
+
+	position: absolute;
+	top: 100%;
+	left:0;
+	display:none;
+	z-index: 1;
+
+}
+
+.list-r:hover li h4.lx ,.list-r:hover li h5.lx2,.list-r:hover li h6.lx3 {
+	display:block;
+}
+ 
+*/
+
+
+
+
+    /* 右浮动 */
+
+.white-wrap{
+	height:150px;
+	background: #fff;
+}
+
+.white{
+	width: 1190px;
+	height:150px;
+	margin:0 auto;
+	position: relative;
+}
+
+.white .logo{
+	margin:38px 0px 0px 22px;
+	float:left;	
+}
+
+.white .logo a{	
+	text-indent: -9999px;
+	display:block;
+	width:145px;
+	height:58px;
+	background: url(../images/logo.jpg) no-repeat 0px 0px;
+}
+
+.submitDiv{
+	float:left;
+	margin:30px 0px 0px 99px;
+}
+
+.submitDiv .baby li{
+	float:left;
+	display:block;
+	width:50px;
+	height:25px;
+	text-align: center;
+	color: #f40;
+	font: normal 700 12px/25px "宋体";
+}
+
+.submitDiv .baby li:hover{
+	cursor: pointer;
+	background: #FFEEE5;
+}
+
+.submitDiv .baby .current{
+	color: #fff;
+	background: #f40;
+}
+
+
+.submitDiv .baby .current:hover{
+	background: #f40;
+	color:#fff;
+}
+
+.submitDiv .search{
+	float: left;
+	width:500px;
+	height: 34px;
+	font: normal 400 12px/34px;
+	color:#757575;
+	border:3px solid #f50;
+	padding-left: 25px;
+	border-right: none;
+	background: url(../images/fang.png) no-repeat 5px 11px;
+}
+
+.submitDiv .btn{
+	float: left;
+	width: 122px;
+	height: 40px;
+	background-color:#ff4200;
+	border:2px solid #f50;
+	font: normal 700 18px "宋体" ;
+	color:#eee;
+}
+.submitDiv .btn:hover{
+	cursor: pointer;
+}
+
+.submitDiv .gaoji{
+	float: left;
+	font-size: 12px;
+	width:24px;
+	margin-left: 10px;
+}
+
+.submitDiv .shop li{
+	float: left;
+	margin-right: 9px;
+}
+
+.submitDiv .shop li a{
+	display: block;
+	font: normal 400 12px/36px "宋体";
+}
+
+.firstshop{
+	margin-left: 5px;
+}
+
+.ercode{
+	width:94px;
+	height:112px;
+	border: 1px solid #eee;
+	position:absolute;
+	top:33px;
+	right:0px;
+}
+
+.ercode a{
+	font-size:400;
+	line-height: 22px ;
+	text-align: center;
+	font-size:10px;
+	display: block;
+	margin: 0 auto;
+	color:#f40;
+}
+
+.ercode a img{
+	margin:0 auto;
+}
+
+.ercode .close{
+
+	color:#ddd;
+	width:18px;
+	height:18px;
+	border: 1px solid #eee;
+	position:absolute;
+	top:-1px;
+	left:-20px;
+	
+	text-align: center;
+	cursor: pointer;
+	line-height: 18px;
+	color:#ddd;
+}
+
+.main{
+	width:1190px;
+	margin:0 auto;
+	background: pink;
+}
+
+/* 主体市场 模块 */
+.main .main-l{
+	float: left;
+	width:190px;
+	height: 555px;
+	background-color: #ff6537;
+	color:#ffffff;
+}
+
+.main .main-l .market{
+	line-height:33px;
+}
+
+.main .main-l .market .topic1{
+	float: left;
+	margin-left:10px;
+	/* 继承父亲的35px */
+	font-size :14px;
+	font-weight: 700;
+}
+
+.main .main-l .market .topic2{
+	float: right;
+	margin-right:10px;
+	/* 继承父亲的35px */
+	font-size :22px;
+}
+
+.main .main-l .main-l-list{
+	line-height:30px;
+	height:30px;
+}
+
+.main .main-l .main-l-list li:hover{
+	cursor: pointer;
+	background: #f94a14;
+}
+
+.main .main-l .main-l-list i{
+	float:left;	
+	color:#ff8e4e;
+	font-size:18px;
+	font-weight: 700;
+	margin:0px 7px 0px 10px;
+	
+}
+
+.main .main-l .main-l-list a,.main .main-l .main-l-list span{
+	line-height: 30px;
+	float: left;
+	color:#fff;
+	margin-right:3px;
+	font-weight: 700;
+	font-size:13px;
+}
+
+.main .main-l .main-l-list em{
+	float:right;
+	margin-top: 2px;
+	line-height:27px;
+	/* 此处行高不等于 li高的原因 视觉对齐 */
+	/* 也可以固定em的height 然后行高=li高度 */
+	margin-right:12px;
+}
+
+.main .main-l .main-l-list a:hover{
+	text-decoration: underline;
+}
+
+
+
+
+/* main 部分的右侧 */
+.main .main-r{
+	float: right;
+	width:990px;
+	height:555px;
+	background: yellowgreen;
+}
+.main .main-r .nav{
+	height:44px;
+	background: #f1f1f1;
+}
+.main .main-r-b{
+	float: right;
+	width:990px;
+	height:511px;
+	background: greenyellow;
+}
+
+.main .main-r .nav ul{
+	float: left;
+}
+
+.main .main-r .nav li{
+	margin: 6px 6px 0px 0px;
+	float: left;
+}
+
+
+.main .nav .list01 a{
+	display: block;
+	font:normal 700 16px/28px "arial";
+	color:#f40 ;
+	padding: 0px 6px 0px;
+}
+
+.main  .nav .list02 a{
+	display: block;
+	font:normal 700 12px/28px "arial";
+	color: #3c3c3c;
+	padding: 0px 4px 0px;
+}
+
+.main .list03 li img{
+	position:absolute;
+	left:14px;
+	top:-15px;
+	z-index: 1;
+}
+
+
+.main .list03 a{
+	display: block;
+	font:normal 700 12px/28px "arial";
+	color: #3c3c3c;
+	padding: 0px 4px 0px;
+}
+
+.main .main-r .nav li a:hover{
+	color:#fff;
+	background: #f40;
+	border-radius: 12px;
+}
+
+.main .main-r .main-r-b .banner{
+	float: left;
+	width:520px;
+	height:511px;
+	background: rgb(104, 93, 255);
+}
+
+.banner .banner-top{
+	height:280px;
+	background: rgb(107, 250, 255);
+}
+
+.banner .banner-top .content{
+	position: relative;
+	/* 给切换按钮和小原点找爹 */
+}
+
+.banner .banner-top .leftbtn{
+	width:24px;
+	height:36px;
+	/* 行内元素 绝对定位 使得宽高起作用 */
+	position: absolute;
+	top:50%;
+	left:0;
+	margin-top:-18px;
+
+	background:rgba(0,0,0,0.3);
+	color:#fff;
+	text-align:center;
+	line-height:36px;
+	/* font-weight:700; */
+	font-size:16px;
+}
+
+.banner .banner-top .rightbtn{
+	width:24px;
+	height:36px;
+	/* 行内元素 绝对定位 使得宽高起作用 */
+	position: absolute;
+	top:50%;
+	right:0;
+	margin-top:-18px;
+
+	background:rgba(0,0,0,0.3);
+	color:#fff;
+	text-align:center;
+	line-height:36px;
+	/* font-weight:700; */
+	font-size:16px;
+}
+
+.banner .banner-top .content span:hover{
+	background:rgba(0,0,0,0.6);
+}
+
+.banner .yuandian{
+	/* padding-top:2px;
+	height: 10px; */
+	/* 此处设置了padding 那么盒子模型 宽度需要减小
+		最优设置时给li设置外边距 撑大ol
+	*/
+	background: rgba(255, 255, 255, 0.5);
+	position: absolute;
+	left: 50%;
+	margin-left:-30px;
+	bottom: 10px;
+	border-radius: 7px;
+}
+
+.banner .yuandian li{
+	float:left;
+	width:8px;
+	height:8px;
+	border-radius: 50%;
+	background: #b7b7b7;
+	margin:3px;
+}
+
+.banner .yuandian li.current{
+	background: #f40;
+}
+.banner .yuandian li:hover{
+	background: rgb(255, 255, 255,.9);
+	cursor: pointer;
+}
+
+
+.banner .banner-bottom{
+	height: 231px;
+	background: rgb(255, 56, 99);
+}
+.banner .banner-bottom .tmall{
+	height:27px;
+	border-bottom: 2px solid #c12c26;
+	background: #f1f1f1;
+	position: relative;
+}
+
+.tmall h5{
+	float: left;
+	background: url(../images/tmall.gif) no-repeat -4px 10px;
+	font-size:14px;
+	padding-left:48px;
+	line-height: 37px;
+	height:27px;
+	
+	/* 此处行高设置37px
+	 是为了天猫必逛 四个字贴近 红色tmall的边框 
+	 而高度27px 是为了h5高度不溢出父元素tmall
+	 也可以父元素 overflow:hidden来解决
+
+	 要注意观察 边框能做很多事情  看长度就大概知道了是那个元素的边框当作相隔符
+	 */
+}
+
+.tmall .line{
+	height:2px;
+	width:105px;
+	background: #000;
+	position:absolute;
+	left:0;
+	bottom:-2px;
+	/* 此条黑线 在以后学习中 动态改变left
+	位置即可 */
+}
+
+.tmall .span1{
+	float: left;
+	height:27px;
+	line-height: 37px;
+	padding-left:10px
+}
+
+.tmall .span2{
+	float: right;
+	height:27px;
+	line-height: 37px;
+}
+
+.banner-bottom .content{
+	height:202px;
+	background: #fff;
+	position: relative;
+}
+
+.banner-bottom .content ul{
+	width:515px;
+	height:155px;
+	padding-top: 23px;
+}
+
+.banner-bottom .content ul li{
+	float:left;
+	width:250px;
+	height:155px;
+	margin-left:5px;
+}
+
+.banner-bottom .content span{
+	width:24px;
+	height:36px;
+	position:absolute;
+	top:50%;
+	margin-top:-18px;
+	left:0;
+
+	background:rgba(0,0,0,0.3);
+	color:#fff;
+	text-align:center;
+	line-height:36px;
+	/* font-weight:700; */
+	font-size:16px;
+}
+
+.banner-bottom .content span.rightbtn{
+	left:auto;
+	right:0;
+} 
+/*
+ 此处可以改到了上面 banner—top的轮播图里 使用并集选择器了
+ 因为样式一样 并且绝对定位的居中不受父元素大小影响
+*/
+
+.banner-bottom .content span:hover{
+	background:rgba(0,0,0,0.5);
+}
+
+
+
+.adv{
+	width:160px;
+	height: 511px;
+	float: left;
+	background: yellow;
+	margin-left: 10px;
+}
+
+.user{
+	width:290px;
+	height: 511px;
+	float: right;
+	background: gold;
+}
+
+.user .user-top{
+	height: 167px;
+	background:#fff url(../images/member-bg.jpg) no-repeat 0px 0px;
+	border-bottom: 2px solid #eee;
+	overflow:hidden;
+	/* 此处会发生塌陷 利用父元素 overflow:hidden清除 */
+}
+
+.user .user-top .tou{
+	width:60px;
+	display:block;
+	margin:15px auto 0;
+}
+
+.user .user-top .tou img{
+	border-radius:50%;
+	width:60px;
+}
+
+.user .user-top h5{
+	font-weight:400;
+	text-align: center;
+	margin-top:4px;
+}
+
+.gold{
+	width:fit-content;
+	margin:0 auto;
+}
+.gold img{
+	width: 16px;
+	float:left;
+	margin-top: 2px;
+	margin-right: 5px;
+}
+
+ .gold span{
+	float:left;
+	margin: 0 5px;
+}
+
+ .gold a{
+	color: #f40;
+	float:left;
+} 
+
+/* 小提示
+	line-height:25px；
+	font: normal 700 12px "宋体"
+	font不写是很多默认设置的
+	像上面行高就会被font中的默认覆盖 line-height不生效
+*/
+.user .user-top ul {
+	padding:5px 0px 0px 15px ;
+}
+
+.user .user-top ul li{
+	float: left;
+}
+.user .user-top ul li a{
+	width: 75px;
+	height: 25px;
+	font: normal 700 14px/25px "宋体";
+	color: honeydew;
+	background: #f40;
+	display: block;
+	text-align: center;
+}
+
+/* 用户中部 */
+.user-center {
+	height:109px;
+	background: #fff;
+	border-bottom: 2px solid rgb(202, 202, 202);
+}
+.user-center .list01{
+	height:35px;
+}
+.user-center .list01 li{
+	width: 39px;
+	height: 20px;
+	float: left;
+	margin-right:16px;
+	margin-top:13px;
+}
+
+
+.user-center .list01 li {
+	text-align: center;
+	/* 此处和上面的500行冲突了 需要推翻设定 */
+}
+
+.user-center .list01 li:hover{
+	border-bottom: 2px solid #f40;
+}
+
+
+.user-center .list01 li:hvoer a{
+	font-weight:700;
+}
+
+.user-center .list02{
+	padding-left: 20px;
+	padding-top:  15px;
+}
+
+.user-center .list02 li{
+	float:left;
+}
+
+.list02 li.first a{
+	color: #f40;
+}
+
+
+/* 用户底部设置 */
+.user-bottom {
+	height:231px;
+	background: rgb(255, 255, 255);
+}
+
+.user-bottom  ul li{
+	float:left;
+	width:71px;
+	height:76px;
+	border-right: 1px solid #eee;
+	border-bottom: 1px solid #eee;
+}
+
+.user-bottom  ul li a{
+	height:100%;
+	display:block;
+	text-align: center;
+	/* float是为了取消塌陷 */
+}
+
+.user-bottom  ul li a img{
+	/* margin:15px 0px 5px 20px;
+	上面这种居中太蠢了！！  块级元素使用 margin:0 auto 不香么*/
+	margin:0px auto 10px;
+	padding-top:10px;
+	width:24px;
+	display:block;
+}
+
+.user-bottom .width72{
+	width:72px;
+}
+
+
+/* 淘宝头条与app */
+.tBApp{
+	width: 1190px;
+	height: 112px;
+	background: pink;
+	margin: 0 auto;
+}
+.tBTT{
+	width: 890px;
+	height: 101px;
+	background: #fff;
+	float:left;
+	margin-top: 10px;
+	
+}
+.tB-img{
+	float:left;
+	margin: 28px 0 0 20px;
+}
+.tB-img h5{
+	color:#999;
+	font-weight: 400;
+}
+.tBTT .list{
+	float:right;
+	width: 680px;
+	height: 70px;
+	margin-right: 10px;
+	margin-top: 16px;
+	/* background: yellow; */
+}
+.tBTT .list li{
+	overflow: hidden;
+}
+.tBTT .list li a{
+	display: block;
+	height: 70px;
+	/* background: greenyellow; */
+	background: url(../images/flowers.webp) no-repeat 0 0;
+	padding-left: 144px;
+	
+}
+.tBTT .list li a h4{
+	font-size: 16px;
+}
+.tBTT .list li a p{
+	font-size: 14px;
+}

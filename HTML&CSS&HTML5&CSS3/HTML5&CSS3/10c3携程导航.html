@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+    <!-- 
+        此次是本人的一次 选择器复杂度尝试 
+        用了特别绕的 选择器复杂度历程在加深对选择器的印象
+     -->
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        ul[class ="topul"]{
+            
+            height:200px;
+            border-radius:10px;
+            overflow: hidden;
+        }
+        .topul li:first-of-type,.topul li:last-of-type,.topul li:first-of-type a,.topul li:nth-last-of-type(1) a{
+            border-radius:10px;
+            overflow: hidden;
+        }   
+
+        .topul>li{
+            /* 最外层ul 的子li元素 */
+            /* 这里就是常用的地方 ulli套了ulli  最外层的子元素li的浮动 孙子ul及其重孙li 不浮动垂直排列*/
+            box-sizing: border-box;
+            float: left;
+            width: 33.33%;
+            /* 百分比可以出现小数 */
+            height: 100%;
+            
+            border: 1px solid #eee;
+            overflow: hidden;
+        }
+
+        .topul>li>a{
+            /* 最外层ul的子元素li 的子元素a */
+            height: 100%;
+            line-height:200px;
+        }
+
+        .topul>li>ul{
+            /* 最外层ul的子元素li的子元素ul */
+            height:100%;
+            overflow: hidden;
+        }
+        .topul>li>ul>li{
+            height:50%;
+            box-sizing:border-box;
+            border: 1px solid #fff;
+            overflow: hidden;
+        }
+
+        .topul>li>ul>li>a{
+            line-height:100px;
+        }
+
+        
+        a{
+            display: block;
+            height:100%;
+            background: blue;
+            text-align: center;
+            font-size: 20px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+
+        <!-- 导航栏标签 -->
+        <ul class="topul">
+            <li><a href="">蓝色的是a标签</a></li>
+            <li>
+                <ul>
+                    <li><a href="">蓝色的是a标签</a></a></li>
+                    <li><a href="">蓝色的是a标签</a></li>
+                </ul>
+            </li>
+            <li>
+                <ul>
+                    <li><a href="">蓝色的是a标签</a></li>
+                    <li><a href="">蓝色的是a标签</a></li>
+                </ul>
+            </li>
+        </ul>
+
+    </nav>
+
+</body>
+
+</html>

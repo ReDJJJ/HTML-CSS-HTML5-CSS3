@@ -1,0 +1,120 @@
+<!-- 
+    太阳个人思路 : 三个层叠的圆形 一个是实心 两个个负责扩散动画
+    海洋:两个层叠的图片 配合动画做上下移动  因为只有初始 和结束效果  过渡transition或许也可以
+ -->
+
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"> 
+        <title></title>
+        <style>
+            body{
+                margin: 0;
+                padding:0;
+                background: #ADD8E6;
+                height:3000px;
+            }
+            .sun{
+                /* 静态实心 太阳  */
+                width:50px;
+                height:50px;
+                border-radius:50%;
+                background: white;
+
+                position:fixed;
+                top:130px;
+                left:100px;
+            }
+            .sun2{
+                /* 静态实心 太阳  */
+                width:50px;
+                height:50px;
+                border-radius:50%;
+                background: white;
+                /* 基础设置 */
+                position:fixed;
+                top:130px;
+                left:100px;
+                /* 位置设置 */
+                animation:sun2 2s 0s linear infinite normal;
+            }
+            .sun3{
+                /* 静态实心 太阳  */
+                width:50px;
+                height:50px;
+                border-radius:50%;
+                background: white;
+                /* 基础设置 */
+                position:fixed;
+                top:130px;
+                left:100px;
+                /* 位置设置 */
+                animation:sun3 2s 1s linear infinite normal;
+            }
+            @keyframes sun2{
+                0%{
+                    transform:scale(1);
+                    opacity:1;
+                }
+                100%{
+                    transform:scale(2);
+                    opacity:0;
+                }
+            }
+            @keyframes sun3{
+                0%{
+                    transform:scale(1);
+                    opacity:1;
+                }
+                100%{
+                    transform:scale(2);
+                    opacity:0;
+                }
+            }
+
+            img{
+                width:100%;
+                position:fixed;
+                left:0;
+                bottom:0;
+            }
+            img:first-of-type{
+                opacity: 0.85;
+                animation:img1 1s 0s ease-in-out infinite alternate;
+            }
+            @keyframes img1{
+                0%{
+                    bottom:0px;
+                }
+                100%{
+                    bottom:-80px
+                }
+            }
+            img:last-of-type{
+                opacity: 0.95;
+                animation:img2 1s 0s ease-in-out infinite alternate;
+            }
+            @keyframes img2{
+                0%{
+                    bottom:0px;
+                }
+                100%{
+                    bottom:-50px
+                }
+            }
+            
+         
+            /* 太阳发散光环 动画 */
+        </style>
+    </head>
+    
+    <body>
+         <div class="sun"></div>
+         <div class="sun2"></div>
+         <div class="sun3"></div>
+
+         <img src="../images/1.png" alt="">
+         <img src="../images/2.png" alt="">
+    </body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<!-- 
+    关键思路 : 留白不单单可以用margin padding 来设置  
+    当同样式类型元素并列，可以使用列表ul ol dl 来实现 并且给每个表设置固定宽高 来浮动排列达到效果
+    宽度剩余法
+    例如小米网站底部 
+    思考:不仅学会语法还学会抽象出来特征配合CSS排列
+    行高就是基线到基线的距离 
+    测量切图可以使用此技巧
+-->
+<html>
+    <head>
+        <title>小米底部</title>
+        <meta charset="utf-8">
+        <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0; 
+        }
+        body{
+            background: #f1f1f1;
+        }
+        .clearfix::after{
+            height: 0;
+            display: block;
+            clear: both;
+            content:"";
+        }
+        .footer-wrap {
+            height: 192px;
+            background: #fff;
+        }
+        .footer{
+            width:1226px;
+            height:192px;
+           
+            margin:0 auto;
+        }
+        .footer .footer-l{
+            width:988px;
+            height:192px;
+            background: #fff;
+            float: left;
+        }
+
+        .footer .footer-r{
+            width:238px;
+            height:192px;
+         
+            float: left;
+        }
+        dl{
+            float: left;
+            width:160px;
+            margin-top:30px;
+            /* 思想的核心 宽度剩余法达到视觉上的留白 */
+        }
+        dt
+        {
+            font-size:14px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        dd
+        {   
+            font-size:12px;
+        }
+        a{
+            text-decoration: none;
+            color:#757575;
+            line-height:30px;
+        }
+        
+        </style>
+    </head>
+    <body>
+        <div class="footer-wrap">
+
+            <div class="footer">
+                <div class="footer-l">
+                    <dl>
+                        <dt>帮助中心</dt>
+                        <dd><a href="##">账户管理</a></dd>
+                        <dd><a href="##">购物指南</a></dd>
+                        <dd><a href="##">订单操作</a></dd>
+                    </dl>
+                    <dl>
+                        <dt>帮助中心</dt>
+                        <dd><a href="##">账户管理</a></dd>
+                        <dd><a href="##">购物指南</a></dd>
+                        <dd><a href="##">订单操作</a></dd>
+                    </dl>
+                    <dl>
+                        <dt>帮助中心</dt>
+                        <dd><a href="##">账户管理</a></dd>
+                        <dd><a href="##">购物指南</a></dd>
+                        <dd><a href="##">订单操作</a></dd>
+                    </dl>
+                    <dl>
+                        <dt>帮助中心</dt>
+                        <dd><a href="##">账户管理</a></dd>
+                        <dd><a href="##">购物指南</a></dd>
+                        <dd><a href="##">订单操作</a></dd>
+                    </dl>
+                    <dl>
+                        <dt>帮助中心</dt>
+                        <dd><a href="##">账户管理</a></dd>
+                        <dd><a href="##">购物指南</a></dd>
+                        <dd><a href="##">订单操作</a></dd>
+                    </dl>
+                    <dl>
+                        <dt>帮助中心</dt>
+                        <dd><a href="##">账户管理</a></dd>
+                        <dd><a href="##">购物指南</a></dd>
+                        <dd><a href="##">订单操作</a></dd>
+                    </dl>
+                    
+                </div>
+                <div class="footer-r">
+             
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>
+
+
+<!-- 
+    dl:宽160px;
+    左半部:宽 988px
+    dl 14
+    dt 12
+    色 黑色
+ -->

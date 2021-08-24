@@ -1,0 +1,63 @@
+<!-- 
+    动画外属性:设置动画过程外 前后 状态的属性
+    fill:填充
+    
+    
+    animation-fill-mode:backwards forwards 
+ -->
+
+ <html>
+     <head>
+        <meta charset="utf-8">
+        <title>
+
+        </title>
+        <style>
+            .box{
+                height:300px;
+                width:300px;
+                margin:100px auto;
+                border:1px solid black;
+                position: relative;
+            }
+            .box2{
+                height:100px;
+                width:100px;
+                background: pink;
+                position: absolute;
+                top:100px;
+                left:0px;
+
+             
+                /* 动画外属性 animation-fill-mode : backwards forwards both */
+                /* 
+                    backwards:元素从动画开始之前 就 已经到达开始位置 这个开始之前包括了延时之前 ;
+                    forwards:元素再动画结束之后,停留再动画结束的位置
+                    both:backwards和forwards 兼备
+                */
+            }
+            .box:hover .box2{
+                animation:donghua 2s 2s ease-in-out 1 normal;
+                animation-timing-function:steps(1000);
+                animation-fill-mode: backwards;
+
+                /* 哪怕设置了backwards 也得是移入才触发  backwards效果  因为动画是移入box时 box2 才拥有的动画 */
+            }
+
+            @keyframes donghua {
+                0%{
+                    top:0;
+                }
+                100%{
+                    top:200px;
+                }
+            }
+        </style>
+     </head>
+     <body>
+         <div class="box">
+             <div class="box2">
+             </div>
+         </div>
+     </body>
+ </html>

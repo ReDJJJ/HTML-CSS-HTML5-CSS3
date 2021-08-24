@@ -1,0 +1,59 @@
+<!doctype html>
+<!-- 
+    scale:比例尺 刻度 范围
+    单值 整体缩放 
+    双值 水平 垂直  分别缩放
+    transform:scale();
+
+    若transform:scale(0,0) 那以为这水平垂直 从无到有 
+
+    缩放scale与以前手动改宽高不一样的地方
+    手动改宽高改的只是盒子的面积大小,背景图大小不会改变,就在参考点开始一直显示
+    但是scale缩放会盒子连着背景图 缩放大小  
+    所以背景图跟着盒子大小一起变化的用  2D转换中的缩放 scale
+-->
+<html>
+    <head>
+        <meta charset="utf-8"> 
+        <title></title>
+        <style>
+            img{
+                display:block;
+                margin:100px auto ;
+                width:800px;
+                /* transition:all 1s; */
+            }
+            img:hover{ 
+                /* transform:scale(1.5); */
+                transform:scale(1.2,0.5);
+            }
+
+            /* 图片放大效果 溢出隐藏 过渡 缩放 */
+            div{
+                width:300px;
+                height:168px;
+                overflow: hidden;
+                margin:100px auto;
+               
+            }
+            div>img{
+                margin:0;
+                width:100%;
+                transition:all 1s;
+                transform:scale(1.3,0);
+                /* 从高度0变成高度1.3倍  中高度的中线开始高度变化*/
+            }
+            div:hover img{
+                transform:scale(1.3,1.3);
+            }
+        </style>
+    </head>
+    
+    <body>
+        <img src="../images/content-box.png" alt="">
+        <div>
+            <img src="../images/content-box.png" alt="">
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,232 @@
+.header-wrap{
+   
+    border-bottom: 1px solid rgb(219, 219, 219);
+}
+
+.header-wrap .header{
+    
+    width:1190px;
+    margin:0 auto;
+}
+
+.header-wrap .header .list-l{
+    float: left;
+}
+.header-wrap .header .list-r{
+    float: right;
+}
+
+.list-l li{
+    float:left;
+}
+
+.list-r li{
+    float:right;
+}
+
+.header-wrap .header .list-l  a{
+    display:block;
+    height:35px;
+    line-height: 35px;
+}
+
+.header-wrap .header .list-r  a{
+    display:block;
+    height:35px;
+    line-height: 35px;
+}
+
+.header-wrap .header .list-l .one{
+    margin-left: 6px;
+}
+
+.header-wrap .header .list-l .one a{
+    color:#f40;
+}
+
+.white-wrap{
+    background: rgb(255, 255, 255);
+}
+
+.white{
+    width:1190px;
+    height:150px;
+    margin:0 auto;
+}
+
+/* .white .logo{
+    float:left;
+    width:167px;
+    height:96px;
+    overflow: hidden;
+} */
+
+/* .white .logo a{
+    padding:38px 0px 0px 22px;
+    display:block;
+} */
+/* 以上是插入图的方式 */
+
+.white .logo{
+    float:left;
+    overflow: hidden;
+} 
+
+.white .logo a{
+    display:block;
+    width:146px;
+    height:60px;
+    margin:38px 0px 0px 22px;
+    background: #fff url(./logo.jpg) no-repeat 0px 0px;
+    text-indent: -9999px;
+}
+
+
+.submitDiv{
+   float:left;
+   margin: 30px 0 0 100px;
+}
+
+.submitDiv .baby{
+    
+}
+
+.submitDiv .baby li{
+    float:left;
+}
+
+.submitDiv .baby li a{
+    display:block;
+    width:50px;
+    height:25px;
+    text-align: center;
+    line-height: 25px;
+    color: #f40;
+}
+
+.submitDiv .baby li a:hover{
+    background: #ffeee5;
+}
+
+.submitDiv .baby li a.one{
+    background: #f40;
+    font-weight: 700;
+    color:#fff;
+}
+
+
+.submitDiv .search{
+    float:left;
+    width:530px;
+    height: 35px;
+    background: url(../淘宝4宝贝/images/fang.png) no-repeat 10px 10px;
+    border:3px solid #f50;
+    padding-left:10px ;
+    text-indent:1em;
+}
+
+.submitDiv .btn{
+    float: left;
+    width: 122px;
+    height:41px;
+    background: rgb(255, 66, 0);
+    color:#fff;
+    cursor: pointer;
+    font:normal 700 18px "宋体";
+    border:none;
+}
+
+.submitDiv .gao{
+    display:block;
+    float: left;
+    width:30px;
+    margin-left: 10px;
+}
+
+.submitDiv .shop{
+    margin-top:10px;
+}
+
+.submitDiv .shop li {
+    padding-right:6px;
+    float: left;
+}
+
+.submitDiv .shop li a{
+    display:block;
+}
+
+
+.a-wrap{
+    
+}
+.a{
+    width:1190px;
+    background: pink;
+    margin:0px auto;
+}
+
+.a-wrap .a .zuocedaohanglan{
+    width: 190px;
+    height:555px;
+    background: #ff6537;
+    float: left;
+    margin-right: 10px;
+}
+
+.a-wrap .a .zhutidaohang{
+    /* width:800px;
+    height: 44px; */
+    /* 此处将导航栏 浮动化 并先搭好框架 长宽  以后再由内容撑开 并删除 */
+    background: #f1f1f1;
+    float:left;
+}
+
+.a-wrap .a .zhutidaohang .diyigeul{
+    float: left;
+    
+}
+
+.a-wrap .a .zhutidaohang .diergeul{
+    float: left;
+}
+
+.a-wrap .a .zhutidaohang .diyigeul li {
+    float: left;
+    /* li 的宽高有a标签撑高 */
+}
+
+.a-wrap .a .zhutidaohang .diergeul li{
+    float: left;
+}
+
+.a-wrap .a .zhutidaohang .diyigeul  a{
+    display:block;
+    height:28px;
+    color: #fd4400;
+    font:normal 700 16px/28px "宋体";
+    border-radius: 13px;
+    padding: 0px 9px;
+}
+
+.a-wrap .a .zhutidaohang .diyigeul  a:hover{
+    background: #f40;
+    color: white;
+}
+
+.a-wrap .a .zhutidaohang .diergeul  a{
+    display:block;
+    height:24px;
+    color: #000;
+    font:normal 700 12px/24px "宋体";
+    border-radius: 10px;
+    padding: 3px 9px;
+    /* 此处先规定了基础的 a边距  细调还可以用 li 的内外边距 */
+}
+
+.a-wrap .a .zhutidaohang .diergeul  a:hover{
+    background: #f40;
+    color: white;
+}
+
+

@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+    <!-- 
+        移动端 主流方案:媒体查询 和 bootstrap 框架 
+     -->
+<head>
+    <meta charset="utf-8">
+    <!-- 移动端默认视口大小为980px ！！！！-->
+    <!-- 移动端适配 将视口大小调成 对应设备屏幕大小(逻辑分辨率) width不能写死值 要适配 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- name="viewport" 表示设置视口
+             content="width=device-width设置宽度, initial-scale=1(缩放系数 1表示不缩放)"
+             物理分辨率：硬件所支持的逻辑分辨率：软件可以达到的在iphone3gs的时候，逻辑分辨率是320*480，
+             但是物理分辨率变成了640*960 的iphone4出了之后，逻辑分辨率和3gs一样是320*480，显示的内容是一样多的，
+             但是物理分辨率变成了640*960，原来在3gs的一个像素内容，在iphone4上则填充了4个像素，
+             因此虽然内容显示还是一样多，但是iphone4s的屏幕精细度比3gs高了2倍，像素倍率是2.
+
+
+             所以一般使用 多个物理分辨率来 渲染 一个逻辑分辨率 来提高精细度
+
+             所以说在调试的时候,手机分辨率都很低 ,因为分辨率是逻辑分辨率 
+             逻辑分辨率决定了内容的多少 DPR：物理分辨率与逻辑分辨率之比
+        -->
+
+    <!-- 
+             不同款手机的分辨率不一样,所以在移动端不能给每个元素写死值,
+             但是也不推荐设置百分比,因为百分比布局有缺陷 
+
+             百分比的缺陷和刚学的em单位类似,会受到父元素的影响,参照的是父元素的100%;
+         -->
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        .box1{
+            width:100%;
+            height:200px;
+            background: pink;
+            /* 设置box为父元素(body)的百分之百 */
+        }
+        .box1 .box2{
+            width:80%;
+            height:150px;
+            background: rgb(253, 114, 138);
+            /* 设置box2为父元素(box1)的百分之八十 也就是body的百分之80% */
+        }
+        .box1 .box2 ul{
+            width:100%;
+            height:100px;
+            background: rgb(245, 43, 77);
+            /* 
+            假如我想设置ul宽度为 body 的100%,但是ul的父元素顶多才body的80%,此处 给ul设置width:100%也就是.box2的100%,只是body的80%;
+            和em类似 由于多重嵌套关系导致 标准不统一 %会受父元素的影响
+            */
+        }
+
+        /* 
+            1vw 为屏幕宽度的 1%;
+            1% 为父元素的百分之1; 
+        
+        */
+
+        .BOX1{
+            width:100vw;
+            height:200px;
+            background: lightgreen;
+            /* 设置box为屏幕的百分之百 */
+        }
+        .BOX1 .BOX2{
+            width:80vw;
+            height:150px;
+            background: lightcoral;
+            /* 设置box2为屏幕的百分之八十 */
+        }
+        .BOX1 .BOX2 ul{
+            width:100vw;
+            height:100px;
+            background: lightblue;
+            /* 
+            设置ul宽度为屏幕的百分之百
+            */
+        }
+
+    </style>
+    <title></title>
+
+</head>
+
+<body>
+    <div class="box1">
+        <div class="box2">
+            <ul>
+                
+            </ul>
+        </div>
+    </div>
+<hr><hr>
+    <div class="BOX1">
+        <div class="BOX2">
+            <ul>
+
+            </ul>
+        </div>
+    </div>
+
+</body>
+
+</html>

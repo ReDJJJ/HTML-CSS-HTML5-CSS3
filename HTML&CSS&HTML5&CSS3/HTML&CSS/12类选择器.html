@@ -1,0 +1,68 @@
+<!-- 
+    类选择器(类名)：
+            用途:细分样式，以前都是一类标签一个样式 通过类选择器就可以细分样式了。
+            定义类选择器(类名):用.类名
+            调用类名：标签内部属性class="类名"
+            命名规范: .不能用数字开头,可以是字母+数字+中划线- +下划线_ 不能包含空格
+                      并且类名 .helloWorld  首单词 小写，其余单词大写 小驼峰
+            
+            多类样式调用：class="类名1 类名2 类名3" 利用多类样式 类之间用空格分隔
+            减少冗余:大量相同的样式属性 抽出单独一个类
+ -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>类选择</title>
+    <style>
+        h1 {
+            color: paleturquoise;
+        }
+
+        .redHeader {
+            color: red;
+        }
+
+        .blue {
+            font-size: 150px;
+            color: #1B6FEF;
+        }
+
+        .red {
+            font-size: 150px;
+            color: #DB4732;
+        }
+
+        .yellow {
+            color: #FFD669;
+        }
+
+        .green {
+            color: #009A57;
+        }
+        .font-size
+        {
+            font-size: 150px;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <!-- 
+    显示模式转换 
+-->
+    <h1 class="h1">利用标签名H1当类选择器</h1>
+    <H2 class="redHeader">自定义名redHeader当类选择器</H2>
+    <span class="blue">G</span>
+    <span class="red">o</span>
+    <span class="yellow font-size">o</span>
+    <span class="blue">g</span>
+    <span class="green font-size">l</span>
+    <span class="red font-size">e</span>
+</body>
+
+</html>

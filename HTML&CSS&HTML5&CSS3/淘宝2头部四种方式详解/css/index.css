@@ -1,0 +1,64 @@
+/* wrap 包裹的意思 */
+.header-wrap{
+    /* height: 35px; */
+    
+    height:35px;
+    border-bottom: 1px solid #eee;
+    background:#dddddd;
+
+}
+/* 直接固定高度35px */
+
+.header{
+	width: 1190px;
+	height: 35px;
+	background: pink; 
+	margin: 0 auto;
+}
+/* 版心 固定宽度 居中 */
+
+.header .list-l{
+	float:left;
+}
+/* 设置浮动类 是赋值给ul的 因为版心左侧和右侧 各有导航栏 ul不浮动会占据整个版心 */
+/* 不用设置宽度 浮动高宽由内容直接撑开 */
+
+
+.header .list-l li{
+	float:left;
+	/* border:1px solid blue; */
+}
+    /* 设置li为浮动  */
+
+.header .list-l li a{
+	line-height: 35px;
+	display: block;
+	/* border:1px solid red; */
+}   
+    /* 给a设置行高=父元素高度 文字居中 并且块级显示铺满撑开li */
+
+.header .list-l .one{
+	margin-left: 6px;
+}
+    /* 给第一个li 左边距 6px */
+
+.header .list-l .one a{
+	color:#f40;
+}
+    /* 给第一个li中的超链接 设置为linked为淘宝色  默认hover已经重构为淘宝色了 */
+
+.header .list-r{
+	float:right;
+}
+    /* 右浮动 */
+
+    /* 学习细节的可视化边框 */
+    .header  ul{
+        border: 1px solid rgb(84, 255, 84);
+    }
+    .header  li{
+        border: 1px solid rgb(0, 17, 255);
+    }
+    .header  a{
+        border: 1px solid rgb(255, 9, 9);
+    }

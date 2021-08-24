@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>CSS层叠性</title>
+    <style>
+     /* 
+        限定范围越小一般权重越高 
+        CSS 权重: 继承<标签选择器<类选择器<id选择器<行内式<!important
+        在CSS中,指向同一类型的不同选择器,不同的属性都可以同时生效
+        例如下列中 同名div类 中不同的属性同时生效 
+
+        相同的属性时,权重相同的情况，后 定义 会层叠(覆盖)先定义。
+
+        深层理解 sytle标签 含义是  在里面是 CSS样式代码  
+                 所以在头部中两个不同的style 标签内的CSS样式 逻辑与一个style 一致
+                外联式.css文件其实也就是CSS样式代码 逻辑和上面的一模一样 只看位置 
+
+                ！！！！样式的权重 CSS的外联样式表 无关联 只看他们的相对位置 来决定他们的先后顺序
+     */
+      #yellow{
+          color: yellow;
+          /* id选择器 权重比下面的都高 */
+      }
+
+      .green{
+          color:green;
+          /* 此处.green 类选择器比下面div 标签选择器权重大  因此哪怕先定义  也不被覆盖 */
+      }
+      .green2{
+          color:rgb(52, 255, 52);
+          /* 此处.green 类选择器比下面div 标签选择器权重大  因此哪怕先定义  也不被覆盖 */
+      }
+
+      div{
+          color:pink;
+      }
+      div{
+          color:red;
+          /* 此div标签选择器 后定义了红色 覆盖了上面的div */
+      }
+      div{
+          font-size:40px;
+      }
+      div{
+          font-weight:700;
+          font-style:italic;
+      }
+    </style>
+
+    <style>
+        /* 两个style 标签与一个style 标签的逻辑是一致的 */
+        /* link的位置就是当前CSS内嵌式的位置 */
+        .green2{
+          color:rgb(52, 255, 52);
+          /* 此处.green2 类选择器比上面div 标签选择器权重大  因此哪怕先定义  也不被覆盖 */
+      }
+    </style>
+</head>
+
+<body>
+    <div class="green2 green" id="yellow" style="color:rgb(74, 74, 121);">helloworld</div>
+</body>
+
+</html>

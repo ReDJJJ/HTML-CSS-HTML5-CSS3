@@ -1,0 +1,38 @@
+<!-- 
+    标准盒子模型: box-sizing:content-box;
+        就是以前学的盒子模型,width和height指定content的宽高,padding 和border 会在内容基础上扩大盒子尺寸
+        所以标准尺寸模型 真实content尺寸需要减去padding和border
+        
+    怪异盒子模型: box-sizing :border-box; (内减模式)
+        width和height指定包含在border内部的宽高,就是padding和boredr会挤压content的空间 总体盒子尺寸不变
+ -->
+
+ <!doctype html>
+ <html>
+     <head>
+         <meta charset="utf-8"> 
+         <title></title>
+         <STYLE>
+             .box1{
+                 width:300px;
+                 height:300px;
+                 background-color: pink;
+                 padding:20px ;
+                 border:20px solid red;
+                 box-sizing: content-box;
+             }
+             .box2{
+                 width:300px;
+                 height:300px;
+                 background-color: pink;
+                 padding:20px ;
+                 border:20px solid red;
+                 box-sizing: border-box;
+             }
+         </STYLE>
+     </head>
+     <body>
+            <div class="box1"></div>
+            <div class="box2"></div>
+     </body>
+ </html>

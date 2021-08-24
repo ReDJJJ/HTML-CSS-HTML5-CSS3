@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>
+        图标字体与伪类
+    </title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+            margin: 0 auto;
+            position: relative;
+            /* 作父亲 */
+        }
+
+        .box span {
+            background: green;
+            
+        }
+
+        /* 此处伪元素的样式 和普通元素通用  除了content */
+        .box::before {
+            content: "我是内容";
+            /* 必填项 */
+            /* 默认行内 */
+            background: red;
+            position: absolute;
+            top: 10%;
+            left: 10%;
+        }
+
+        .box::after {
+            content: "我是内容";
+            background: blue;
+            display: block;
+        }
+
+
+        .box2 {
+            width: 200px;
+            border: 1px solid #000;
+            margin: 150px auto 0px;
+            background: pink;
+        }
+
+        .box2>span {
+            background: green;
+            float: left;
+        }
+
+        .box2::after {
+            content: '';
+            display: block;
+            height: 0;
+            clear: both;
+        }
+
+        /* 
+                伪元素用处:淘宝搜索框的放大镜 相机
+                伪元素通常配合 定位为来使用
+             */
+
+        @font-face {
+            font-family: 'iconfont';
+            src: url('../font-class/font/iconfont.ttf?t=1625279966038') format('truetype');
+        }
+
+        .iconfont {
+            font-family: "iconfont" !important;
+            font-size: 16px;
+            font-style: normal;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .box3{
+            width: 200px;
+            height: 30px;
+            border: 1px solid #000;
+            margin: 150px auto 0px;
+            background: pink;
+        }
+
+        .box3::before{
+            content:'\e6ab';
+            /* 
+            重点要理解content的本质
+
+            给div class="iconfont"
+            然后给伪元素 CONTETN:"普通字体编号&#1597854"
+            是不行的
+
+            要去.font.css中去看末尾的伪元素编号
+            给div class="iconfont" 给before after 的父元素调用 iconfont
+            然后 给伪元素 content:"伪元素图标编号"
+            */
+
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 伪元素显示 -->
+    <div class="box">
+        <span>我是span</span>
+    </div>
+    <!-- 伪元素清除浮动 -->
+    <div class="box2">
+        <span>我是span</span>
+        <span>我是span</span>
+    </div>
+    <!-- 伪元素使用图标字体 -->
+    <div class="box3 iconfont">
+        <!-- 让子元素继承 iconfont类的文字设置 引用一个iconfont类的文字 -->
+    </div>
+</body>
+
+</html>

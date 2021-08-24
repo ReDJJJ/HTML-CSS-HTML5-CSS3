@@ -1,0 +1,55 @@
+<!-- 要求
+     默认状态下： 宽100px 高30px 背景色yellow 字体green 文本水平垂直居中 无下划线
+     鼠标移入：背景色yellowgreen  字体orange 下划线
+
+-->
+
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta char="UTF-8">
+    <title>a标签导航</title>
+    <style>
+        .nav{
+            text-align: center;
+            /* 
+                此项是设置整个a标签居中 整个a标签居中需要其父标签设置居中，并且a标签中的导航也会居中继承
+                居中也是关于文本属性,因此a是可以继承的。CSS中所有文本属性都是可以继承的 除了特殊情况
+             */
+        }
+        .nav a{
+            width:100px;
+            height:30px;
+            color:green;
+            text-align: center; 
+            /* 设置a标签里面的导航水平居中 */
+            line-height: 30px;
+            /* 设置a标签垂直居中 通过行高 */
+            
+            text-decoration: none;
+            /* a标签是行内元素 行内元素设置宽高 不起作用 所以要配合以下的display 改变显示模式*/
+            display: inline-block;
+            background:pink url(./images/PaiDaXin.jpg) no-repeat -100px -300px;
+        }
+        .nav a:hover{
+            text-decoration: underline;
+            color:greenyellow;
+            background:pink;
+            /* 此处background 层叠了 上层的background */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <a href="##">导航1</a>
+        <a href="##">导航2</a>
+        <a href="##">导航3</a>
+        <a href="##">导航4</a>
+        <a href="##">导航5</a>
+        <a href="##">导航6</a>
+    </div>
+</body>
+
+</html>

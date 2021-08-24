@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>元素隐藏和显示</title>
+    <style>
+        .box1 {
+            display: none;
+            
+            /* 
+                不占地隐藏 
+                 */
+
+            /* 
+                 visibility: hidden;
+                 占地隐藏
+                   */
+            /* 
+                display:block;
+                visibility:visible; 
+                显示的两种方法
+                */
+        }
+
+        .box2 {
+            visibility: hidden;
+           
+            /* 
+                不占地隐藏 
+                 */
+
+            /* 
+                 visibility: hidden;
+                 占地隐藏
+                   */
+            /* 
+                display:block;
+                visibility:visible; 
+                显示的两种方法
+                */
+        }
+
+        div {
+            width: 200px;
+            height: 200px;
+            background: rgb(236, 0, 39);
+            margin: 10px 0;
+        }
+
+        .wrap {
+            width: 400px;
+            height: 900px;
+            float: left;
+            margin-left: 20px;
+            background: rgb(252, 108, 108);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div>1111</div>
+        <div class="box1">2222</div>
+        <div>3333</div>
+    </div>
+
+    <div class="wrap">
+        <div>1111</div>
+        <div class="box2">2222</div>
+        <div>3333</div>
+    </div>
+
+</body>
+
+</html>

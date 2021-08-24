@@ -1,0 +1,137 @@
+<!-- 
+    列表
+    固定定位 
+    过渡内容
+    图标字体/老师使用的是背景图
+ -->
+
+ <!-- 
+     个人遇到的问题:后弹出的模块(购物车) 会压在原来的(购物车图标)模组上 如何解决这个问题
+     把弹出模块调成-1层级 让其隐藏在背后即可.
+     老师的解决方案: 压 ！ 多层定位 遮罩效果！！ 让图片也定位起来 然后图片的定位比购物车模块更后面写 来覆盖
+
+     购物车模组 有两种做法 1调整宽度 2调整位置
+  -->
+
+ <!doctype html>
+ <html>
+     <head>
+         <meta charset="utf-8"> 
+         <title></title>
+         <style>
+             *{margin:0;padding:0;list-style: none;}
+             body{
+                 height:3000px;
+             }
+            .box{
+                width: 40px;
+                height:140px;
+                position: fixed;
+                top:50%;
+                right:0px;
+                transform:translate(0,-50%);
+            }
+            .box>li{
+                width: 40px;
+                height:40px;
+                margin-bottom:10px;
+                background: #333;
+                cursor: pointer;
+                position: relative;
+
+
+                border-radius: 5px 0px 0px 5px / 5px 0px 0px 5px;
+            }
+            .box>li img{
+                /* 此处照片盒子居中可以用定位 也可以用手算maring 添加填充类方法 */
+                /* margin:10px 0px 0px 10px; 
+                float:left; */
+                /* 浮动清除外边距margin塌陷 也可以使用定位居中绕开塌陷问题 */
+                width: 20px;
+
+                /* 利用三种定位来图片居中 */
+                display:block;
+                position:absolute;
+                /* top:0;left:0;right:0;bottom:0;margin:auto; */
+                top:50%;left:50%;
+                transform:translate(-50%,-50%);
+                /* margin-left:-10px;margin-top:-10px; */
+            }
+            .box>li:last-of-type{
+                margin-bottom:15px;
+            }
+            .box>li>span{
+                height:40px;
+                width:0px;
+                /* 宽度变化模式 */
+                display:block;
+                font:normal 400 12px/40px "宋体";
+                text-align:center;
+                color:white;
+                letter-spacing:2px; /* 字间距 */
+                border-radius:5px 0px 0px 5px;
+                /* 
+                    切换有圆角 可以令弹出模组 不完全显示来 补  补的数是圆角距离数
+                */
+                background:#333;
+                position:absolute;
+                z-index: -1;
+              
+                 /* 两种大方式 1通过移动(left margin-left transform translate等)显示 2通过调整宽度显示   */
+                 /* width:80px; */
+                /* top:0;left:0; */
+                /* transform:translate(0,0);
+                transition:background,transform 0.3s 0s linear; */
+                transition:width 0.3s 0s linear;
+                right:0px;
+                top:0px;
+                /* 为什么此处宽度不行 ？？ 测试发现 transform 写错了可能 */
+            }
+            li:hover{
+                transition:background 0.3s 0s  linear;
+                /* 鼠标移入时候 有过渡 移出没有过渡 */
+                background: darkred;
+                border-radius:0px;
+                /* 边框圆角是瞬间触发的 没有包含在transition里面 */
+            }
+            li:hover span{
+                /* transform:translate(-100%,0); */
+                /* transition:background 0.3s 0s linear; */
+                /* 此处复合属性层叠掉了 默认状态的属性 现在只有颜色有过渡了 */
+                
+                transition-property:background,width;
+                transition-duration:2s;
+                transition-timing-function:ease-in-out;
+                background: darkred;
+                width:125px;
+                /* 此处宽度需要加上 购物车图标模组的宽度 */
+            }
+
+        </style>
+     </head>
+     <body>
+         <ul class="box">
+            <li>
+                <span>购物车</span>
+                <img src="../images/i1.png" alt="">
+            </li>
+            <li>
+                <span>关注</span>
+                <img src="../images/i2.png" alt="">
+            </li>
+            <li>
+                <span>足迹</span>
+                <img src="../images/i3.png" alt="">
+            </li>
+            
+         </ul>
+     </body>
+ </html>
+ <!-- 
+     对于过渡的新理解 : 默认状态下添加 transition 是其他状态切换会默认状态的过渡 
+                       应该说 所有状态下添加transition 是其他状态切换回 本状态的过渡 
+                       hover状态下的transition 就是默认状态切换到hover 的过渡
+
+                       每个状态各管各的 都是彼此的路程 
+                       如果状态没写 就于默认状态的一致呗
+-->

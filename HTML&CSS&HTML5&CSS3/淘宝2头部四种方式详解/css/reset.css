@@ -1,0 +1,74 @@
+/* 
+    下面为基于淘宝的 基础设置 
+    放在一个公共的reset.css 给与淘宝所有网站引用 减少每个网站重复写造成的冗余 
+*/
+body,h1,h2,h3,h4,h5,h6,div,p,dl,ul,ol,li{  
+    margin: 0;
+    padding: 0;
+}
+
+ul,ol,li{
+    list-style-type: none;
+}
+/*列表样式清除为none */
+
+h1,h2,h3,h4,h5,h6{
+    font-size: 100%;
+    /* 标题默认设置了font-size：2em 1.25em .... */
+    /* 100% 为当前字号的100% 大小  将标签语义化 大小和倾斜不起作用 只起到标签的语义即可 */
+}
+
+i,em{
+    font-style:normal;
+    /* 取消两个标签的倾斜,因为可用标签太少了 利用这两个普通化后的标签来标定 特定字符 */
+}
+
+a,s,del,u,ins{
+    text-decoration: none;
+}
+
+input{
+    /* 去除鼠标移动到input栏上的 轮廓线 */
+    outline:none;
+}
+
+table,td,th{
+    border: 1px solid #000; 
+    /* cellspacing: 0; */
+    /* 上面一项是在html给table设置的  令单元格与单元格与表格边框贴贴 */
+    /* table 表格默认是没有像素的 因此给他设置像素 利用border复合属性就行 */
+    border-spacing: none; 
+    border-collapse: collapse; 
+    /* 在CSS中 设置边框距离为0  border-sapcing spacing:间隔 */
+    /* 设置为边框距离为0px  两个为1px贴贴为2px像素的边框  利用collapse 重合为1px   */
+}
+img{
+    display:block;
+    /* 取消底部4px留白  */
+}
+.clearfix:after{
+    clear:both;
+    display:block;
+    content:"";
+    height:0;
+}
+
+
+/* 工作中 以上为基础设置 以下为 基于t淘宝网站特定风格设置 不用学  每个网站的设计理念不同  */
+body{
+    font:normal 400 12px/1.5 tahoma,arial,\5b8b\4f53;
+    /* 字体行高后面是 字体列表 */
+    background-color: #f1f1f1 ;
+    color:#6c6c6c; 
+}
+
+a{
+    color:#6c6c6c;
+    /* a标签的字体颜色需要单独设置 */
+}
+a:hover{
+    color:#f40; 
+    /* 设置成为默认淘宝色 */
+}
+
+/* 以上都是标签选择器 都是最弟弟的底层优先级 配合顺序和类名一下子就 层叠掉了 */

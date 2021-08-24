@@ -1,0 +1,46 @@
+<!-- 
+    动画的步数steps()
+    动画的步数用以 给动画中的每一个关键帧区间 添加步数  个人理解:就是给每个动画的每个区间规定 帧数 
+
+    语法:步数属于动画形式
+    animation-timing-function:steps(4);
+ -->
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"> 
+        <title></title>
+        <style>
+            .box{
+                width:200px;
+                height:20px;
+                margin:300px auto;
+                background: pink;
+
+               
+                animation:donghua 2s 0s linear infinite alternate;
+                /* 规定步数 */
+                animation-timing-function:steps(10);
+            }
+            .box:hover{
+                animation-play-state:paused;
+            }
+            @keyframes donghua{
+                0%{
+                   transform:rotate(0deg);
+                }
+                50%{
+                    transform:rotate(180deg);
+                }
+                100%{
+                    transform:rotate(270deg);
+                }
+            }
+
+        </style>
+    </head>
+    
+    <body>
+        <div class="box">左侧</div>
+    </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>overflow属性</title>
+        <style>
+            .box1{
+                width:200px;
+                height:100px;
+                padding:5px;
+                margin:10px;
+                border:2px solid pink;
+                background:red;
+                font:normal 400 20px/30px arial;
+                /* word-break:break-all;
+                 强制换行 
+                 强制不换行 
+                white-space: nowrap; */
+                overflow:hidden;
+                
+
+                /* 
+                    overflow:溢出 控制内容溢出盒子的长宽的显示模式;
+                    hidden:溢出内容隐藏 可以用于消除外边距塌陷
+                    scroll:溢出出现滚动条
+                 */
+
+            }
+            .box2{
+                width:200px;
+                height:100px;
+                padding:5px;
+                margin:10px;
+                border:2px solid pink;
+                background:red;
+                font:normal 400 20px/30px arial;
+                /* word-break:break-all;
+                 强制换行 
+                 强制不换行 
+                white-space: nowrap; */
+                overflow:scroll;
+
+                /* 
+                    overflow:溢出 控制内容溢出盒子的长宽的显示模式;
+
+                    hidden:溢出内容隐藏 可以用于消除外边距塌陷
+                    scroll:scroll意思为溢出  强制出现滚动条 哪怕没有溢出
+                    auto:溢出出现滚动条 不溢出不出现滚动条 自动判断
+
+                 */
+
+            }
+        </style>
+    </head>
+    <body>
+            <div class="box1">
+                <p>
+                    overflow:hidden 哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+                </p>
+            </div>
+            <div class="box2">
+                <p>
+                    overflow:scroll 哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+            </div>
+    </body>
+</html>

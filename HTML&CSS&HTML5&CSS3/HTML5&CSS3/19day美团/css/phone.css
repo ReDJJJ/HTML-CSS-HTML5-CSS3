@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+@media only all and (max-width: 767px) {
+  .nav-wrap {
+    width: 100%;
+    height: 48px;
+  }
+  .topnav {
+    height: 100%;
+    background: black;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .topnav span {
+    font-size: 32px;
+    color: aliceblue;
+  }
+  .topnav h1 {
+    width: 120px;
+    height: 40px;
+    background: url(../img/meitu.png) 0 5px;
+    background-size: 400px 400px;
+  }
+  .topnav ul,
+  .topnav span:nth-of-type(2) {
+    display: none;
+  }
+  .topnav span:hover {
+    color: gray;
+  }
+}

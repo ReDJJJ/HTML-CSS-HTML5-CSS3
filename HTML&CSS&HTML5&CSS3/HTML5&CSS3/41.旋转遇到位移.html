@@ -1,0 +1,45 @@
+<!-- 
+    旋转rotateXYZ和位移translate 都是变换 transform 的属性
+    所以
+    transform:rotateXYZ(50%,center)
+    transform:translate(100%,100%) 
+    下面的转换位移 会层叠 上面的转换旋转 (复合属性)
+    因此要一起写 中间不用逗号隔开( 此前的尝试 用了 逗号 被trsition误导了)
+    
+        注意顺序 一般先写 位移 再写旋转 
+        因为先写旋转 ,那么元素的轴就会自行发生改变 那么此时的位移就不是 默认位移定位里面的坐标了  而是相对轴变换后的位移坐标
+
+    transform:translate(100px,200px) rotateXYZ(Xdeg) 都是相对自身的位移旋转
+ --> 
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"> 
+        <title></title>
+        <style>
+            div{
+                width: 600px;
+                height:600px;
+                border: 1px solid black;
+                margin:100px auto;
+            }
+            span{
+                display: block;
+                width:100px;
+                height:100px;
+                background: red;
+                transition:all 1s;
+            }
+            div:hover span{
+                /* 先写旋转后写位移 */
+                /* transform:rotate(90deg) translate(300px,200px) */
+                /* 先写位移后写旋转 */
+                transform:translate(100px,0px) rotateZ(60deg) ;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div><span></span></div>
+    </body>
+</html>

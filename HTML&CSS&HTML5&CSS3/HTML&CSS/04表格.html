@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>表格</title>
+    </head>
+<body>
+    <h1>以下是表格 标签table的演示</h1>
+    <table border="1">
+        <tr>
+            <th>th</th>
+            <th>table header</th>
+            <th>th</th>
+        </tr>
+        <tr>
+            <td>table data</td>
+            <td>行数由tr标签决定</td>
+            <td>列数由表头或者单元格数量决定</td>
+        </tr> 
+    </table>
+        <table border="1" style="width:800px; margin:0 auto">
+            <tr>
+                <th>th</th>
+                <th>table header</th>
+                <th>th</th>
+            </tr>
+            <tr>
+                <td>table data</td>
+                <td>行数由tr标签决定</td>
+                <td>列数由表头或者单元格数量决定</td>
+            </tr>
+        </table>
+            <table border="1" width="800">
+                <tr>
+                    <th>th</th>
+                    <th>table header</th>
+                    <th>th</th>
+                </tr>
+                <tr align="center">
+                    <td>table data</td>
+                    <td>行数由tr标签决定</td>
+                    <td>列数由表头或者单元格数量决定</td>
+                </tr>
+            </table>
+                <table border="1" cellspacing="0">
+                    <tr>
+                        <th>th</th>
+                        <th>table header</th>
+                        <th>th</th>
+                    </tr>
+                    <tr>
+                        <td>table data</td>
+                        <td>行数由tr标签决定</td>
+                        <td>列数由表头或者单元格数量决定</td>
+                    </tr>
+                </table>
+
+                <table border="1">
+                    <caption>caption表格标题</caption>
+                    <tr>
+                        <th>th</th>
+                        <th>table header</th>
+                        <th>th</th>
+                    </tr>
+                    <tr>
+                        <td>table data</td>
+                        <td>行数由tr标签决定</td>
+                        <td>列数由表头或者单元格数量决定</td>
+                    </tr>
+                </table>
+
+<!--
+    表格:表格用标签table 包围  详细间表格.html
+                逻辑:一对tr标签代表一个表格行，tr标签里面 包容 th td  一个th td分别代表标题和表格项内容 列由一对tr里面包含多少 标题或表格项决定
+                表格和列表的功能在实际网页中有些许重复 
+                <table>
+                    <caption>标题</caption>
+                    <tr>
+                        th td
+                    </tr>
+                      <tr>
+                        th td
+                    </tr>
+                </talbe>
+
+            属性:  width height 宽度高度 默认单位px  
+                   边框border="x" xpx粗细的边框  表格边框由两部分组成，表格外部的边框和单元格的边框。
+                   对于td 居中 align="center" right left
+                   单元格之间的间距，由于单元格也拥有自己的边框，所以想要表格外部的边框和单元格与单元格的边框重合 ，使用cellspacing="0" 单元格边距为0 1px的边框重合成2px粗细
+
+    重点细节 如果要针对单元格居中 利用属性align="center"  并且此属性要给每一行 tr 或者细分到td th
+     假若给了table 标签 属性align="center" 则会发生整个表格table 网页居中 
+     思考 多重嵌套的时刻需要考虑属性针对的对象是谁 不然会导致意外。
+-->
+</body>
+</html>

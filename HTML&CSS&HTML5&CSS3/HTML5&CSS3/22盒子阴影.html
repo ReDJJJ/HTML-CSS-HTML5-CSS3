@@ -1,0 +1,43 @@
+<!-- 盒子阴影 box-shadow 比 text-shadow 多了一个 扩展值 和 向内阴影inset的 属性值 -->
+<!-- shadow 其实就是 层叠了两份字体 或者 盒子 通过偏移量营造 影子的感觉 -->
+
+
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"> 
+        <title></title>
+        <style>
+            .box{
+                text-align: center;
+                width:200px;
+                height:200px;
+                position:fixed;
+                /* 固定定位需要 指定宽度 高度  */
+                left:50%;
+                top:50%;
+                margin-left:-100px;
+                margin-top:-100px;
+                
+                background: pink;
+                box-shadow: 0px 0px 0px 0px red inset,4px 4px 0px 1px lightsalmon,-4px -4px 0px 0px lightskyblue;
+                
+                /* 分别为 水平偏移量 垂直偏移量 模糊量 拓展量(阴影面积大小量) inset为内部阴影 */
+                /* 注意分清 字体阴影 盒子阴影 和 边框阴影的区别  */
+            }
+            .ball{
+                margin: 0 auto;
+                width:300px;
+                height:300px;
+                border-radius: 50%;
+                box-shadow: -50px -50px 100px 5px #000 inset;
+                /* 模糊量可以大于显露出来的阴影面积量  */
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div class="box">CSS制作球体<br> 制作立体层叠按钮 </div>
+        <div class="ball"></div>
+    </body>
+</html>

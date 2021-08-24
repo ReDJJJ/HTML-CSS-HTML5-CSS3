@@ -1,0 +1,102 @@
+<!-- 
+    媒体查询:响应式布局常用 媒体查询
+    媒体查询功能 : 可根据 媒体类型 媒体的某些条件 来区分同一组件的不同样式
+
+    语法
+    @media only 媒体类型 and (条件1) and (条件2) and (条件3) {
+        CSS样式内容
+    }
+    @media 定义媒体查询 
+    and 多个条件的交集 
+    only 该媒体查询语句只在选定的媒体类型中生效  默认是all
+
+    常用 
+    only+
+    screen         计算机屏幕（默认值）    
+    tty            电传打字机以及使用等宽字符网格的类似媒介
+    tv             电视类型设备（低分辨率、有限的屏幕翻滚能力）
+    projection     放映机
+    handheld       手持设备（小屏幕、有限的带宽）
+    print          打印预览模式 / 打印页
+    braille        盲人用点字法反馈设备
+    aural          语音合成器
+    all            适合所有设备
+
+    常用条件
+     width | min-width | max-width
+     height | min-height | max-height
+     device-width | min-device-width | max-device-width
+     device-height | min-device-height | max-device-height
+     aspect-ratio | min-aspect-ratio | max-aspect-ratio
+     device-aspect-ratio | min-device-aspect-ratio | max-device-aspect-ratio
+     color | min-color | max-color
+     color-index | min-color-index | max-color-index
+     monochrome | min-monochrome | max-monochrome
+     resolution | min-resolution | max-resolution
+     scan | grid
+
+     orientation: landscape 横屏  portrait 竖屏
+
+    注意: 每个and 前后必须有空格 这是语法要求 
+         并且媒体查询类型也是CSS内容,也要考虑CSS的层叠性 
+         通常情况下,先写默认情况,再写媒体查询情况
+
+ -->
+
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            margin: 50px auto;
+            background: pink;
+            transition:all 1s 0.1s linear;
+        }
+
+        /* 显示淡蓝的最小宽度是600px 也就是当宽度小于600px 时候 包含的样式不起作用  */
+        /* @media (min-width:600px) {
+            div {
+                background: lightblue;
+            }
+        } */
+
+        /* 该媒体语句  显示淡蓝的设备必须是打印机 且 最小宽度不得小于600px  所以可以打印机一套CSS TV一套CSS ...  */
+        /* @media only print and (min-width:600px) {
+            div {
+                background: lightblue;
+            }
+        } */
+
+        /* 该媒体语句  只在大于600px 小于 800px 的终端屏幕设备上 有效*/
+        /* @media only screen and (min-width:600px) and (max-width:1300px) {
+            div{
+                transform: rotatez(145deg);
+                transition:all 1s 0.1s linear;
+                background: lightblue;
+            }
+        } */
+        /*该媒体语句 只在竖屏状态 且大于等于300px 宽度的屏幕才 生效 */
+        @media only all and (orientation:portrait) and (min-width:300px){
+            div{
+                transform: rotatez(145deg);
+                background: lightblue;
+            }
+        }
+       
+
+    </style>
+</head>
+
+<body>
+    <div class="box">
+
+    </div>
+
+</body>
+
+</html>

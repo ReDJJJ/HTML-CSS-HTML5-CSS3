@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>新浪导航</title>
+    <style>
+        .nav{
+            
+            height:41px;
+            border-top:3px solid #ff8500 ;
+            border-bottom:1px solid #fcfcfc ;
+            background-color:rgb(241, 241, 241);
+            padding-left:100px;
+        }
+        .nav a{
+            display: inline-block;
+            
+            /*
+             一定要先设置 显示模式 行内块模式
+             再设置宽高
+             inline行内模式宽高不起作用
+             高度对齐div
+             */
+            /* text-align: center; */
+            line-height: 41px;
+        
+            /* 文字居中与a标签 此时a标签不是由内容撑开了 */
+            /* 通过设置行高与div高度一致 来决定a标签内容的垂直位置 ！！本人知识盲点 */
+            text-decoration: none;
+            font-size: 16px;
+            padding:0px 8px;
+            color:#4C4C4C;
+            background-color:pink;  
+        }
+        .nav a:hover{
+            color:#ff8500;
+            background-color:#cfcfcf;
+        }
+        .htkml{
+            width: 60px;
+            height: 80px
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="https://www.baidu.com.cn" target="_blank">百度</a>
+        <a href="https://www.baidu.com.cn" target="_blank">百度网站</a>
+        <a href="https://www.baidu.com.cn" target="_blank">百度网址</a>
+        <a href="##">超级长的标签-------------标签</a>
+    </div>
+</body>
+</html>
+
+<!-- 布局时不会继承的 继承只会只会只会 继承文字样式！！！！！！ -->

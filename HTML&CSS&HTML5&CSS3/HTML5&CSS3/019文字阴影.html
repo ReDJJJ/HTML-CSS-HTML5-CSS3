@@ -1,0 +1,52 @@
+<!doctype html>
+ <html>
+     <head>
+         <meta charset="utf-8"> 
+         <title></title>
+         <style>
+             h1{
+                text-align: center;
+                font-size:40px;
+                text-shadow: 5px -5px 1px rgb(239 119 250), 8px 4px 1px rgb(128 192 221);
+             }
+             h2{
+                text-align: center;
+                font-size:70px;
+                /* 可以利用 文字阴影实现 浮雕文字的效果 
+                   浮雕文字效果 : 字体白 右下偏移阴影黑 
+                */
+                text-shadow: 2px 2px 1px rgb(0, 0, 0);
+                color:#FFF;
+             }
+             h3{
+                 background:#ccc;
+                 text-align: center;
+                 font-size:70px;
+                 color:#ccc;
+                 text-shadow: -1px -1px 0px #000 , 1px 1px 0px #fff;
+             }
+             h3:last-of-type{
+                 background:#ccc;
+                 text-align: center;
+                 font-size:70px;
+                 color:#ccc;
+                 text-shadow: 1px 1px 0px #000 , -1px -1px 0px #fff;
+             }
+         </style>
+     </head>
+     
+     <body>
+         <h1>文字阴影效果text-shadow属性</h1>
+         <h1>4个值域 水平偏移量 垂直偏移量 模糊量 颜色</h1>
+         <h2>RedJJJ RedJJJ</h2>
+         <h3>两组对角的阴影形成 文字凹凸效果</h3>
+         <h3>两组对角的阴影形成 文字凹凸效果</h3>
+         <!-- 
+            text-shadow 属性为文字阴影属性 文字阴影属性拥有四个值
+            分为为 水平偏移量 垂直偏移量  模糊量 和颜色
+            偏移量正负值 方向和以往一致  正 右 下  负 左 上
+
+            ！！shadow可以拥有多组 阴影(多重文字)  之间用 逗号隔开即可
+          -->
+     </body>
+ </html>

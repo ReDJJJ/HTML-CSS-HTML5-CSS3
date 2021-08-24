@@ -1,0 +1,41 @@
+<!doctype html>
+ <html>
+     <head>
+        <meta charset="utf-8">
+        <title>
+            text-align:center
+        </title>
+        <style>
+            /* 
+             text-align:center 居中元素中的文本以及修饰的行内元素 !!!important 还有行内块元素(表单除form img)
+             //有关于文字的内容都会被子元素继承
+             关于文本居中的设置会被子元素继承
+             */
+
+             .one{
+                 background-color: pink;
+                 font-size: 50px;
+                 text-align:center;
+                 /* 该类选择器中的所有文本居中  */
+             }
+             
+
+             em{
+                 text-align: center;
+                 font-size:40px;
+                 /* 设置em标签中的文本居中 */
+             }
+        </style>
+     </head>
+     <body>
+            <div class="one">
+                <span>文本</span><b>与</b><i>行内元素</i>
+                <br>
+                会被父元素的text-align:center影响居中<br>
+                行内块元素也会影响<br>
+                <img src="./images/PaiDaXin.jpg" alt="error">
+                
+            </div>
+            <em>行内元素的文本本身就对于行内标签来说居中 text—align : center text-align给行内元素自身设置无意义,但是可以让行内元素整个居中</em>
+     </body>
+ </html>

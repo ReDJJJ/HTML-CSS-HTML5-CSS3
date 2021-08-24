@@ -1,0 +1,100 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "22391266",
+      "name": "任务,打印机",
+      "font_class": "renwu",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "22391267",
+      "name": "群聊天,会议",
+      "font_class": "qunliaotian",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "22391269",
+      "name": "数据分析",
+      "font_class": "shujufenxi",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "22391270",
+      "name": "文件管理",
+      "font_class": "wenjianguanli",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
+      "icon_id": "22391273",
+      "name": "项目升级",
+      "font_class": "xiangmushengji",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    },
+    {
+      "icon_id": "22394315",
+      "name": "通告消息",
+      "font_class": "tonggaoxiaoxi",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
+      "icon_id": "22394686",
+      "name": "我的/点击",
+      "font_class": "dianji",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    },
+    {
+      "icon_id": "22396298",
+      "name": "我的看板",
+      "font_class": "wodekanban",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    },
+    {
+      "icon_id": "22545292",
+      "name": "Down",
+      "font_class": "Other-2",
+      "unicode": "e635",
+      "unicode_decimal": 58933
+    },
+    {
+      "icon_id": "22545293",
+      "name": "Facebook",
+      "font_class": "Other-1",
+      "unicode": "e636",
+      "unicode_decimal": 58934
+    },
+    {
+      "icon_id": "22545307",
+      "name": "Plus",
+      "font_class": "Other-12",
+      "unicode": "e639",
+      "unicode_decimal": 58937
+    },
+    {
+      "icon_id": "22545310",
+      "name": "Minus",
+      "font_class": "Other-18",
+      "unicode": "e63c",
+      "unicode_decimal": 58940
+    },
+    {
+      "icon_id": "22545313",
+      "name": "icon-kfckfc",
+      "font_class": "Other-22",
+      "unicode": "e63d",
+      "unicode_decimal": 58941
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+<!-- 学习完 transform 转换中的translate位移 和rotate旋转  -->
+<!-- 来更改旋转中心点 了xdm -->
+<!-- 旋转其实可以旋转很多元素啊！！那么元素在也不是横平竖直了 -->
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"> 
+        <title></title>
+        <style>
+            div{
+                width:250px;
+                height:305px;
+                border:1px solid black;
+                margin:200px auto;
+            }
+            div img{
+                width:250px;
+                display:block;
+                transform-origin:left 50%;
+                /* transform-origin:15px 15px; */
+                /* 一般改变中心点放在img */
+            }
+            div img:hover{
+                transform:rotate(-3600deg);
+                transition:all 1s 0s linear;
+                
+                /* 设置旋转中心点  */
+                /* 旋转点是参照旋转点的本身而言 */
+                /* transform-origin: 水平 垂直  可设置 实数值 xpx 百分比 x%  和left right center(默认值)  top bottom center*/
+                /* 过渡属性放在了 hvoer状态 则来时 会有过渡 一旦不是hover状态 则看默认状态 默认状态无过渡设置 直接变回默认设置 */
+                /* 老师的版本: 
+                transform-origin可以放在img:hover状态下起作用 (我的不定时可以)
+                但是会出现问题,就是默认状态下旋转轴 在图片中央 ,切换到hover时旋转轴才发生变化 ,假若还有transition过渡,那么中心轴也会发生过渡的,那么过渡过程中旋转轴一直在变化(由默认状体旋转轴向hover渐近)
+                所以一般transform-origin:改变中心设置一般在默认状态就改变了
+                
+                另一个细节:为什么要用div包裹图片来进行旋转
+                因为img是实体,旋转时,img会旋转脱离鼠标，结果就是转到一般就又回来了
+                所以用div罩住img的面积 当鼠标hover 固定不动的div的时候 就可以了
+                */
+            }
+           
+            nav img{
+                margin:0 auto;
+                width:250px;
+                display:block;
+                transform-origin:left top;
+                transform:rotate(-30deg);
+                transition:all 10s;
+                /* transform-origin:15px 15px; */
+                /* 一般改变中心点放在img */
+            }
+            nav img:hover{
+               /* 转到一半 img脱离鼠标 就回去了 */
+                transform:rotate(600deg);
+            }
+            section{
+                width:100px;
+                height:100px;
+                margin:200px auto;
+                border:1px solid rgb(253, 5, 5);
+                transform:rotate(-30deg);
+            }
+        </style>
+    </head>
+    
+    <body>
+            <div><img src="../images/PaiDaXin.jpg" alt=""></div>
+            <nav><img src="../images/PaiDaXin.jpg" alt=""></nav>
+            <section></section>
+    </body>
+</html>

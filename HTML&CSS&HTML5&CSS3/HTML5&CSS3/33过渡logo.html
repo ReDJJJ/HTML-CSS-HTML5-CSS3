@@ -1,0 +1,118 @@
+<!-- 
+    定位别样用处:
+    绝对定位 的定位参考点 也是过渡起始 或者 动画起始的参考点
+
+    本人知识误区:以为定位元素都是左上角跟参考点贴贴  起始是对应参考点的对应角贴贴
+    绝对定位或者固定定位的参考点  当参考点是左上的时候,定位元素的左上角与其对齐 在根据偏移量 偏移
+                                            当参考点是右下的时候，定位元素的右下角与其贴贴 再根据偏移量 偏移
+ -->
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"> 
+        <title></title>
+        <style>
+            /* 有去有回 加在默认状态下  */
+            .box{
+                width:300px;
+                height:80px;
+                margin:50px auto ;
+                background: yellowgreen;
+    
+                transition-property:background;
+                transition-duration :1s;
+                transition-timing-function:ease-in-out;
+                /* overflow:hidden; */
+                position: relative;
+            }
+
+            span[class="redjjj"]{
+                display: block;
+                font:normal 700 40px/80px "arial";
+                color:#fff;
+                text-align:center;
+                transition:all 1s 0s ease-in-out;
+            }
+
+            .box:hover{
+                background: #fff;
+            }
+
+            .box:hover>span{
+                color:yellowgreen;
+            }
+
+            .box::before,.box::after{
+                content:"";
+                /* display:block; */
+                /* 设置了定位 这个显示模式就没有用了  */
+                /* 伪元素 content必填项 默认行内显示模式 */
+                width:0%;
+                height:10px;
+                position: absolute;
+                top: 0;
+                left:0;
+                /* 设置参考点 也是设置过渡的起始点 */
+                transition: background,width 1s 0s ease-in-out;
+                /* 多个属性之间用 逗号隔开  */
+                background: yellowgreen;
+            }
+            .box::after{
+                top:auto; left:auto;
+                /* 重置 定位 为下面的新定位做准备 */
+                bottom:0px;
+                right:0;
+            }
+            .box:hover::before,.box:hover::after{
+                width:100%;    
+            }
+
+
+
+
+            /* .box::before,.box::after{
+                content:"";
+                display: block;
+                background: yellowgreen;
+                width:0%;
+                height:10px;
+                transition:width 1.5s 0s ease-in-out;
+            }
+
+            .box::after{
+                width:100%;
+                margin-left:300px;
+                transition:margin-left 1.5s 0s ease-in-out;
+            }
+
+
+            .box:hover::before{
+                content:"";
+                display: block;
+                background: yellowgreen;
+                width: 100%;
+                height:10px;
+            }
+
+            .box:hover::after{
+                margin-left:0px;
+            } */
+            /* 以上注释掉 是本人解决 过渡起点问题: 
+               上下两条横幅视觉不一样 一个是从左到右宽度变长 另一个是从右到左
+               个人解决方案 
+               上层的横条 从左到右 是宽度的变化
+               从右到左是 一个固定宽度横条 在overflow hidden的条件下 由右到左的进入盒子内部显示 
+             */
+
+            
+
+
+        </style>
+    </head>
+    
+    <body>
+        <div class="box">
+            <span class="redjjj">RedJJJ</span>
+        </div>
+    </body>
+</html>

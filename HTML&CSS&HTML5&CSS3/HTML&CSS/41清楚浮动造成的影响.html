@@ -1,0 +1,109 @@
+<!-- 先做层 后做横向布局 -->
+<!-- 利用div 盒子包括 浮动元素  来防止浮动元素覆盖下面的 元素 -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>helloworld</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .one {
+            width: 100px;
+            height: 100px;
+            background: red;
+            float: left;
+        }
+
+        .two {
+            width: 200px;
+            height: 200px;
+            background: rgb(91, 163, 106);
+            float: left;
+        }
+
+        .three {
+            width: 300px;
+            height: 300px;
+            background: rgb(104, 73, 124);
+            float: left;
+        }
+
+        .header{
+            width:1000px;
+            height: 300px;
+            /* 此处不能自动高度 否则div.header 会没有高度
+                因为div.header的子元素都是浮动元素 ,浮动与z轴底层, 会导致div.header认为没有内容  高度降至为0px
+                
+                清除浮动造成的影响:
+                            1给父元素设置固定高度
+                            但是缺点暴露: 在宠物列表中 div是不设置高度的 由li 的数量撑开高度 达到自适应
+                             此处只能设置固定高度 ,不方便以后内容的 修改
+                            2在浮动元素后最后添加一个块元素 ,设置clear : both ; 
+                            相对完美的解决方案: 但是div多加了一个标签
+                            3给父元素添加 overflow:hidden;
+                            相对完美 :但是添加了溢出隐藏功能 那么溢出的内容就不见了 没有滚动条滚动内容了 特别是下拉菜单  下拉菜单很容易溢出父盒子 
+                                      假如用此方法,下拉菜单selcet就没了
+                            4利用伪元素
+                            .clearfix:after{
+                                clear:both;
+                                display:block;
+                                content:"";
+                            }
+                            5父元素设置浮动 (根据场景而定 添加浮动就有可能产生意想不到的位移)
+
+                clear:
+                    用以结束上部分元素的浮动状态,我不让你踩我头了 我直接接着你投影后面排列
+            */
+            border:1px dashed rgb(245, 187, 187);
+            overflow:hidden;
+        }
+        .underheader{
+            width:1000px;
+            height: 300px;
+            background:red;
+        }
+        .clear{
+            clear:both;
+            /* 不设宽高  只为取消浮动状态 并且可以根据浮动内容的动态自适应 */
+        }
+
+        .clearfix:after{
+            clear:both;
+            display:block;
+            content:"";
+            height:0;
+        }
+        /* 伪元素 伪类   */
+
+    </style>
+</head>
+
+<body>
+    关于浮动的网站
+    <a href="https://blog.csdn.net/weixin_33912453/article/details/85926281?utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7Edefault-2.control&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7Edefault-2.control">
+    很棒的解释</a>
+   <div class="header">
+        <div class="one"></div>
+        <div class="two"></div>
+        <div class="three"></div>
+        <div class="clear"></div>
+    </div>
+    <div  class="underheader "style="background:red;" >
+    </div>
+    <br><br><br>
+    <div class="clearfix">
+        <div class="one"></div>
+        <div class="two"></div>
+        <div class="three"></div>
+    </div>
+    <div  class="underheader "style="background:red;" >
+    </div>
+</body>
+
+</html>

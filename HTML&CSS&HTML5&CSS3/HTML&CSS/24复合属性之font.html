@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta char="UTF-8">
+    <title>复合属性</title>
+    <!-- 
+        复合属性:之前学习的属性叫做 单属性,单属性是一个属性名对应一个属性值
+                复合属性就是简写属性: 
+                最好按以下的顺序描绘: font: 是否倾斜italic/normal 是否加粗400/700 字体大小/行高 字体 不设置就是默认状态
+                font属性最少要写 字号 + 字体 ;否则不生效。
+                font:italic 400 20px/2em "宋体";
+                
+                注意 不设置就是默认状态:会产生层叠 用font属性要慎重
+                font-weight:700;
+                font:italic 40px/100px "字体"
+                那么加粗 会被下面的font层叠 抹去
+     -->  
+    <style>
+        div{
+            text-align:center;
+        }
+        .one{
+            font:italic 700 40px/2em "宋体";
+        }
+
+        .two{
+            font-weight: 700;
+            font:italic 40px/2em "宋体";
+            /* 发生层叠 */
+        }
+
+    </style>
+</head>
+<body>
+        <div>
+           <p class="one">
+               段落
+           </p>
+           <p class="two">
+               段落
+           </p>
+        </div>
+</body>
+</html>

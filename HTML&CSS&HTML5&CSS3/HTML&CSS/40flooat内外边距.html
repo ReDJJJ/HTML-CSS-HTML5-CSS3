@@ -1,0 +1,52 @@
+<!--  元素设置浮动后,不在具备之前标准流的特征 比如那一大堆乱七八糟的对齐 覆盖 基线对齐等等 -->
+<!--  每个元素就是！ 独立 ！的个体,除了挤压 不大会改变其余颜色的变化  -->
+<!--  设置了flaot之后 跟标准显示模式没有关系了 哪怕span（行内元素）都可以设置宽高 
+      只剩下了语义:标签文本 内容... 就是一个个浮动独立的标签  针对单独标签的样式  可以试试利用float
+      浮动不设置宽高的情况下, 全靠内容撑开
+      所以浮动float设置后不需要设置display了,没意义
+-->
+
+
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">'
+    <title>浮动的内外边距</title>
+    <style>
+        *{margin:0;padding: 0;}
+        body{
+            height: 100%;
+            width: 100%;
+        }
+        .floatspan{
+            float:left;
+            background-color: burlywood;
+        }
+        .span{
+            display: inline;
+            background:greenyellow;
+        }
+        div{
+            background:blue;
+            width:100%;
+            height:300px;
+        }
+    </style>
+</head>
+
+<body>  <div></div>
+        <span class="floatspan" style="padding:150px">content</span>
+        <span class="floatspan" style="line-height:100px">content</span>
+        <span class="floatspan" style="margin:120px">content</span>
+        <span class="floatspan">content-content-content</span>
+        <br><br><br><br><br><br><br><br>
+        <div></div>
+        <span class="span" style="padding:150px">conten-content</span>
+        <span class="span" style="line-height: 50px;">conten-content</span>
+        <span class="span" style="margin:120px">conten-content</span>
+        <!-- 此处margin 120只有左右起作用了 并且四个基线文本对齐了 设置line -height的那个-->
+        <span class="span">conten-content</span>
+</body>
+
+</html>

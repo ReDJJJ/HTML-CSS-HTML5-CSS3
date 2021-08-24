@@ -1,0 +1,123 @@
+<!-- 
+    过渡和动画
+    动画可以进行区间划分 和 永久变化等等
+
+    animation:动画 
+    keyframs:关键帧
+    iteration:迭代
+    reverse:逆序
+    alternate:轮流交替
+
+    单属性信息 写在需要调用动画 对应的选择器上
+    关键帧信息 独立写在style 标签内
+
+    单属性: 
+    animation-name:  动画名称 也是关键帧 @keyframes 的名称 两者名称对应时候 进行绑定 
+    animation-duration: 动画持续时间  这个过程是整个@keyframes 所消耗的时间
+    animation-timing-function: 动画实现方式  贝塞尔曲线 还有步数steps()
+    animation-delay: 动画延时 时间
+    animation-iteration-count: x  / INFINITE 动画迭代次数 
+    animation-play-state: running / paused  动画播放(默认值)或者暂停
+    animation-direction: normal(默认顺序播放) 一去无回 /  alternate 一去一回 两次次数 /reverse (逆序播放) 一次次数 /alternate-reverse (反向 一去一回) 两次次数
+
+    animation-direction:alternate  可以实现过渡效果写在默认状态下的 一去一回  (消耗两次次数iteration :2)
+
+    关键帧：单段
+    @keyframes name{     此处的name与animation-name绑定
+        from{
+            静态效果1
+        }
+        to{
+            静态效果2
+        }
+    }
+    关键帧: 多段
+    @keyframes name{ 
+        0%{ 
+            效果1
+        }
+        25%{ 
+            效果2
+        }
+        50%{ 
+            效果2
+        }
+        ...
+        100%{
+
+         }
+         一个动画 此时分为了多个关键帧 区间,每个区间 都是一段 独立 的过渡效果 
+    }
+
+
+
+  -->
+
+
+<!doctype html>
+ <html>
+     <head>
+         <meta charset="utf-8"> 
+         <title></title>
+         <style>
+             .box{
+                 width:300px;
+                 height: 30px;
+                 background: rgb(65, 204, 83);
+                 margin:300px auto;
+                 animation-name:donghua2; /* 需要调用的动画名称 */
+                 animation-duration:2s;  /*动画时间*/
+                 animation-timing-function: cubic-bezier(0,-0.4, 1, 1.51) ; /*动画实现方式 对每个关键帧的每个区间定义*/
+                 animation-delay:0.1s ; /*动画开始前的延时时间*/
+                 animation-iteration-count:2;
+                 /* animation-direction:reverse; */
+                 /* animation-direction:alternate; */
+                animation-direction:alternate-reverse;
+             }
+
+             .box:hover{
+                 animation-play-state: paused;
+                 /* 鼠标移入暂停 */
+             }
+
+             /* 关键帧定义 */
+             @keyframes donghua1{
+                 from {
+                    transform:rotate(0deg);
+                 }
+                 to{
+                    transform:rotate(360deg);
+                 }
+             }
+             @keyframes donghua2{
+                 0% {
+                    transform:rotate(0deg);
+                    width:300px;
+                 }
+                 25%{
+                    transform:rotate(90deg);
+                    width:200px;
+                 }
+                 50%{
+                    transform:rotate(180deg);
+                    width:300px;
+                 }
+                 75%{
+                    transform:rotate(270deg);
+                    background:royalblue;
+                    /* 0-75 都是颜色绿色变 蓝的 过渡 */
+                 }
+                 100%{
+                    transform:rotate(300deg);
+                    background:lightcoral;
+                 }
+             }
+
+         </style>
+     </head>
+     
+     <body>
+         
+        <div class="box">左端</div>
+     </body>
+ </html>

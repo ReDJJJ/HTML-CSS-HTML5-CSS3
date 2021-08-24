@@ -1,0 +1,111 @@
+<!doctype html>
+<!-- 
+    个人思路: 
+    视觉效果上 是翻面后 内容变了  
+    几种思路:
+     2 
+     两个盒子定位重叠,后写压在先写,分别设定内容
+     层级也可以渐变啊 先写的层级从0-1渐变  那么不就是转到一半的时候 四舍五入化为1 层级优先级更高 就显示原本压在底下的先写的模块了。
+     3  
+     直接转动父盒子 带动两个 子元素一起转、
+     当两个元素互压时,在进行旋转时,优先选择显示上面的元素的正面和反面
+   
+     但是浏览器还是仍然选择显示后写的元素的背面 所以可以配合背面不可见 backface-visibility:hidden 使用(需要开启3D空间)
+       此时使用背对屏幕不可见，让背对屏幕的元素 的背面不可见 即可间底下的元素
+     transform-style:preserve-3d; 给需要3D效果元素的父元素设置 开启3D空间
+
+     知识点:父元素转会带动子元素转
+     
+
+     2方法的物理模型(反转两个层 父盒子不动 ):
+     盒子顶           盒子顶
+     0 底层   翻转后   0顶层
+     0 顶层            0底层
+     盒子底           盒子底
+
+     3方法的物理模型(反转父盒子 带动):
+     盒子顶           盒子底
+     0 底层   翻转后   0底层     
+     0 顶层            0顶层   
+     盒子底           盒子顶
+
+ -->
+<html>
+    <head>
+        <meta charset="utf-8"> 
+        <title></title>
+        <style>
+            *{
+                margin:0px ;padding:0px;
+            }
+            body{
+                background: pink;
+            }
+            .box{
+                width:300px;
+                height:300px;
+                margin:100px auto;
+                background:transparent;
+                position: relative;
+            }
+            .box .top,.box .bottom{
+                height:100%;
+                width:100%;
+                border-radius: 50%;
+                /* 基本图像形状 */
+                
+                position:absolute;
+                top:0;left:0;
+                /* 定位 让两个重叠 */
+
+                transform-origin: center 0px;
+                /* 选定旋转轴 */
+                transition:all 0.8s 0s ease-in-out;
+                /* 开启过渡 */
+                z-index: 0;
+                /*
+                 此处为什么要"多此一举"地设定一个z-index:0  定位的默认层级值就是0 
+                 和上次width一样 
+                 默认状态和hover状态 分别代表开始和结束的状态值 缺一不可,否则transition不认
+                */
+
+                
+            }
+            .box>.top{  
+                background: url(../images/bg.png) no-repeat -304px bottom;
+                transform:rotateY(180deg);
+                /* 预先反转 为了后续反转正确显示 */
+            }
+            .box>.bottom{  
+                background: url(../images/bg.png) no-repeat 0px bottom;
+                /* 假如背景图用left bottom 之类的 
+                    跟定位类似  用元素的对应角 去 贴贴 选定的背景对应角 
+                    若只是数字 则单纯的移动
+                */
+
+            }
+
+            .box:hover .top{
+                transform:rotateY(360deg);/* 预先已经反转了180 所以为了同步再加180 */
+                z-index: 1;
+                /* 
+                   大问题:共同转180会 字体是反过来的 转360 不同步 
+                   老师用图片做的 根本不是文字  利用预先反转的图片即可
+                   !!!!!!!!关键:
+                */
+            }
+            .box:hover .bottom{
+                transform:rotateY(180deg);
+                z-index: 0;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div class="box">
+            <div class="top"></div>
+            <div class="bottom"></div>
+        </div>
+
+    </body>
+</html>

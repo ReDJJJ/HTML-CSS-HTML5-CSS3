@@ -1,0 +1,92 @@
+<!-- 此处的不换行 是指 不开启换行 flex-wrap:nowrap -->
+<!-- 
+    交叉轴位置
+    align-cotent (开启换行后生效)
+    align-items (不开启换行生效 )
+-->
+
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"> 
+        <title></title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+           }
+            div.box1{
+               
+                
+                border: 2px solid black;
+                /* 创建弹性布局  */
+                display:flex;
+                flex-wrap:wrap; 
+                
+           }
+           div.box2{
+               /* 弹性元素在交叉轴的位置分布 和主轴类似  都是排列完后 整体进行移动  */
+               height:500px;
+               width: 400px;
+               margin-top:20px;
+               border: 2px solid black;
+                /* 创建弹性布局  */
+               display:flex;
+               flex-wrap:nowrap;
+               /* 不开启换行(默认值) */
+               /* align-items: flex-start center flex-end*/
+               /* 因为没有开启换行 , 那么在交叉轴上就没有所谓空隙可言了  就没有space-around.between了 而stretch是align-content独有的*/
+              
+              align-items:center;
+
+           }
+           .box1 div,.box2 div{
+               
+               width:100px;
+               height:100px;
+               
+           }
+   
+           .box1 div:nth-of-type(1), .box2 div:nth-of-type(1){
+               background: red;
+           }
+           .box1 div:nth-of-type(2),.box2 div:nth-of-type(2){
+               background: rgb(175, 129, 129);
+           }
+           .box1 div:nth-of-type(3),.box2 div:nth-of-type(3){
+               background: rgb(47, 124, 60);
+           }
+           .box1 div:nth-of-type(4),.box2 div:nth-of-type(4){
+               background: rgb(78, 62, 151);
+           }
+           .box1 div:nth-of-type(5),.box2 div:nth-of-type(5){
+               background: rgb(211, 142, 64);
+           }
+           .box1 div:nth-of-type(6),.box2 div:nth-of-type(6){
+               background: rgb(253, 71, 198);
+           }
+       
+           
+        </style> 
+    </head>
+    
+    <body>
+        <div class="box1">
+            <div>11</div>
+            <div>22</div>
+            <div>33</div>
+            <div>44</div>
+            <div>55</div>
+            <div>66</div>
+        </div>
+        <div class="box2">
+   
+           <div>11</div>
+           <div>22</div>
+           <div>33</div>
+           <div>44</div>
+           <div>55</div>
+           <div>66</div>
+       </div>
+    </body>
+</html>

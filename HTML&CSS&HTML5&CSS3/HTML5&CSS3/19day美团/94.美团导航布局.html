@@ -1,0 +1,100 @@
+<!-- 
+    PC端和移动端  假如用两个完全切割,需要两个域名 ,也就是两个完全不同的网页了
+                 若使用媒体查询的方式适配移动端,则可以在一个域名内完成PC端和移动端的适配
+ -->
+
+<!-- 
+     若全体内容会随着屏幕 宽度高度全线拉伸缩小,则一般是 rem 转换适配法
+     若内容只往一个方向进行拉伸,例如横向,苹果的4-2-1布局,一般是媒体查询
+
+     二倍图 就是 长和宽 各放大两倍 
+  -->
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="../../vw移动端项目/font/download/font_eu4mi5oavb/iconfont.css">
+  <link rel="stylesheet" href="./css/pc.css">
+  <link rel="stylesheet" href="./css/phone.css">
+  <title>美团</title>
+  <style>
+      body{
+        background: gray;
+      }
+      .donghua{
+        width:18px;
+        height:15px;
+       
+        margin:200px auto;
+       
+      }
+      .donghua span{
+        display:block;
+        width:18px;
+        height:1px;
+        background: white;
+        margin-bottom:6px;
+        transition:all .5s 0s linear;
+        transform-origin: left center;
+      }
+      .donghua:hover span:nth-of-type(1){
+        transform:translate(2.5px,0.7px) rotateZ(45deg);
+        /* width:20px; */
+        /* 这里不是根号2*宽度 因为这个不是正方形 */
+        /* 使用变长度这个方法行不通 应该使用移动位置的方法 构成X  */
+      }
+      .donghua:hover span:nth-of-type(2){
+        opacity: 0;
+      }
+      .donghua:hover span:nth-of-type(3){
+        transform:translate(2.5px,-0.7px)rotateZ(-45deg);
+        /* width:20px; */
+      }
+      
+      
+  </style>
+</head>
+
+<body>
+  <div class="nav-wrap">
+    <nav class="topnav">
+       <span class="iconfont icon-category"></span>
+       <h1></h1>
+       <!-- h1装载logo -->
+       <ul>
+         <li>
+           <a href="##">手机</a>
+         </li>
+         <li>
+          <a href="##">美容仪器</a>
+        </li>
+        <li>
+          <a href="##">配件</a>
+        </li>
+        <li>
+          <a href="##">服务支持</a>
+        </li>
+        <li>
+          <a href="##">企业网站</a>
+        </li>
+       </ul>
+       <span class="iconfont icon-search"></span>
+       <span class="iconfont icon-product"></span>
+    </nav>
+  </div>
+
+  <div class="donghua"> 
+    <span>
+      
+    </span>
+    <span>
+
+    </span>
+    <span>
+
+    </span>
+  </div>
+</body>
+
+</html>

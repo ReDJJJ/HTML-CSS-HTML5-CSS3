@@ -1,0 +1,42 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+
+@media only all and (max-width:767px) {
+
+.nav-wrap{
+    width:100%;
+    height:48px;
+   
+}
+.topnav{
+    height:100%;
+    background:black;
+    display:flex;
+    flex-direction: row;
+    flex-wrap:nowrap;
+    justify-content:space-between;
+    align-items:center;
+
+    span{
+    font-size:32px;
+    color:aliceblue;
+    }
+    h1{
+        width:120px;
+        height:40px;
+        background:url(../img/meitu.png) 0 5px;
+        background-size:400px 400px;
+        // 调整背景图大小,然后通过h1标签盒子大小来切割精灵图的logo
+    }
+    ul,span:nth-of-type(2){
+        display:none;
+    }
+}
+.topnav span:hover{
+    color:gray;
+}
+
+}

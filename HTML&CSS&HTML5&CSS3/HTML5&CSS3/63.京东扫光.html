@@ -1,0 +1,69 @@
+<!-- 
+    京东扫光
+    思路: 用一个盒子配合渐变背景色来模拟光  定位覆盖在商品图片上层  鼠标移入时,盒子做位移即可
+
+    光有种划过图片的效果 所以得用定位 覆盖
+
+ -->
+
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"> 
+        <title></title>
+        <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: #ccc;
+        }
+        .box{
+            width:330px;
+            height:475px;
+            background: url(../images/jd.jpg) no-repeat 0 0;
+            margin:300px auto;
+            position: relative;
+            overflow:hidden;
+        }
+        .box span{
+            width:1000px;
+            height:20px;
+            
+
+            position: absolute;
+            top:-60px;
+            right:-200px;
+            /* 定位 对应角对应定位  */
+            transform: rotate(-45deg);
+            /* 这么奇葩的定位就是为了 span这道 光 能斜着覆盖在 商品图片的左上角 请看图片 */
+            background-image:linear-gradient(to bottom , transparent 0% ,rgb(236, 236, 236) 50%,transparent 100%);
+            /* 模拟光形态利用了透明颜色 tranparent  */
+          
+        }
+        .box:hover span{
+            animation:guang 0.8s 0s linear 2 alternate;
+            /* 就两次  */
+        }
+        @keyframes guang{
+            0%{
+                top:-60px;
+            }
+            100%{
+                top:800px;
+                /* 此处除了可以动定位 也可以利用2D转换中的位移translateY()来完成  */
+            }
+        }
+        </style>
+    </head>
+    
+    <body>
+        <img src="../images/jdguang.png" alt="" style="width:400px;">
+        <!-- 思路图片  -->
+        <div class="box">
+            <span></span>
+        </div>
+
+    </body>
+</html>

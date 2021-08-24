@@ -1,0 +1,64 @@
+<!-- 
+    盒子:网页由各类标签组成，标签占据的位置为各式各样的矩形形状 ，称之为盒子
+    在浏览器盒子模型中 蓝色区域是内容与内边距  利用网络调试来查看 布局模型的定位 
+                     黄色区域是外边距
+    核心：div标签 无语义 作为各个部分的大容器 进行独立管理 块级元素
+         span标签 无语义 作为各个部分的大容器  进行独立管理 行内元素
+
+    display 显示模式: 
+            1.块级显示模式:设置宽高起作用,但仍独占一行，不设置宽度(默认)，和父级标签的宽度一样
+                块级元素：div / h1-h6 / p / ul ol li  / dl dt dd / hr / form 
+            2.行内显示模式：！！设置宽高不起作用,宽高只被内容撑开,不独占一行，一行可以有多个
+                行内元素：span a b strong i em s del ins u  基本是修饰文本的内容
+            3.行内块显示模式:设置宽高起作用,一行可以有多个
+                行内块元素:img 表单标签除去form input select button...
+ -->
+
+ <!doctype html>
+ <html>
+     <head>
+        <meta charset="utf-8">
+        <title>盒子基本三属性</title>
+        <style type="text/css">
+            h1{
+                /* 宽 高 背景 */
+                width: 200px;
+                height: 200px;
+                background-color:pink;
+            }
+            div{
+                /* 宽 高 背景 */
+                width: 200px;
+                height: 100px;
+                background-color:cadetblue;
+            }
+            span{
+                /* span 是行内元素 设置宽高不起作用 但可以改变内容大小 达到调整大小的目的 */
+                width: 200px;
+                height: 200px;
+                background-color:plum;
+                font-size: 20px;
+            }
+
+        </style>
+     </head>
+     <body>
+         <h1>块内元素</h1>
+         <div>块内元素</div>
+         <div></div>
+         <span>
+             span标签 为行内元素
+         </span>
+         <span>
+            span标签 为行内元素
+        </span>
+        <span>span标签 为行内元素</span>
+        <span>
+            行内元素以及行内块元素之間的間距是由代碼造成的,一個或多個換行會簡寫成一個空格 浮动float就是为了解决这件事
+        </span>
+         <a href="##">超链接</a>
+         <b>加粗</b>
+         <i>变细</i>
+         <del>删除del</del>
+     </body>
+ </html>

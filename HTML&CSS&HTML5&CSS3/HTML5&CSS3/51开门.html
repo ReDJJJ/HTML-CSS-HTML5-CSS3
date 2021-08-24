@@ -1,0 +1,46 @@
+<!-- 
+    perspective: 透视图
+
+    开门效果 由旋转 + 3D效果 景深透视来完成
+
+    景深透视属性perspective:是一个3D属性,若一个元素 近大远小 的特点,则需要给其父元素设置该属性
+    perspective: xpx 一般取值800px - 1500px 效果最佳;
+ -->
+
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        .box {
+            width: 234px;
+            height: 488px;
+            border: 1px solid #000;
+            margin: 100px auto;
+            transform-style: preserve-3d;
+            perspective: 900px;
+        }
+
+        .box img {
+            display: block;
+            transform-origin: right 0px;
+            transition: all 0.5s 0s linear;
+            /* 添加旋转轴 和 过渡 */
+            /* 体现景深给父元素添加 perspective */
+        }
+        .box:hover img{
+            transform:rotateY(-45deg) ;
+            /* 逆时针旋转45 */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <img src="../images/door.png" alt="">
+    </div>
+</body>
+
+</html>

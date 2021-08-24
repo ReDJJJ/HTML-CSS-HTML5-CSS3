@@ -1,0 +1,130 @@
+<!-- 
+    真正的导航
+
+    以前将多个a标签直接排列在一起 搜索引擎会认为关键词堆砌 不起作用 搜索排名会特别难看
+    a标签配合列表才是真正的导航
+ -->
+ <!DOCTYPE HTML>
+ <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>导航</title>
+            <style>
+                *{
+                    margin: 0;
+                    padding: 0;
+                }
+
+                .box{
+                    width:612px;
+                    /* 
+                     浮动： 在盛不下的时候会进行换行 若不设定固定宽度 则看实时宽度(网页大小) 自动往下浮动 
+                     */
+                    height:auto;
+                    /* width:fit-content 自适应内容宽度 */
+                    margin: 0 auto;
+                    /* 
+                         此处遇到了大坑  有关于div整体居中这件事
+                         若width 宽度不设定 或者auto情况下  .box肯定会填满复元素body 因为div是块级元素
+                         此时填满就是居中,.box无法自适应内容宽度并居中 
+                         一种 固定宽度, 一种是width:fit-content 来根据内容物自定义宽度 
+                     */
+                }
+
+              
+                .box li{
+
+                    list-style-type: none;
+    
+                    width:100px;
+                    height:30px;
+                    /* 此处的长宽可以给 块化的a标签 利用a撑开 li 因为li已经浮动化了 而浮动的默认长宽会被内容撑开  忽视所以显示模式 而浮动的儿子还是正常文档流 */
+                    border:1px solid #000;
+                    margin:10px;
+                    float:left;
+                    
+                    /* 
+                        float 脱离文档流,不会发生外边距合并和塌陷 并且浮动解决了外边框的塌陷与合并
+                     */
+                }
+                .box li a{
+                    background:#ff0000;
+                    color:#fff;
+                    font:normal 400 14px "宋体";
+                    text-decoration: none;
+                    text-align:center;
+                    line-height: 30px;
+                    /* 行高= a高=li高 文本垂直居中 */
+                    display:block;
+                    /* 占满父亲元素 li */
+                }
+
+                .box li a:hover{
+                    background:#008000;
+                }
+
+                /* .clear:after{
+                    display:block;
+                    height:0;
+                    content:"";
+                    clear:both;
+                } 
+                
+                */
+
+                .clear{
+                    clear:both;
+                }
+
+                .nextbox{
+                    height:200px;
+                    background:rgb(43, 81, 151);
+                }
+
+            </style>
+        </head>
+
+        <body>
+            <div class="box">
+                在导航中  li浮动 a转块
+                <ul>
+                    <li><a href="##">导航</a></li>
+                    <li><a href="##">导航</a></li>
+                    <li><a href="##">导航</a></li>
+                    <li><a href="##">导航</a></li>
+                    <li><a href="##">导航</a></li>
+                    <li><a href="##">导航</a></li>
+                    <li><a href="##">导航</a></li>
+                    <li><a href="##">导航</a></li>
+                    <li><a href="##">导航</a></li>
+                    <li><a href="##">导航</a></li>
+                    <li><a href="##">导航</a></li>
+                    <li><a href="##">导航</a></li>
+                    <li><a href="##">导航</a></li>
+                    <li><a href="##">导航</a></li>
+                    <li><a href="##">导航</a></li>
+                    <li><a href="##">导航</a></li>
+                    <li><a href="##">导航</a></li>
+                    <li><a href="##">导航</a></li>
+                    <li><a href="##">导航</a></li>
+                    <li><a href="##">导航</a></li>
+                    <div class="clear"></div>
+                    <!--   
+                        这个位置不能乱摆
+                         摆出去了 那么ul 会因为 li浮动 高度为零  而div因为由内墙div 高度不为0
+
+                         浮动的儿子仍然是正常的文档流
+
+                         清除浮动请直接添加给直系父级！！不要跨级清除浮动
+                         例如  div  ul li li li   li浮动了 给ul设置清除浮动clearfix  不要给div
+
+                         并且浮动的元素无法自己居中  需要在祖先元素中 进行整体居中
+                    -->
+                </ul>
+                
+            </div>
+            <div class="nextbox"></div>
+
+                </div>
+        </body>
+ </html>

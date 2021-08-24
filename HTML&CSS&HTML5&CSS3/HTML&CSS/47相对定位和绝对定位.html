@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>相对定位和绝对定位配合使用</title>
+        <style>
+            *{
+                margin:0px;
+                padding:0px;
+            }
+            .box1{
+                height:600px;
+                width:1600px;
+                margin:0 auto;
+                border:2px solid rgb(0, 0, 0);
+
+                position:relative;
+                /* 没有偏移量，所以占位定位 就是标准流的占位并且不偏移 */
+                /* box1作为 绝对定位的span的父元素 设置了 position:除static  ！
+                    所以box1 成为了span的包含块
+                    所以改变了span的默认初始点
+                口诀: 子绝父相  （此处的父子是 祖辈关系  有可能出现跨越几层祖辈关系才找到一个设置了相对定位的 祖先元素）
+                总结: 给父元素设置相对定位, 让绝对定位的子元素的参考点转移到了该(离子元素最近的设置相对定位的)父元素
+                就是你tm想让一个 绝对定位的元素的初始标准点转移  那么就直达 转移的块元素来一个相对定位 position:relative  中间嵌套块元素 不要设置相对定位  会转移打架
+                从父元素的边框开始
+               */
+            }
+            span{
+                height:100px;
+                width:100px;
+                background: rgb(161, 66, 66);
+                position: absolute;
+                /* 设置绝对定位会让宽高起作用 */
+                top:50px;
+                left:450px;
+            }
+
+            .header{
+                height:300px;
+                background: pink;
+            }
+
+            /* 
+                此处不设宽高不起作用，因为span是行内元素，并且没有改变显示模式或者浮动
+                但是若设置了绝对定位，则又可以正常设置宽高了。
+             */
+        </style>
+    </head>
+    <body>
+        <div class="header"></div>
+        <div class="box1" style="word-break: break-all;">
+
+            haha<span>子随父相</span>hahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahaha
+            hahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahaha
+            hahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahaha
+            hahahahahahahahahahahahahahaha/* 此处不设宽高不起作用，因为span是行内元素，并且没有改变显示模式或者浮动
+            但是若设置了绝对定位，则又可以正常设置宽高了。*/hahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahaha
+            hahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahaha
+            hahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahaha
+            hahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahaha
+        </div>
+        <span>子随父相</span>
+    </body>
+</html>

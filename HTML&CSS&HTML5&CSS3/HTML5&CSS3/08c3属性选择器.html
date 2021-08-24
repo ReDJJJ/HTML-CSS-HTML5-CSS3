@@ -1,0 +1,83 @@
+<!doctype html>
+ <html>
+     <head>
+         <!-- 属性选择器 多用于 input表单 因为input表单都是 type="text" 少用class -->
+         <meta charset="utf-8"> 
+         <title></title>
+         <style>
+             .box.box1{
+                /* 并集选择器  既是box类也是box1类 */
+                /*  
+                h1.box1
+                既是h1也是box1这个类的 元素
+                */
+                background: rgb(255, 182, 182);
+             }
+
+             /* 
+                属性选择器[]
+                li[a] , .box1[a]
+                选中 li 或者 box1 中有属性a 
+                li[a="xx"] .box1[a="xx"]
+                选中li 或者.box1 中包含a属性，并且a属性的值为xx的
+                li[a ^="xx"] .box1[a $="xx"]
+                选中li 或者.box1 中包含a属性，并且li中 a属性的值为xx开头  ,box1中a的值为xx结尾
+
+
+                ul[class="list01"]  作用等于 ul.list01 ; 
+              */
+
+              p[id]
+              {
+                background: rgb(253, 99, 99);
+                /* p 中 拥有id属性的 */
+              }
+
+              p[id = 'hello']
+              {
+                  color: aquamarine;
+                  /* p中 拥有id属性 且id属性值为hello */
+              }
+
+              p[id ^= "hello"]{
+                 /* p中 拥有id属性 且id属性值以hello开头 */
+                 border: 2px solid rgb(150, 29, 29);
+              }
+
+              p[id $= "hello"]{
+                 /* p中 拥有id属性 且id属性值以hello结尾 */
+                 font-size: 20px;
+              }
+
+              p[id ~="hello"]{
+                  font-weight:700;
+                  /* p元素中 拥有id属性 ，并且id属性包含独立的hello 独立的意思是前后各有一个空格*/
+              }
+
+              .p1[id="p11"]{
+                 /* p1 类中  包含id ="p11" */
+                 /* 属性选择器[] */
+                 font-style:italic;
+              }
+              
+         </style>
+     </head>
+     
+     <body>
+         <div class="box">
+             hello world
+         </div>
+         <div class="box box1">
+            hello world
+         </div>
+         
+         <p id="hello">一号段落</p>
+         <p id="ahello">二号段落</p>
+         <p id="helloa">三号段落</p>
+         <p id="helloworld">四号段落</p>
+         <p id="hello world">五号段落</p>
+
+         <p class="p1" id="p11">六号段落</p>
+        
+     </body>
+ </html>

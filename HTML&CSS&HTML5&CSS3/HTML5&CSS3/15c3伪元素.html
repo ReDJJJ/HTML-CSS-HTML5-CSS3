@@ -1,0 +1,59 @@
+<!-- 
+    .clearfix::after{
+        content:"";
+        height:0;
+        display:block;
+        clear:both;
+    }
+    .这种伪元素方法 本质上 实现是和内墙法一致的
+    内墙法 添加一个空内容div div拥有属性clear:both;
+
+    伪元素:在标签内部有两个 首发和结束盒子 分别是before 和after 就是一个变相的内容盒子 
+    样式属性都通用 就是排位顺序固定死了 并且有一个必填项 content:''
+    伪元素常用场景:标记定位显性,比如图标字体一前一后包围内容等 但是很常用
+
+    伪元素before和after 显示模式 是行内显示模式 
+
+    
+ -->
+
+ <!doctype html>
+ <html>
+     <head>
+         <meta charset="utf-8"> 
+         <title></title>
+         <style>
+             header{
+                 width:300px;
+                 height: 200px;
+                 border:1px solid rgb(162, 91, 255);
+                 position: relative;
+                 /* 做父亲 */
+             }
+             header::before{
+                 content:"conten必填项 无内容就双引号空着 伪元素默认行内元素 可转换显示模式";
+                 background: rgb(131, 84, 84);
+                 /* display:block; */
+                 /* float: left; */
+             }
+             header::after{
+                 content:"";
+                 width:30px;
+                 height:30px;
+                 background: rgb(92, 75, 190);
+                 /* display:block; */
+                 /* float: left; */ 
+                 position: absolute;
+                 right:0;
+                 bottom:0;
+             }
+         </style>
+     </head>
+     
+     <body>
+        <header>
+            我是文本我是文本我是文本我是文本我是文本我是文本我是文本我是文本我是文本我是文本
+            我是文本我是文本我是文本我是文本我是文本我是文本我是文本我是文本我是文本我是文本
+        </header>
+     </body>
+ </html>

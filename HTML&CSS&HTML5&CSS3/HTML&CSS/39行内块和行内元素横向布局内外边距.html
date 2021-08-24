@@ -1,0 +1,108 @@
+<!-- 
+    第一个重点: 对比float 和行内块元素  横向布局的作用
+ -->
+
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta char="UTF-8">
+    <title>行内块和行内元素的横向布局内外边距细节</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .box {
+            background-color: chartreuse;
+        }
+
+        .floatone {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            float: left;
+        }
+
+        .floattwo {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            float: left;
+        }
+
+        .floatthree {
+            width: 300px;
+            height: 300px;
+            background-color: yellow;
+            float: left;
+        }
+
+        .inlineblockone {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            display: inline-block;
+        }
+
+        .inlineblocktwo {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            display: inline-block;
+        }
+
+        .inlineblockthree {
+            width: 300px;
+            height: 300px;
+            background-color: yellow;
+            display: inline-block;
+        }
+        span{
+            background-color:blueviolet;
+        }
+    </style>
+
+</head>
+
+<body>
+    
+    <div style="background-color:rgb(97, 127, 151)">
+        <p>
+            上层是行内块模式 下层是<br>
+            行内块模式 视觉上是底对齐 , 行的高度 由高度最大的元素决定 改动高度最大元素时 会影响其他元素距离顶部的距离  <br>
+                        并且每个元素之间还有一定的横向间距4px留白  导致行内块模式十分难做横向布局 以前的横向布局都是在各个a标签行高一致的情况下才能顺利完成<br>
+            行内元素: 设置widht和height无作用 padding和margin有作用  
+                      之间拥有横向间距4px留白 
+                      对于行内元素 设置padding 和margin 只会原地散发(文本不动) 并且只有左右边距会与左右元素拉开距离 上下随着内边距padding延伸 会压到上下其他元素  上下外边距margin 没有用
+                      可以利用行高 来设置垂直距离line-height 
+                      并且多个并列的文本 会一起对齐往下移动 基线对齐
+
+            float模式 共同浮动的元素置于一层排列,无默认间距,且顶部对齐,每个元素之间相互独立,适用于横向布局  横向布局-浮动
+
+            总结:文本垂直 -line-height 行高
+        </p>
+    </div>
+    
+    <div class="inlineblockone"></div>
+    <div class="inlineblocktwo"></div>
+    <div class="inlineblockthree"></div>
+    <!-- 此处假若div内有文本 就不一样了 -->
+    <br>
+    <span style="padding:50px"> 我是行内模式</span>
+    <span> 我是行内模式</span>
+    <span style="margin:50px"> 我是行内模式</span>
+    <br> <br> <br> <br>
+    <div class="floatone"></div>
+    <div class="floattwo"></div>
+    <div class="floatthree"></div>
+
+</body>
+
+</html>
+
+<!-- 
+    温故知新:行内元素同一行排列 会基线对准  而且会导致盒子压盒子状态 
+    行内块元素宽高会彼此影响  
+ -->

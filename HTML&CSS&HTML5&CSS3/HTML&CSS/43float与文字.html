@@ -1,0 +1,35 @@
+<!-- 
+    float最开始的作用 :文本环绕
+    文本是不会被 flaot 压到下面的 
+    文本会自动环绕 float
+-->
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta char="UTF-8">
+    <title>float与文字x</title>
+    <style>
+        .box{
+            color:red;
+            font-style: italic;
+            font-weight: 700;
+            height: 300px;
+            width:300px;
+            background-color: greenyellow;
+        }
+        p {
+            color:aqua;
+        }
+    </style>
+</head>
+<body>
+        <div class="box">
+            改文本继承了div中的box样式 红色<br>
+            <p>标签选择器选择的段落</p>
+            <div>
+                继承爷爷的文本属性
+            </div>
+        </div>
+</body>
+</html>

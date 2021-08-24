@@ -1,0 +1,48 @@
+<!-- 
+    偏移量可以设置 绝对数值,也可以设置成百分比
+    水平居中 : 子绝父相后  left:50% margin-left设置成自身宽度一半的负数
+    垂直居中 : 子绝父相后  top:50%  margin-top设置成自身高度一半的负数
+
+    好处: 父的宽度高度无论怎么变，仍然是居中 
+ -->
+
+
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>绝对定位水平,垂直居中</title>
+    <style>
+        .box{
+            height:600px;
+            width:1600px;
+            position:relative;
+            border:1px solid #000;
+            margin: 0 auto;
+        }
+        span{
+            height: 200px;
+            width: 100px;
+            /* 行内元素配合绝对定位 宽高起作用 */
+            position:absolute;
+            left:50%;
+            top:50%;
+            margin-left:-50px;
+            margin-top:-100px;
+            background: rgb(146, 37, 37);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <span>
+            helloworld
+        </span>
+    </div>
+    
+</body>
+</html>

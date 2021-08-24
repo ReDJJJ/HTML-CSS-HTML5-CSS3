@@ -1,0 +1,45 @@
+<!-- padding 内间距 内填充 padding是一个复合属性  -->
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta char="UTF-8">
+    <title>CSS继承性</title>
+    <style>
+      .box{
+          width:300px;
+          height:300px;
+          background:rgb(99, 243, 219) url(./HTML&CSS/day01/images/PaiDaXin.jpg) no-repeat 0px 0px;
+          border:2px dotted red;
+          padding-left:5px;
+          padding-top:5px;
+          /* 设置内边距padding后，元素尺寸会变大，需要调成width和height保持尺寸不变  或者选用怪异盒子模型*/
+          /* 盒子在网页中的尺寸= 自身的宽高+内边距+边框 后两者会撑大盒子导致尺寸变化  */
+          /*  padding和border都支持上下左右来各自设定 样式*/
+          border-left:5px solid palevioletred;
+          border-top:5px solid palevioletred;
+      }
+
+      .content{
+          width: 100px;
+          height:150px;
+          background:#E779B0;
+      }
+    </style>
+</head>
+<body>
+        <div class="box"> 
+             <div class="content">
+                 内容content
+             </div>
+        </div>
+</body>
+</html>
+
+<!-- 
+    padding:内边距,指定元素内容距离元素边框内侧的距离
+    改变padding 会改变元素尺寸
+    padding边距是单独算的，不包含在content中
+    content的范围直接由width和height所决定
+    padding的意义在于:内容与边框的缓冲区！是独立的缓冲区
+    当父元素设置了padding,子元素一定是从父元素设置的内边距padding后开始或者结束
+-->

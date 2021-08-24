@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>mytaobao1</title>
+        <link rel="stylesheet"  type="text/css" href="./css/reset.css">
+        <link rel="stylesheet"  type="text/css" href="./css/index.css">
+        <!-- 使用外联链接 请注意层叠顺序 -->
+    </head>
+    <body>
+        <!-- 头部 -->
+        <div class="header-wrap">
+            <div class="header clearfix">
+                <!-- 此处不添加clearfix 则会导致浮动不结束  div高度为零 -->
+
+                <!-- 中国大陆模块 -->
+                <!-- 为什么中国大陆模块是一起的??
+
+                     假若定位配合隐藏元素  应该是彼此独立的。
+                     其实是彼此独立 不过边框造成了两者是一体的错觉。
+                     中国大陆压着中国大陆菜单部分上边框 即可
+                     以上是个人思路,其实不太对
+
+                     观察:在鼠标移入的时候，中国大陆左右有边框出现，但是后面的模块没有因为边框的出现位置后移
+                     结论:鼠标移入的中国大陆和下面的菜单栏都是绝对定位 出来的。
+
+                -->
+                <!-- <div class="state">
+                    中国大陆 >
+                    <ul class="statelist">
+                        <li>全球</li>
+                        <li>中国大陆</li>
+                        <li>中国香港</li>
+                        <li>日本</li>
+                        <li>全球</li>
+                        <li>中国大陆</li>
+                        <li>中国香港</li>
+                        <li>日本</li>
+                        <li>全球</li>
+                        <li>中国大陆</li>
+                        <li>中国香港</li>
+                        <li>日本</li>
+                        这键盘是真的难用啊 无与伦比的操作空间
+                    </ul>
+                </div> 
+                以上是本人尝试中国大陆模块的失败作品-->
+                <!-- 此处不添加clearfix 则会导致浮动不结束  两个div高度为零 -->
+                <ul class="list-l">
+                    <li class="china">
+                        中国大陆 >
+                        <!--
+                             1底层:给li设置固定宽高，装载中国大陆文字，相对定位(做父亲)
+                             2第二层，用span元素绝对定位作标签 模拟左右边框 和实现部分抵挡中国大陆菜单上边框功能
+                             3第二层统一鼠标介入隐藏显示
+                             4第三层  用li元素纯显示文字 压在第二层span身上 充当文字内容
+                        
+                        -->
+                        <span></span>
+                        <i>中国大陆 ></i>
+                        
+                       
+                        <!-- 后写的覆盖前写的 -->
+
+                        <ul class="chinalist">
+                        <li>全球</li>
+                        <li>中国大陆</li>
+                        <li>中国香港</li>
+                        <li>日本</li>
+                        <li>全球</li>
+                        <li>中国大陆</li>
+                        <li>中国香港</li>
+                        <li>日本</li>
+                        <li>全球</li>
+                        <li>中国大陆</li>
+                        <li>中国香港</li>
+                        <li>日本</li>
+                        </ul>
+
+                    </li>
+                    <li class="one">
+                        <a href="##">亲,请登录</a>
+                    </li>
+                    <li style="margin:0 21px 0 6px">
+                        <a href="##">免费注册</a>
+                    </li>
+                    <li>
+                        <a href="##">手机逛淘宝</a>
+                    </li>
+                    <!-- 此处的间距比较散  没有统一的规格 因此用内联样式决定比较好 也比较直观  -->
+                </ul>
+
+              <ul class="list-r">
+                <li style="position:relative;">
+                    <a href="##"><span>我的淘宝</span></a>
+                    <em class="iconfont">&#xe61a;</em>
+                    <!-- <h4 class="lx"></h4>
+                    <h5 class="lx2"><span>我的淘宝</span>
+                        <em class="iconfont">&#xe61a;</em></h5>
+                    <h6 class="lx3">
+                        
+                    </h6> 
+                    一次成功的尝试 隐藏与显示菜单
+                -->
+                </li>
+                <!-- 此处
+                     架构:
+                     list-r 右浮动  每个li左浮动
+                     li中有左右padding
+                     li中包含了 浮动的a 和 浮动图标字体
+                     加浮动原因是可以取消之间的默认留白
+                     有些a中间还包括了 图标字体和文字 也浮动  
+                     浮动方便测量留白 进行测量具体的 xpx 进行设置
+
+                     此处边距的设置之处有讲究的:
+                     为什么不建议给中间的span两边设置左右外边距呢
+                     因为模块之间不同 有些两个图标字体 有些一个
+                     所以尽量找到一个通解 少写冗余样式
+                     可以给外层的图标字体(下箭头) 加边距 大家都可以用
+                -->
+                <li>
+                    <a href="##"><i class="iconfont iconfontcolor">&#xe61e;</i>
+                        <span>购物车</span></a>
+                        <em class="iconfont">&#xe61a;</em>
+                </li>
+
+                <li>
+                    <a href="##"><i class="iconfont">&#xe60c;</i>
+                        <span>收藏夹</span></a>
+                    <em class="iconfont">&#xe61a;</em>
+               
+                </li>
+
+                <li>
+                    <a href="##"><span>商品分类</span></a>
+            
+                </li>
+
+                <li style="color:#ddd">
+                    |
+                </li>
+
+                <li>
+                    <a href="##"><span>卖家中心</span></a>
+                    <em class="iconfont">&#xe61a;</em>
+                </li>
+
+                <li>
+                    <a href="##"><span>客服中心</span></a>
+                    <em class="iconfont">&#xe61a;</em>
+                </li>
+
+                <li>
+                    <a href="##"><i class="iconfont iconfontcolor">&#xe605;</i>
+                        <span>网站导航</span></a>
+                        <!-- 继承的权重是0 -->
+                    <em class="iconfont">&#xe61a;</em>
+                </li>
+              </ul>
+
+            </div>
+        </div>
+        
+        <!-- 第二层主体 -->
+        <div class="white-wrap">
+            <div class="white">
+               <h1 class="logo">
+                   <a href="##">
+                       淘宝网
+                   </a>
+               </h1>
+
+               <div class="submitDiv">
+                    <ul class="baby clearfix">
+                        <li class="current">宝贝</li>
+                        <li>天猫</li>
+                        <li>店铺</li>
+                    </ul>
+                    
+                    <form class="clearfix" action="">
+                        <input class="search" type="text" placeholder="请输入商品信息">
+                        <input  class="btn" type="submit" value="搜索">
+                        <a href="##" class="gaoji">高级搜索</a>
+                    </form>
+
+                    <ul class="shop clearfix">
+                       <li><a href="" class="firstshop">男装</a></li>
+                       <li><a href="">夹克</a></li>
+                       <li><a href="">风衣</a></li>
+                       <li><a href="">零食大礼包</a></li>
+                       <li><a href="">菊花茶</a></li>
+                       <li><a href="">饼干</a></li>
+                       <li><a href="">CSGO饰品</a></li>
+                       <li><a href="">爪子刀</a></li>
+                       <li><a href="">M9刺刀</a></li>
+                       <li><a href="">蝴蝶刀</a></li>
+                       <li><a href="" style="margin-left: 180px;color: #f40;">更多</a></li> 
+                    </ul>
+
+                    <!-- 
+                        二维码模块为啥不用浮动实现
+                        二维码模组可被用户取消操作,
+                        取消后若是浮动，并且后置位有更多浮动的二维码，则取消会导致后置位二维码位置变动
+
+                        ！！用户可进行取消操作的模块 一般选用定位
+                    -->
+
+                </div>
+
+                <div class="ercode">
+                    <!-- 
+                        由于点击文字和点击图片会跳转 所以要用a包裹
+                     -->
+                     <a href="##">
+                         <h3>手机淘宝</h3>
+                         <img src="./images/erweima.png" alt="">
+                     </a>
+                    <span class="close">X</span>
+                    <!-- 
+                        此处ercode的div 也是绝对定位 
+                            close的span 也是绝对定位
+                        子绝父相  
+                        也可以 子绝父绝
+                        来改变参考点
+                        确切说法: 父级添加了定位属性(相对，绝对，固定) 那么就会改变绝对定位的默认参考点
+                                 参考点是离绝对定位最近的祖先元素
+                            
+                        相对:占位  默认参考点 是本身
+                        绝对:不占位 默认参考点可调
+                    -->
+                </div>  
+            </div>
+          
+
+        </div>
+
+        <!-- 主体区域 -->
+        <div class="main clearfix">
+
+            <!-- 主体区域的左侧主题市场 -->
+            <div class="main-l">
+
+                <div class="market clearfix">
+                    <!-- 此处不取消浮动 div 没有高度 -->
+                    <span class="topic1">主题市场</span>
+                    <i class="iconfont topic2">&#xe601;</i>
+                </div>
+
+                <!-- 一个超长的列表菜单 不要轻易展开 -->
+                <ul class="main-l-list">
+                   <li class="clearfix">
+                    <i class="iconfont">&#xe612;</i>
+
+                    <a href="">女装</a>
+                    <span>/</span>
+                    <a href="">男装</a>
+                    <span>/</span>
+                    <a href="">内衣</a>
+                    
+                    <em class="iconfont">&#xe600;</em>
+                   </li>
+                   <li class="clearfix">
+                    <i class="iconfont">&#xe612;</i>
+
+                    <a href="">女装</a>
+                    <span>/</span>
+                    <a href="">男装</a>
+                    <span>/</span>
+                    <a href="">内衣</a>
+                    
+                    <em class="iconfont">&#xe600;</em>
+                   </li>
+                   <li class="clearfix">
+                    <i class="iconfont">&#xe612;</i>
+
+                    <a href="">女装</a>
+                    <span>/</span>
+                    <a href="">男装</a>
+                    <span>/</span>
+                    <a href="">内衣</a>
+                    
+                    <em class="iconfont">&#xe600;</em>
+                   </li>
+                   <li class="clearfix">
+                    <i class="iconfont">&#xe612;</i>
+
+                    <a href="">女装</a>
+                    <span>/</span>
+                    <a href="">男装</a>
+                    <span>/</span>
+                    <a href="">内衣</a>
+                    
+                    <em class="iconfont">&#xe600;</em>
+                   </li>
+                   <li class="clearfix">
+                    <i class="iconfont">&#xe612;</i>
+
+                    <a href="">女装</a>
+                    <span>/</span>
+                    <a href="">男装</a>
+                    <span>/</span>
+                    <a href="">内衣</a>
+                    
+                    <em class="iconfont">&#xe600;</em>
+                   </li>
+                   <li class="clearfix">
+                    <i class="iconfont">&#xe612;</i>
+
+                    <a href="">女装</a>
+                    <span>/</span>
+                    <a href="">男装</a>
+                    <span>/</span>
+                    <a href="">内衣</a>
+                    
+                    <em class="iconfont">&#xe600;</em>
+                   </li>
+                   <li class="clearfix">
+                    <i class="iconfont">&#xe612;</i>
+
+                    <a href="">女装</a>
+                    <span>/</span>
+                    <a href="">男装</a>
+                    <span>/</span>
+                    <a href="">内衣</a>
+                    
+                    <em class="iconfont">&#xe600;</em>
+                   </li>
+                   <li class="clearfix">
+                    <i class="iconfont">&#xe612;</i>
+
+                    <a href="">女装</a>
+                    <span>/</span>
+                    <a href="">男装</a>
+                    <span>/</span>
+                    <a href="">内衣</a>
+                    
+                    <em class="iconfont">&#xe600;</em>
+                   </li>
+                   <li class="clearfix">
+                    <i class="iconfont">&#xe612;</i>
+
+                    <a href="">女装</a>
+                    <span>/</span>
+                    <a href="">男装</a>
+                    <span>/</span>
+                    <a href="">内衣</a>
+                    
+                    <em class="iconfont">&#xe600;</em>
+                   </li>
+                   <li class="clearfix">
+                    <i class="iconfont">&#xe612;</i>
+
+                    <a href="">女装</a>
+                    <span>/</span>
+                    <a href="">男装</a>
+                    <span>/</span>
+                    <a href="">内衣</a>
+                    
+                    <em class="iconfont">&#xe600;</em>
+                   </li>
+                   <li class="clearfix">
+                    <i class="iconfont">&#xe612;</i>
+
+                    <a href="">女装</a>
+                    <span>/</span>
+                    <a href="">男装</a>
+                    <span>/</span>
+                    <a href="">内衣</a>
+                    
+                    <em class="iconfont">&#xe600;</em>
+                   </li>
+                   <li class="clearfix">
+                    <i class="iconfont">&#xe612;</i>
+
+                    <a href="">女装</a>
+                    <span>/</span>
+                    <a href="">男装</a>
+                    <span>/</span>
+                    <a href="">内衣</a>
+                    
+                    <em class="iconfont">&#xe600;</em>
+                   </li>
+                   <li class="clearfix">
+                    <i class="iconfont">&#xe612;</i>
+
+                    <a href="">女装</a>
+                    <span>/</span>
+                    <a href="">男装</a>
+                    <span>/</span>
+                    <a href="">内衣</a>
+                    
+                    <em class="iconfont">&#xe600;</em>
+                   </li>
+
+                   <li class="clearfix">
+                    <i class="iconfont">&#xe612;</i>
+
+                    <a href="">女装</a>
+                    <span>/</span>
+                    <a href="">男装</a>
+                    <span>/</span>
+                    <a href="">内衣</a>
+                    
+                    <em class="iconfont">&#xe600;</em>
+                   </li>
+                   <li class="clearfix">
+                    <i class="iconfont">&#xe612;</i>
+
+                    <a href="">女装</a>
+                    <span>/</span>
+                    <a href="">男装</a>
+                    <span>/</span>
+                    <a href="">内衣</a>
+                    
+                    <em class="iconfont">&#xe600;</em>
+                   </li>
+                   <li class="clearfix">
+                    <i class="iconfont">&#xe612;</i>
+
+                    <a href="">女装</a>
+                    <span>/</span>
+                    <a href="">男装</a>
+                    <span>/</span>
+                    <a href="">内衣</a>
+                    
+                    <em class="iconfont">&#xe600;</em>
+                   </li>
+
+                   <a href="##">
+                       <img src="./images/service.jpg" style="width:190px; margin-top:2px;">
+                   </a>
+                </ul>
+                <!-- 一个超长的列表菜单 不要轻易展开 -->
+            </div>
+
+            <!-- 主体右下 -->
+            <div class="main-r">
+                <div class="nav">
+                    <ul class="list01" style="margin-left:3px">
+                        <li><a href="">天猫</a></li>
+                        <li><a href="">聚划算</a></li>
+                        <li><a href="">天猫超市</a></li>
+                    </ul>
+                    <ul class="list02">
+                        <li style="color:#646464;line-height:28px">|</li>
+                        <li><a href="">淘抢购</a></li>
+                        <li><a href="">电器城</a></li>
+                        <li><a href="">司法拍卖</a></li>
+                        <li><a href="">中国拍卖</a></li>
+                        <li><a href="">特色中国</a></li>
+                    </ul>
+                    <ul class="list03">
+                        <li style="color:#686868;line-height:28px">|</li>
+                        <li><a href="">阿里旅行</a></li>
+                        <li><a href="">智能生活</a></li>
+                        <li style="position:relative"><a href="">苏宁易购</a>
+                            <img src="./images/registerNew.gif" alt="error">
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="main-r-b">
+                    <div class="banner">
+                        <!-- 轮播图 -->
+                        <div class="banner-top">
+                            <div class="content">
+                                <ul>
+                                    <li>
+                                        <a href=""><img src="./images/banner.jpg" alt=""></a>
+                                    </li>
+                                </ul>
+                                <span class="leftbtn iconfont">&#xe618;</span>
+                                <span class="rightbtn iconfont">&#xe611;</span>
+                                <!-- 学会了图标字体 
+                                     直接替换就可以了
+                                     图标字体也是字体 样式都不用改变
+                                     直接当普通字体使用即可
+                                -->
+                                <ol class="yuandian">
+                                    <li class="current"></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </ol>
+                            </div>
+                        </div>
+                        <!-- 天猫模块 -->
+                        <div class="banner-bottom">
+                            <div class="tmall">
+                                <h5>天猫必逛</h5>
+                                <span class="span1">理想生活上天猫</span>
+                                <span class="span2">1/6</span>
+                                <div class="line">
+                                    <!-- 由于往后面 这个黑线随着轮播图的次序拨动 因此不能用其他元素的边框视觉替代 而是要一个独立的元素装载 -->
+                                </div>
+                            </div>
+
+                            <div class="content">
+                                <ul>
+                                    <li>
+                                        <a href="##"><img src="./images/tmall1.jpg" alt=""></a>
+                                    </li>
+                                    <li>
+                                        <a href="##"><img src="./images/tmall2.jpg" alt=""></a>
+                                    </li>
+
+                                    <!-- 此处错误 ！ 应该是两个轮播图a  在一个li里面 进行统一管理
+                                         每个图应该是对于一个a 链接包裹
+                                    -->
+                                </ul>
+                                <span class="leftbtn iconfont">&#xe618;</span>
+                                <span class="rightbtn iconfont">&#xe611;</span>
+                                <!-- 此处两个按钮于banner-bottom样式基本一致 并且 
+                                     只要参照点点好不需要改变参数
+                                     因为绝对定位的居中 不受父元素长宽的影响
+                                     所以在CSS中并集即可 
+                                -->
+                            </div>
+                        
+
+
+                        </div>
+                    </div>
+
+                    <div class="adv">
+
+                    </div>
+
+                    <div class="user">
+                        <div class="user-top">
+                            <a href="##" class="tou"><img src="./images/head.jpg" alt="error"></a>
+                            <h5>hi,你好</h5>
+
+                            <!-- 当遇到夹心饼干 中有普通文字的操作 
+                            可以利用span h5等等将普通文字包裹起来 利用span的标签来进行浮动和样式的设置 模块化 -->
+                            <div class="gold clearfix">
+                                <a href="##">
+                                    <img src="./images/coin.png" alt="">
+                                    <span>领淘金币抵钱</span>
+                                </a>
+                                <span>或去</span>
+                                <a href="">会员俱乐部</a>
+                            </div>
+                            <!-- 此处本人发生了CSS层叠 因为这个模块包含诸多的a标签和img 所以利用div包裹起来 -->
+                            <ul>
+                                <li><a href=""  style="width:92px">登录</a></li>
+                                <li><a href="" style="margin:0px 7px">注册</a></li>
+                                <li><a href="">开店</a></li>
+                                <div class="clear"></div>
+                            </ul>
+                        </div>
+
+                        <!-- 用户界面中部 -->
+                        <div class="user-center">
+                            <ul class="list01 clearfix">
+                                <li class="current" style="margin-left:16px;"><a href="">公告</a></li>
+                                <li><a href="">规则</a></li>
+                                <li><a href="">论坛</a></li>
+                                <li><a href="">安全</a></li>
+                                <li style="margin-right:0px;"><a href="" >公益</a></li>
+                            </ul>
+                            <!-- 此处有些特殊 上部分是视觉上占整行的 下面是两个连接 占据一行 
+                                 可以利用浮动的特性解决
+                            -->
+                            <ul class="list02 clearfix">
+                                <li class="first"><a href="">普华永道:阿里集团已成为全球最大零售体</a></li>
+                                <li><a href="">港独台独给爷爬</a></li>
+                                <li><a href="" style="margin-left:12px;">维他奶给爷爬</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- 用户界面底部 -->
+                        <!-- 思路: 利用浮动铺满  每个li浮动 右下添加边框
+                                   实际上有1px差距 需要调整 现实中1px的妥协经常有 架构思路才是最重要
+
+                                   此处用img 而不用背景图原因是 这个图面积太大 懒得手动调大小
+                                   直接利用img 标签缩放即可
+                        -->
+                        <div class="user-bottom">
+                            <ul class="clearfix">
+                                <li>
+                                    <a href="##"><img src="./images/conve1.jpg" alt="">
+                                       
+                                    <p>数码</p>
+                                    </a>
+                                </li>
+                                <li >
+                                    <a href="##"><img src="./images/conve2.jpg" alt="">
+                                       
+                                        <p>数码</p>
+                                    </a>
+                                </li>
+                                <li class="width72">
+                                    <a href="##"><img src="./images/conve3.jpg" alt="">
+                                       
+                                        <p>数码</p>
+                                    </a>
+                                <li>
+                                    <a href="##"><img src="./images/conve4.jpg" alt="">
+                                       
+                                        <p>数码</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="##"><img src="./images/conve1.jpg" alt="">
+                                       
+                                    <p>数码</p>
+                                    </a>
+                                </li>
+                                <li >
+                                    <a href="##"><img src="./images/conve2.jpg" alt="">
+                                       
+                                        <p>数码</p>
+                                    </a>
+                                </li>
+                                <li class="width72">
+                                    <a href="##"><img src="./images/conve3.jpg" alt="">
+                                       
+                                        <p>数码</p>
+                                    </a>
+                                <li>
+                                    <a href="##"><img src="./images/conve4.jpg" alt="">
+                                       
+                                        <p>数码</p>
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="##"><img src="./images/conve1.jpg" alt="">
+                                       
+                                    <p>数码</p>
+                                    </a>
+                                </li>
+                                <li >
+                                    <a href="##"><img src="./images/conve2.jpg" alt="">
+                                       
+                                        <p>数码</p>
+                                    </a>
+                                </li>
+                                <li class="width72">
+                                    <a href="##"><img src="./images/conve3.jpg" alt="">
+                                       
+                                        <p>数码</p>
+                                    </a>
+                                <li>
+                                    <a href="##"><img src="./images/conve4.jpg" alt="">
+                                       
+                                        <p>数码</p>
+                                    </a>
+                                </li>
+                                
+                                
+                                
+                                
+                               
+                            </ul>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <!-- 淘宝头条和app -->
+        <div class="tBApp">
+			<div class="tBTT">
+				<div class="tB-img">
+					<img src="./images/tb-img.png" >
+					<h5>让你的生活更有趣</h5>
+				</div>
+				<ul class="list">
+					<li>
+						<a href="##">
+							<h4>夏日降温偏方，北欧风清新卫浴这般造</h4>
+							<p>
+								比起大动干戈的客厅打造，独爱那温馨的卫浴空间，任由安静的色泽与各好物发光发热，由此打造远离尘世的北欧空间，上演一出以无胜多的神奇逆袭，将清新感贯穿于细节之中，从此解禁夏日凉爽，get全新的降温时光。
+							</p>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+       
+    </body>
+</html>
+
+<!-- 
+    温故: 
+    横板考虑浮动的原因：
+    1div等块内元素会占据行以及行后的面积  独占一整行 会极大的浪费空间
+    2而行内块元素 之间又有间隔4px
+    3而且浮动比较自由
+
+
+
+
+
+
+
+
+
+ -->
+<!--
+    网页的通栏
+        无固定宽度的盒子
+    网页的版心
+        PC端通常 网页的内容都是左右等宽 且居中的
+        移动端 通常适配屏幕宽度 占满显示
+
+        技巧 通常背景是适配网页大小<body>的盒子box1
+            box1包含版心box2是固定宽度 配合margin 0 auto 来居中 并且不会以为网页大小而导致浮动缩进    
+-->
+
+

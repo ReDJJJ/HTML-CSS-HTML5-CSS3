@@ -1,0 +1,64 @@
+/*  less 和 js 支持单行注释 ,而 html 和css 只支持多行斜杠 
+    less中嵌套
+
+    .box1{                          .box1{ A ;}
+        A;
+        .box2{           ===>      .box1 .box2{B;}
+            B;
+        }                   
+    }
+
+*/
+
+.box1{                         
+        background: blue;
+        width:100px;
+        height:100px;
+
+        .box2{      
+            background: rgb(27, 0, 12);
+            width:100px;
+            height:100px;
+        }                   
+    }
+
+// CSS.HTML不支持单行注释  因此less中的 单行注释 不会被转移进css 
+// 变量,可存储一个变值的量 
+// less 定义变量 使用@变量名:变量值;   例如 @name:blue;  
+// 变量的好处 : 就是编程中的好处 , 修改变量的值即可修改多个引用该变量的属性,不用一个个去修改属性值
+
+// 变量分为局部变量和全局变量 
+// 全局变量:定义在公共区域的变量,不属于任何一个选择器
+// 局部变量:定义在某个选择器内,只有该选择器 及其 嵌套后代(单纯的后代不行 必须是嵌套后代)能够继承使用 局部变量
+
+@widthAA:100px;
+@color:#f40;
+@red:rgb(255,0,0);
+// 三个全局变量;
+
+.box996{
+    width:@widthAA;
+    height:@widthAA;
+    background: @color;
+}
+
+.box233{
+    width:@widthAA;
+    height:@widthAA;
+    // 两个全局变量
+    @jubu:lightblue;
+    // 仅在.box233这个括号内部使用的变量
+    background: @jubu;
+    .box233qiantao{
+        background:@jubu;
+    }
+    // 定义一个属于.box233的全局变量
+}
+
+// .box233 .box234{
+//     width:@widthAA;
+//     height:@widthAA;
+//      两个全局变量
+//     background: @jubu;
+//      此处.box234若不是.box233的嵌套后代 则不能引用@jubu变量 例如此处就不能用使用@jubu变量,因为.box234没有在less中嵌套在.box233中
+// }

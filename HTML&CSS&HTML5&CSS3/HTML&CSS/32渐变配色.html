@@ -1,0 +1,122 @@
+<!-- 
+    margin是可以取负值的,取负值就代表元素之间重合。
+    外边框合并和塌陷只会发生在垂直方向
+    外边框合并:  针对相邻元素
+                相邻块元素垂直外边距的合并
+                当两个元素外边框都是正数,合并后的外边距 取两个数值中的最大正值。
+                解决办法：垂直相邻的只设置一个就可以解决了
+    外边框塌陷:  父子结构的元素
+                 父子元素嵌套在一起时，父盒子模型的margin-top 或者bottom取两个元素中对应最大值
+                 并且塌陷后的间距 会在父盒子的外边
+    合并与塌陷的意义在于 多个div垂直排列时 间距能够一致。但是对
+                解决办法: 想让父子元素有间距 设置父元素padding即可
+                        
+    相邻盒子或父子盒子
+    正数取最大
+    相同取其一
+    正数都有,取最大整数和最小负数之和
+    都是负数取最小
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>盒子模型之margin塌陷和margin合并</title>
+    <style>
+        .box {
+            background-image: linear-gradient(to right, #eea2a2 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%);
+        }
+
+        .box2 {
+            align-content: center;
+            width: 200px;
+            height: 200px;
+            background-color: darksalmon;
+            color: rgb(175, 238, 238);
+            text-align: center;
+        }
+
+        .box p {
+            color: #b49fda;
+            font: normal 700 40px arial;
+        }
+
+        .onebox {
+            width: 200px;
+            height: 200px;
+            margin-bottom: 10px;
+            background-color: #bbc1bf
+        }
+
+        .twobox {
+            width: 200px;
+            height: 200px;
+            margin-top: 20px;
+            background-color: #b49fda;
+        }
+
+        .wrapper {
+            width: 200px;
+            height: 200px;
+            background-color: rgb(177, 119, 119);
+            margin-top: 100px;
+        }
+
+        .content {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(149, 216, 149);
+            margin-top: 150px;
+        }
+
+        .father {
+            width: 400px;
+            height: 300px;
+            background-color: #7ac5d8;
+            padding: 0px 0px;
+            margin-top: 100px;
+        }
+
+        .son {
+            width: 100px;
+            height: 100px;
+            background-color: #eea2a2;
+            margin: 200px 20px 200px 20px;
+        }
+    </style>
+</head>
+
+<body class="box">
+    <h1 class="box2">纯色渐变配色</h1>
+    <p>配色属性:linear-gradient(to right, #eea2a2 0%, <br>#bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%);</p>
+    <div class="onebox">
+        div合并一
+    </div>
+    <div class="twobox">
+        div合并二
+    </div>
+    <div class="wrapper">
+        <div class="content">
+            父元素margin-top 100px 子150px
+            <br>外边框塌陷合并只会发生在垂直方向
+        </div>
+    </div>
+    <div class="father">
+        <div class="son">
+        </div>
+    </div>
+
+    <img src="./images/margin合并.png" alt="">
+    <img src="./images/margin塌陷.png" alt="">
+</body>
+
+</html>
+
+<!-- 
+    嵌套关系的margin与我想的不同; 
+    垂直方向父子元素中子元素的margin不代表子元素距离父元素边框有多远,而是都会进行塌陷 
+
+    因此想要设置子元素与父亲垂直有距离,在父元素上面使用padding 进行填充
+    温故而知新: 无论哪方设置了margin-垂直方向上 都会导致塌陷 ，取大并且塌陷后的外边距到父元素的外面了。
+ -->

@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+
+<body>
+    <!-- 
+            新增的下拉菜单 : 文本输入框 input与新下拉框进行聚合 datalist
+            语法: input 的list 属性值和datalist 的id 值进行绑定
+         -->
+    <form action="">
+        <input type="text" list="list01">
+        <datalist id="list01">
+            <option value="提交值1">显示值1</option>
+            <option value="提交值2">显示值2</option>
+            <option value="提交值3">显示值3</option>
+            <option value="提交值4">显示值4</option>
+        </datalist>
+        <!--  
+             h5新增的下拉框 1是为了更加的美观 2是用户可以自己输入值来选择 
+             但是还是不怎么美观，所以还是用小三层隐藏显示来模拟下拉选择框(淘宝框的模拟)
+          -->
+        <select>
+            <option value="提交值1">显示值1</option>
+            <option value="提交值2">显示值2</option>
+            <option value="提交值3">显示值3</option>
+            <option value="提交值4">显示值4</option>
+        </select>
+       
+        
+    </form>
+            语法: 
+            <input type="text" list="datalist 的id">
+            <datalist id="datalist的id">
+
+            </datalist>
+</body>
+
+</html>

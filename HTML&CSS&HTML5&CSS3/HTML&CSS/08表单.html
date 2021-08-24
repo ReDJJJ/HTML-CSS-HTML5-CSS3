@@ -1,0 +1,131 @@
+<!-- 
+    表单:表单标签,表单域，提示信息 form
+         表单就是用来交互的 而列表和表格即使纯显示的。
+    标签:
+        label:提示标签
+                属性:for 单击文本信息就可以获取选定输入框,for等于要选定表单标签的ID值
+        input:自结束标签 单标签
+        select:下拉菜单的标签对 下拉标签就是select即可
+ -->
+
+ <!doctype html>
+ <html>
+     <head>
+        <meta charset="utf-8">
+        <title>表单</title>
+     </head>
+     <body>
+
+         <form action="http://www.example.com" method="post">
+         <h1>type 为text 的input标签</h1>
+         <label for="text1">姓名</label>
+         <input type="text" id="text1">
+         <!-- 
+             <label for="id">提示文本</label> //绑定提示文本与焦点
+             <input type="text" id="id名"/>
+          --><br>
+
+        <h1>tpye 为 password 的input标签</h1>
+        <label for="text2">学号(隐藏)</label>
+        <input type="password" id="text2"/>
+        <!-- 
+             <label for="id">提示文本</label> //绑定提示文本与焦点
+             <input type="password" id="id名"/>
+        -->
+
+        <h1>type 为 radio 的input标签</h1>
+        <label for="">性别:</label>
+        <input type="radio" name="gender">男  <input type="radio" name="gender">女  
+        <input type="radio" name="gender" checked>第三性别  <input type="radio">苹果
+        <!-- 
+            此处label仅作为提示标签 未绑定焦点
+            单选的input标签键值对为type="radio"
+            input属性name 用以区分组， 同一name为同一组来实现单选效果，一组只能选择一个选项
+            默认选中 ，三种写法 checked="" checked="checked" checked  当只有属性名 checked 时，等效于checked="checked" 属性名="属性名"  
+         -->
+
+         <h1>type 为 checkbox 的input标签</h1>
+         <label for="">爱好</label>
+         <input type="checkbox"  name="hobit" checked> 篮球
+         <input type="checkbox"  name="hobit" checked> 足球
+         <input type="checkbox"  name="hobit"> 乒乓球
+         <input type="checkbox"  name="hobit"> 羽毛球
+         <!-- 
+             与单选十分类似 就是radio换成了checkbox
+          -->
+
+        <h1>下拉框单选框 select 标签嵌套option 选项</h1>
+        <label for="">国家或地区:</label>
+        <select>
+                <option>中国</option>
+                <option selected>中国台湾省</option>
+                <option>日本</option>
+                <option>韩国</option>
+                <option>英国</option>
+                <option>美国</option>
+                <option>法国</option>
+        </select>
+        <!-- 
+            下拉菜单的单选 默认选中是第一项 
+            想要自定义首选项 跟checked 用法一样 selected selected="selected" selected=""
+            select 生成下拉框 并且包含option 或者optgroup 标签
+            option标签 就是选项内容
+        -->
+        
+        <h1>optgroup分组的下拉单选框的选项</h1>
+        <label for="">地区:</label>
+        <select>
+            <optgroup label="亚洲">
+                <option>中国</option>
+                <option selected>中国台湾省</option>
+                <option>日本</option>
+                <option>韩国</option>
+            </optgroup>
+            <optgroup label="欧洲">
+                <option>英国</option>
+                <option>德国</option>
+                <option>法国</option>
+            </optgroup>
+        </select><br><br>
+        <!-- 在select标签包含的option标签的基础上
+        给下拉框的各个选项分组 利用optgroup 标签 和label 属性 进行分组以及分组署名 组标题 -->
+
+        <!-- 
+            本人较为陌生的多行输入文本域 以前都是input type ="text" 
+            但是多行输入文本域可以用 textarea 文本域标签
+         -->
+         <label for="none">请介绍自己</label><br>
+         <textarea name="none" id="none" cols="30" rows="10"></textarea>
+        <!-- textarea 是一个输入文本域 配合cols 和 rows 可以限定 用户最大的输入行数和列数 -->
+        
+        <!-- 
+            表单域概念
+            一对表单域是由 form 标签对 所包含的内容决定的
+            设立表单域的好处就是 可以进行统一的管理 例如配合提交按钮统一进行提交
+        -->
+
+        <!-- 
+            普通按钮 input type="button" value="按钮内容"
+            充值按钮 input type="reset"  value="按钮内容"
+            提交按钮 input type="submit" value="按钮内容"
+            提交按钮提交的内容 是该按钮所在的表单域中 所有输入的内容
+            在表单标签中 选择提交的地址和方法(后续详细教学)
+            form action=" http://..." method=""
+            action="" 是提交的地址 或目的地 
+            method="post/get" 提交的两种方法 
+            get(URL提交)
+            post(请求报文提交)
+         -->
+         <br><br>
+         <input type="button" value="普通的 type为button 的按钮">
+         <input type="submit" value="提交">
+         <input type="reset"  value="重置">
+        <!-- 
+            还有标签对写法
+            <button type="button / reset /submit">按钮内容</button>
+            其实就是按钮内容外移 然后button标签对 替换input
+            button 不选择的话 默认是提交标签
+         -->
+        </form>
+     </body>
+ </html>

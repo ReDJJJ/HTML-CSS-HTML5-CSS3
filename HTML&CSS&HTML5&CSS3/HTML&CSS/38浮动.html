@@ -1,0 +1,70 @@
+<!--
+     浮动: 分为左浮动和右浮动
+
+     三种显示模式为标准流
+     float: 一个属性,浮动流，浮动是一个半脱离标准流的状态,如今常用于网页的横向布局。对比行内块进行比较
+            半脱离:指的是浮动元素会影响后面元素的位置 ,也相当于排队机制 ，一个人起飞上天了,空间释放,只影响后面的人,不会对前面的人(块元素造成影响)
+            并且浮动后的元素 共处一层
+ -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>helloworld</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .one {
+            width: 100px;
+            height: 100px;
+            background: red;
+            float: left;
+        }
+
+        .two {
+            width: 200px;
+            height: 200px;
+            background: rgb(91, 163, 106);
+        }
+
+        .three {
+            width: 300px;
+            height: 300px;
+            background: rgb(104, 73, 124);
+        }
+
+        .four {
+            width: 100px;
+            height: 100px;
+            background: rgb(67, 201, 138);
+            float: left;
+        }
+
+        .five {
+            width: 100%;
+            height: 100%;
+            background: rgb(228, 109, 40);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="five">
+        <div class="two">two</div>
+        <div class="one">one</div>
+        <div class="two">two</div>
+        <!-- one 为浮动状态  理解为 .one 在z轴上浮动离开z轴底层   .two认为底层无人占据 因此占据了原本.one所占的区域  因此one跑到了.two的上一层 -->
+        <div class="one"></div>
+        <div class="four">浮动后的元素 脱离z轴底层 共处一层按顺序排列 并且只浮动影响后面的元素 并且浮动受前面块显示元素的影响</div>
+        <div class="three"></div>
+    </div>
+
+</body>
+
+
+</html>

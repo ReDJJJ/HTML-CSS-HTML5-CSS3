@@ -1,0 +1,86 @@
+<!--
+
+    有关于背景图的知识:
+    1背景图的起点默认是在 top left 左上 padding 和 border 交界的角  而不是content与padding交汇的角  绝对定位的默认定位点也是这样子
+    2并且当平铺或者背景图过大 涉及到边框区域,会以默认起点为准，平铺或涉及整个盒子(content padding border) 当边框透明时候 可以看见平铺内容
+
+     background-clip 边距裁切(可视范围选择):
+     应用场景:
+     1当你想背景图在边框可见(默认值)  background-clip:border-box;
+
+     2当你不想背景图延伸到边框，但从padding区域开始可见 background-clip:padding-box;
+     
+     3当不想背景图 在border padding 可见 ,只在content 可见 background-clip:content-box;
+    
+     !!!!!!但是
+     background-clip只是能改变哪部分可见 那部分不可见 并不改变背景图起始位置
+     
+     background-origin
+     改变背景图起始位置参考点,而背景图还会在background-origin的基础上偏移量
+     1从边框开始:
+     background-origin:border-box;
+     2从padding开始  (默认值)
+     background-origin:padding-box;
+     3从内容开始 
+     background-origin:content-box;
+
+     background-origin和background-clip 的属性值一样 起始就是三个区域的划分 起始点和可视范围的选择
+-->
+
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            padding: 100px;
+            border: 50px solid rgba(252, 131, 211, 0.5);
+            background: url(../images/abcd.jpg) no-repeat 0px 0px;
+        }
+
+        div:first-of-type {
+            background-clip:border-box;
+            /* 边框可见背景图 */
+        }
+        div:nth-child(2){
+            background-clip:padding-box;
+        }
+        div:nth-child(3){
+            background-clip:content-box;
+        }
+
+        div:nth-child(4){
+            background-origin:padding-box;
+            /* 默认值 */
+        }
+        div:nth-child(5){
+            background-origin:border-box;
+        }
+        div:nth-child(6){
+            background-origin:content-box;
+        }
+    </style>
+</head>
+
+<body>
+   
+    <div> border-box 默认值
+    </div>
+    <div> padding-box
+    </div>
+    <div> content-box
+    </div>
+    
+    <div>
+    </div>
+    <div>
+    </div>
+    <div>
+    </div>
+</body>
+
+</html>

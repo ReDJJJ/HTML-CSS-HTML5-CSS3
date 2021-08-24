@@ -1,0 +1,80 @@
+<!-- 图表字体也是一种字体，和微软雅黑，宋体一致 ，是ui设计师用ai设计出来的-->
+<!-- 
+            使用方法: 在素材网站选择素材(在阿里巴巴素材网下载代码)，
+            下载的压缩包里，打开index.html
+            index包含了@font-face字体声明,.iconfont类，和各个图标字体的字体编码
+
+            第一种办法: unicode方式
+            
+            1复制@font-face 进入网页style标签(字体声明属于样式设计)
+            2复制.iconfont 类以及属性 进入网页style模块 (!!！！注意引用的路径)
+            3利用一个元素 引用.iconfont类,并且文字内容为&字体编码 ;(类似空格 &nbsp;)
+
+            第二种办法: font-class 字体类方式
+            1使用link 链接图标字体.CSS文件 (注意引用路径)
+            2使用元素调用 .iconfont类和素材类名  
+
+            !!!!!!我卡了一个小时的原因:类名没有. 但是复制的时候有. 并且素材类名没有复制完全
+
+            实际上第二种办法 在连接css文件时候，css文件就包含了引用 font-face,添加.iconfont类的样式 也可以自定类名和字体名称
+
+
+        -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>图标字体</title> 
+    <link rel="stylesheet" href="./font-class/font/iconfont.css">
+    <link rel="shortcut icon" href="./images/dola.ico">
+        
+    <style>
+        @font-face
+        /* 声明字体 */
+            {
+            font-family: 'iconfont2';
+            /* 声明字体名称，可自定义，要和.iconfont类中的font-family一致 */
+            src: url('./font/iconfont.ttf?t=1625276161479') format('truetype');
+            /* !!!!!!要注意引用路径  否则图标字体错误会出现方框号*/
+        }
+
+        .iconfont2
+        /* 就是一个普通的样式类 可自定义类名 */
+         {
+            font-family: "iconfont2" !important;
+            /* 引用声明过的字体iconfont 也可自定义名字 要与上面的@font-face 对应*/
+            font-size: 16px;
+            font-style: normal;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            /* 兼容性设置 */
+        }
+
+        /* 若想调整图标字体 另起一个类单独定义  */
+        .iconfontchange1{
+            font-size: 30px;
+        }
+
+        
+        
+        .box{
+            width:500px;
+            height:200px;
+            border:1px solid #eee;
+            margin:0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h1>unicode方式引用</h1>
+        <span class="iconfont2 iconfontchange1">&#xe605;</span>
+        <span class="iconfont2 iconfontchange1">&#xe636;</span>
+        <span class="iconfont icon-RectangleCopy3"></span>
+    </div>
+
+</body>
+</html>

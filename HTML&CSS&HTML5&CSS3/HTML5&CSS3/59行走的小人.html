@@ -1,0 +1,106 @@
+<!-- 
+    理解:
+    过渡是设置了 起始和结束 状态 的过渡  只有两段
+    动画可以针对一段动画划分足够多的关键帧区间 ,来达成动画效果 
+
+    行走的小人:通过 多段背景图的切换来达成 行走的视觉效果
+    精灵图的位置变化 也是数值的变换 
+ -->
+
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        .box1 {
+            width: calc(528px/4);
+            /* 计算函数  单位在calc内体现  */
+            height: 271px;
+            border: 1px solid black;
+            margin: 100px auto;
+        }
+
+        .box1:hover {
+            animation: donghua 1s 0s ease-in infinite normal;
+            animation-fill-mode: backwards;
+            animation-timing-function: steps(4);
+            /* 在鼠标移入时 提前进入  */
+        }
+
+        /* 有了动画外属性 就可以 实现动画的独立统一  不用将动画初始设置或结束在 默认状态下 也能实现动画的独立完整效果 */
+        @keyframes donghua {
+            /* 0% {
+                background: url(../images/bigtap-mitu-queue-big.png) no-repeat 0 0;
+               
+            }
+
+            25% {
+                background: url(../images/bigtap-mitu-queue-big.png) no-repeat -132px 0;
+            }
+
+            50% {
+                background: url(../images/bigtap-mitu-queue-big.png) no-repeat -264px 0;
+              
+            }
+
+            75% {
+                background: url(../images/bigtap-mitu-queue-big.png) no-repeat calc(-132px*3) 0;
+             
+            }
+            100% {
+                background: url(../images/bigtap-mitu-queue-big.png) no-repeat 0 0;
+            } */
+            /* 以上是个人思路 将每个图先通过位移截取出来 在划分关键帧区间 会出现结尾和开头 指向了同一画面   */
+            /* 
+            但是太蠢了 老师思路: 就一个关键帧区间 通过步数限定 来完成 
+            因为动画 不限定步数 是精灵图平顺的位移过去 
+            此时添加步数 则可以将平顺的位移定格 在四个状态 就是4个走路姿势
+            
+            */
+
+            0% {
+                background: url(../images/bigtap-mitu-queue-big.png) no-repeat 0 0;
+            }
+
+            100% {
+                background: url(../images/bigtap-mitu-queue-big.png) no-repeat -528px 0;
+            }
+
+            /* 在使用步数截取精灵图 状态时候  起始 0 结束 -一图宽度 */
+        }
+
+
+        .box2 {
+            width: 130px;
+            height: 130px;
+            border: 1px dashed black;
+            margin: 10px auto;
+            animation:donghua2 0.5s 0s ease-in infinite normal;
+            /* 声明 动画 信息 */
+            animation-timing-function: steps(32);
+        }
+        .box2:hover{
+            animation-play-state: paused;
+            /* 鼠标移入暂停 */
+        }
+
+        @keyframes donghua2 {
+            0% {
+                background:url(../images/bike.png)  no-repeat 0 0;
+            }
+            100%{
+                background:url(../images/bike.png)  no-repeat 0 -4160px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box2"></div>
+    <div class="box1"></div>
+
+</body>
+
+</html>

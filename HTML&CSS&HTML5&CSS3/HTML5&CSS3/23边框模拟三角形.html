@@ -1,0 +1,32 @@
+<!-- 
+    面试题目 
+ -->
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"> 
+        <title></title>
+        <style>
+            .box{
+                border-left:100px solid rgb(90, 90, 163);
+                border-right:100px solid rgb(140, 233, 186);
+                border-top:100px solid rgb(228, 77, 170);
+                border-bottom:100px solid rgb(238, 144, 120);
+                width:200px;
+                height:200px;
+                margin: 0 auto;
+                box-sizing: border-box;
+             
+                /* 左边没有边框  必要情况 其他边框将会进行填充(例如content过于小的情况) */
+            }
+        </style>
+    </head>
+    <!-- 
+        利用边框 模拟三角形 
+        方法: 观察 四个边框,发现边框越粗,内容越小时,边框逐渐往四个三角形形状靠
+              保留四个边框所需的边框即可. 即设置不需要的边框颜色 与背景一致  color:transparent
+    -->
+    <body>
+        <div class="box"></div>
+    </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta char="UTF-8">
+    <title>CSS继承性</title>
+    <style>
+        .box{
+            font-size: 20px;
+            color: red;
+        }
+       
+    </style>
+</head>
+<body>
+        <div class="box">
+            <p>以下内容在box类的div标签下</p>
+            <span>span标签</span><br><br>
+            <a href="##">超链接</a>
+            <h1>H1的标签</h1>
+            <!-- 
+                网页的H标签 "标题系列" 自带属性 font-size:2em 来保证相对大小相等 H1标题肯定比正文大 因此h1继承的box 的字符大小被覆盖  h1字体大小为2倍的字体大小  就是 2*20px
+            -->
+            <!-- 
+                网页的超链接标签 自带颜色设置color:-webkit-link; 所以也覆盖了继承box 的红色 
+             -->
+
+        </div>
+</body>
+</html>

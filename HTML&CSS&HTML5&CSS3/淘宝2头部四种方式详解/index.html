@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>mytaobao1</title>
+        <link rel="stylesheet"  type="text/css" href="./css/reset.css">
+        <link rel="stylesheet"  type="text/css" href="./css/index.css">
+        <!-- 使用外联链接 请注意层叠顺序 -->
+    </head>
+    <body>
+        <div class="header-wrap">
+            <div class="header clearfix">
+                <!-- 此处不添加clearfix 则会导致浮动不结束  两个div高度为零 -->
+                <ul class="list-l">
+                    <li class="one">
+                        <a href="##">亲,请登录</a>
+                    </li>
+                    <li style="margin:0 21px 0 6px">
+                        <a href="##">免费注册</a>
+                    </li>
+                    <li>
+                        <a href="##">手机逛淘宝</a>
+                    </li>
+                    <!-- 此处的间距比较散  没有统一的规格 因此用内联样式决定比较好 也比较直观  -->
+                </ul>
+              <ul class="list-r">
+                <li>
+                    <a href="##">2222222</a>
+                </li>
+              </ul>
+            </div>
+        </div>
+        <!-- 第一种方式 : 利用第二个 的li 左右设置margin外边距 来达到效果 -->
+        <!-- margin外边距 不包含盒子模型内 所以中间有部分 不属于超链接的范畴 -->
+
+
+        <div class="header-wrap">
+            <div class="header clearfix">
+                <!-- 此处不添加clearfix 则会导致浮动不结束  两个div高度为零 -->
+                <ul class="list-l">
+                    <li class="one">
+                        <a href="##">亲,请登录</a>
+                    </li>
+                    <li style="padding:0 21px 0 6px">
+                        <a href="##">免费注册</a>
+                    </li>
+                    <li>
+                        <a href="##">手机逛淘宝</a>
+                    </li>
+                    <!-- 此处的间距比较散  没有统一的规格 因此用内联样式决定比较好 也比较直观  -->
+                </ul>
+              <ul class="list-r">
+                <li>
+                    <a href="##">2222222</a>
+                </li>
+              </ul>
+            </div>
+        </div>
+        <!-- 第二种方式 : 利用第二个 的li 左右设置 padding内边距 来达到效果 -->
+        <!-- padding边距 包含li的盒子模型内 但是不属于a的盒子模型 中间部分不属于超链接的范畴 -->
+
+        <div class="header-wrap">
+            <div class="header clearfix">
+                <!-- 此处不添加clearfix 则会导致浮动不结束  两个div高度为零 -->
+                <ul class="list-l">
+                    <li class="one">
+                        <a href="##">亲,请登录</a>
+                    </li>
+                    <li>
+                        <a href="##" style="margin:0 21px 0 6px;">免费注册</a>
+                    </li>
+                    <li>
+                        <a href="##">手机逛淘宝</a>
+                    </li>
+                    <!-- 此处的间距比较散  没有统一的规格 因此用内联样式决定比较好 也比较直观  -->
+                </ul>
+              <ul class="list-r">
+                <li>
+                    <a href="##">2222222</a>
+                </li>
+              </ul>
+            </div>
+        </div>
+        <!-- 第三种方式 : 利用第二个 的a 左右设置 padding内边距 来达到效果 -->
+        <!-- padding边距 包含a的盒子模型内 属于a的盒子模型 中间部分属于超链接的范畴 -->
+
+        <div class="header-wrap">
+            <div class="header clearfix">
+                <!-- 此处不添加clearfix 则会导致浮动不结束  两个div高度为零 -->
+                <ul class="list-l">
+                    <li class="one">
+                        <a href="##">亲,请登录</a>
+                    </li>
+                    <li>
+                        <a href="##" style="padding: 0 21px 0 6px">免费注册</a>
+                    </li>
+                    <li>
+                        <a href="##">手机逛淘宝</a>
+                    </li>
+                    <!-- 此处的间距比较散  没有统一的规格 因此用内联样式决定比较好 也比较直观  -->
+                </ul>
+              <ul class="list-r">
+                <li>
+                    <a href="##">2222222</a>
+                </li>
+              </ul>
+            </div>
+        </div>
+        <!-- 子元素的外边距margin也会撑大父元素 -->
+        <!-- 第四种方式 : 利用第二个 的a 左右设置 padding内边距 来达到效果 -->
+        <!-- padding边距 包含a的盒子模型内 属于a的盒子模型 中间部分属于超链接的范畴 -->
+        <!--左右的边框不会发生边距塌陷合并  并且都是浮动对象  不会发生边距塌陷合并 
+            其实关键就是理解 padding 和margin 属不属于盒子模型  并且盒子模型对象是谁 -->
+    </body>
+</html>
+
+<!--
+    网页的通栏
+        无固定宽度的盒子
+    网页的版心
+        PC端通常 网页的内容都是左右等宽 且居中的
+        移动端 通常适配屏幕宽度 占满显示
+
+        技巧 通常背景是适配网页大小<body>的盒子box1
+            box1包含版心box2是固定宽度 配合margin 0 auto 来居中 并且不会以为网页大小而导致浮动缩进    
+
+
+
+        可以利用嵌套多层 标签 达到边距的目的  解决一些难解决的问题
+
+        温故而知新:单独设置行高不设置高度会导致元素高度变大，
+        假若想设置文字的垂直位置而不想体积变化，可以设置固定高度height和行高line-height
+            文字垂直位置:行高！
+-->
+
+

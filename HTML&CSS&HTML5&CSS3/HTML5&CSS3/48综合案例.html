@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+    <!-- 
+        定位层级默认都是0 有需要的时候需要手动调
+        看不见 先去调试 看看是否生成了 若生成了看不见 考虑其他元素 
+
+        ！！！上次的从中间到两边是由盒子的缩放做的
+        其实除了top left right bottom 可以改变过渡的起始点 translate也可以改变 
+        前者改变的是参考点的四个方向  后者可以在前者的四个方向确定后 精确定位参考点
+        配合transform:translate
+     -->
+    <head>
+        <meta charset="utf-8"> 
+        <title></title>
+        <style>
+            *{  
+                transform:skew(0deg);
+                margin: 0;
+                padding:0;
+                /* 取消默认设置 这里例如 标签元素的上下留白 */
+            }
+            .box{
+                width:360px;
+                height:240px;
+                margin:100px auto 0;
+                border:1px solid black;
+                text-align:center;
+                overflow: hidden;
+                position:relative;
+            }
+/* 静态元素设置 */
+            .box>h2{
+                font-size:30px;
+                width:100%;
+                color:rgb(255, 255, 255);
+                position:absolute;
+                top:45px;left:0;
+                /* 绝对定位后  需要指定宽度 否则靠内容撑开 */
+                transition:all 2s 0ms linear;
+            }
+            .box:hover>h2{
+                text-shadow:1px 3px 10px black;
+            }
+
+            .box>h4{
+                
+                width:100%;
+                font-weight:400;
+                color:white;
+                font-size:20px;
+                position:absolute;
+                bottom:0;
+                left:0;
+                opacity: 0;
+
+                transition:all 0.2s 0s linear;
+            }
+            .box:hover>h4{
+                text-shadow:1px 3px 10px black; 
+                bottom:50px;
+                opacity: 1;
+            }
+            .box>img{
+                display:block;
+                transform:scale(1);
+                transition: all 0.2s 0s linear;
+                z-index: 0;
+            }
+
+            .box:hover>img{
+                transform:scale(1.2);
+            }
+
+            .box::before{
+                content: "";
+                display:block;
+                height:180px;
+                width:0px;
+                border:1px solid white;
+                box-sizing: border-box;
+                border-left:none;
+                border-right:none;
+            /* 模拟边框 */
+                position:absolute;
+                top: 30px;
+                left: 25px;
+                z-index: 999;
+                /* 静态设置 */
+                /* 动态预备 */
+                transition: all 0.8s 0s linear;
+            }
+            .box:hover::before{
+                width:310px;
+            }
+
+            .box::after{
+                content: "";
+                display:block;
+                height:0px;
+                width:290px;
+                border:1px solid white;
+                box-sizing: border-box;
+                border-top:none;
+                border-bottom:none;
+            /* 模拟边框 */
+                position:absolute;
+                bottom: 50%;
+                left: 50%;
+                transform:translate(-50%,50%);
+                /* 以上三行都会改变 过渡起始点 */
+                /* 静态设置 */
+                /* 动态预备 */
+                transition: all 2s 0s linear;
+            }
+            .box:hover::after{
+                height:200px;
+            }
+        </style>
+        
+    </head>
+    
+    <body>
+        <div class="box">
+            
+            <img src="../images/img_02.jpg" alt="">
+            <!-- 定位后写覆盖前写的 -->
+            <h2>HTML5+CSS3</h2>
+            <h4>By RedJJJ</h4>
+        </div>
+
+    </body>
+</html>

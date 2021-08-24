@@ -1,0 +1,69 @@
+<!-- 
+    a标签的属性: 
+            cursor 鼠标样式 :pointer 默认小手 help 帮助小手 英文意思是光标
+    
+    文本属性：
+            文字线text-decoration:
+                                下划线:del,underline;
+                                上划线:overline;
+                                中划线:line-through;
+                                无:none; 可以用以取消超链接默认的下划线版本
+                                这个属性可以被直接继承，不会像color 层叠覆盖掉,就是 上中下线都同时存在
+
+            网课新理解:标签其实就是自带属性和JavaScript的文本描述; p段落最好还是不要再包含p段落了。
+            强制换行word-break:
+                                break-all :所有单词 位置不足强制换行,在英文中一个单词可能很长;
+            强制不换行white-sapce:nowrap;
+                                文字内容范围超过了width,但是强制不换行
+
+ -->
+
+ <!DOCTYPE HTML>
+<html>
+<head>
+    <meta char="UTF-8">
+    <title>文本常用属性</title>
+    <style>
+        a{
+            font-size: 20px;
+            cursor:help; 
+            /* 超链接光标默认是 pointer  */
+        }
+        .text1{
+            color:pink;
+            text-decoration:underline;
+        }
+        .text1 .hello{
+            color:aquamarine;
+            text-decoration:overline;
+        }
+        div
+        {
+            color: red;
+            text-decoration: line-through;
+        }
+
+    </style>
+</head>
+<body>
+        <div>
+            <p>继承了div的中间线;</p>
+            <p class="text1"> this is a text
+                <span class="hello"> this is a anthor text</span>
+            </p>
+        </div>
+
+        <div style="background-color:pink ; width: 100px;text-decoration: none;">
+            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa 此处浏览器认为aaaaa是一个单词  
+        </div>
+
+        <div style="background-color:pink ; width: 100px;word-break: break-all;text-decoration: none;">
+            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa 此处浏览器认为aaaaa是一个单词 但是使用了word-break:break-all来强制字母换行
+        </div>
+
+        <div style="background-color:pink ; width: 100px;white-space:nowrap;text-decoration: none;">
+            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa此处浏览器认为aaaaa是一个单词,使用了white-space:nowrap来强制不换行
+        </div>
+</body>
+</html>
+

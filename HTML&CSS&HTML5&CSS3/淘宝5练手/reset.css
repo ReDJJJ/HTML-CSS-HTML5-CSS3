@@ -1,0 +1,57 @@
+div,h1,h2,h3,h4,h5,h6,table,form,p,input,button,a,ul,ol,li,tr,td,th,body{
+    padding:0;
+    margin:0;
+}
+/* 初始化 */
+ul,ol{
+    list-style-type:none;
+}
+
+i,em{
+    font-style:normal;
+}
+
+a,s,del,u,ins{
+    text-decoration:none;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-size: 100%;
+}
+
+input,button{
+    outline:none;
+}
+
+table,td,th{
+    border:1px solid #000;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+img{
+    display:block;
+}
+
+.clearfix:after{
+    clear:both;
+    content:"";
+    display:block;
+    height:0px;
+}
+/* 此处忘记了写after  */
+/* 淘宝样式设定 */
+
+body{
+    font:normal 400 12px/1.5 tahoma,arial,\5b8b\4f53;
+    background-color: #f1f1f1;
+    color:#6c6c6c;
+}
+
+a{
+    color:#6c6c6c;
+}
+
+a:hover{
+    color:#f40;
+}

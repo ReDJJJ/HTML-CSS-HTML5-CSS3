@@ -1,0 +1,351 @@
+<!-- 
+    轮播图就是一组 链接图片 列表
+    ul
+     li 
+        a 
+         img
+        a
+     li
+     li 
+        a 
+         img
+        a
+     li
+     li 
+        a 
+         img
+        a
+     li
+    ul
+
+    左右切换按钮 利用子相父绝
+    小圆点 用有序列表 （长得一样 但是按顺序）
+
+    关键思想:
+    类似小米轮播图 左侧导航栏标签 鼠标hover时候 出现覆盖全部或者轮播图的选项框
+    鼠标移入:显示
+    鼠标移出:隐藏
+    显示和隐藏 应该由可视性(visibility)或者display来完成  而出现的菜单位置 由定位来完成
+    而左右布局才使用浮动 其余定位使用position和一系列设置来完成。
+    覆盖
+ -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>小米轮播图</title>
+
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                list-style:none;
+            }
+            .banner{
+                width: 1226px;
+                height: 460px;
+                background:pink;
+                margin:100px auto 0;
+                position:relative;
+                /* 给左侧导航找爹 */
+            }
+            .leftnav{
+                width:234px;
+                height:460px;
+                background: rgba(0, 0, 0,0.4);
+                position:absolute;
+                top:0;
+                left:0;
+                /* 
+                    第一种: 透明属性 opacity （0-1之间的小数） 1全部透明 0全透明 
+                    背景和文本都会透明 这是为什么文本编码工程蓄力
+                    
+                    可能需要再叠加一个相同大小和定位的透明盒子 装载文字 压在半透明的元素上 达到背景透明 文字不透明的功能
+
+                    第二种: CSS3中的属性 rgba()
+                    background:rgba(0,0,0,透明度) (0-1)
+                    此属性就很好，只透明背景色，文本不透明。
+
+                    有个特别的点:
+                    偏移量: top和bottom  right和left做的是一件事，但是不会互相层叠，当两个设置同时生效时会产生意想不到的结果 要注意。
+
+                    水平方向: left和right 同时存在生效 left优先 
+                    垂直方向: top和bottom同时存在生效  top优先
+
+                    解决方法:
+                    .span{  
+                        width:234px;
+                        height:460px;
+                        background: rgb(0, 0, 0);
+                        position:absolute;
+                        left:50%;
+                        top:50;
+                    }
+                    rightbtn{
+                        left:auto;
+                        //此处相当于重置left 腾出空间让right生效 同时又能让.span中的东西生效
+                        right:0px;
+                        //贴右侧
+                    }
+
+                */
+                color:aqua;
+            }
+            img{
+                display:block;
+                /* 图片4像素留白  img撑开了a 撑开了li ul  还留白了4px  */
+            }
+
+            /* 
+                .text{
+                width:234px;
+                height:460px;
+                position:absolute;
+                top:0;
+                left:0;
+                color:aqua;
+                此处就是再次叠加盒子装载文字 放在半透明的盒子上 来达到背景透明 文字不透明的视觉效果
+            } */
+
+            .leftbtn{
+                width:41px;
+                height:69px;
+                background: rgba(60,60,60,0.2);
+                position:absolute;
+                top:50%;
+                margin-top:-35px;
+                left:234px;
+                text-align:center;
+                font:normal 700 20px/69px "arial";
+            }
+            
+            .rightbtn{
+                width:41px;
+                height:69px;
+                background: rgba(60,60,60,0.2);
+                position:absolute;
+                top:50%;
+                margin-top:-35px;
+                right:0px;
+                text-align: center;
+                font:normal 700 20px/69px "arial";
+            }
+            .banner ol{
+                position:absolute;
+                right:10px;
+                bottom:5px;
+                margin-right:20px;
+            }
+            .banner ol li{
+                float:left;
+                margin-right: 4px;
+                width:6px;
+                height:6px;
+                border: 2px solid #dfd7d7;
+                border-radius: 2px;
+                background: rgba(160, 160, 160,0.3);
+            }
+            .banner ol li:hover{
+                cursor: pointer;
+                background: rgba(255,255,255,0.2);
+            }
+            .clearfix::after{
+                display:block;
+                content:"";
+                clear:both;
+            }
+            .leftnav .list{
+                margin:20px 0px 0px;
+            }
+
+            .leftnav .list li  a{
+                display: block;
+                height: 42px;
+                width:184px;
+                line-height:42px;
+                color:#fff;
+                padding:0px 25px 0px;
+            }
+
+            .leftnav .list li h3{
+                font-weight: 400;
+                font-size: 14px;
+                float:left;
+            }
+            .leftnav .list li em{
+                font-weight:700;
+                font-size: 20px;
+                font-style: normal;
+                float:right;
+            }
+         
+            .leftnav .list li a:hover{
+                background: #ff6700;
+            }
+
+            .leftnav .list li a:hover h3{
+                color:aliceblue;
+            }
+            .leftnav .list li a:hover em{
+                color:red;
+            }
+            /* hover伪类后面还可以添加 选择器 ，例如上述 在a标签hover时候 分别对h3和em进行样式设定 */
+
+
+            .leftnav .list li .content{
+                visibility:hidden;
+                height:458px;
+                width:991px;    
+                background: rgb(255, 255, 255);
+                position: absolute;
+                top:0;
+                left:234px;
+                border:1px solid #bbbbbb;
+                border-left:none;
+                z-index: 1;
+                /* 由于在下面HTML中 两个切换按钮后定义 所以覆盖了content 需要设置z-index来覆盖切换按钮 */
+            }
+
+            
+            .leftnav .list  li:hover .content{
+                visibility: visible;
+            }
+
+            /* 
+                关键思路:位置交给定位，而隐藏和显示交给visibility这个属性
+                这就是为什么以前菜单会出现定位，就是为了定位 
+
+                隐藏显示: 利用伪类:hover 
+                        例如一个a被鼠标覆盖时候，会出现下一级菜单caidan 则 
+                        要注意：看清楚是上面对象鼠标移入 弹出下一级菜单
+                        .candan{
+                            visibility:hidden;
+                        }
+                        a:hover .caidan{
+                            visibility:visiable;
+                        }
+                定位:利用子绝父相来定位
+            
+             */
+
+        </style>
+
+    </head>
+    <body>
+        <div class="banner">
+            <ul>
+                <li>
+                    <a href=""><img src="./images/banner.webp" alt=""></a>
+                </li>
+            </ul>
+            <div class="leftnav">
+                <ul class="list">
+                    <li>
+                        <a href="">
+                        <h3>手机 电话卡</h3>
+                        <em>></em></a>
+                        <div class="content">
+                        </div>
+                    </li>
+                    <li>
+                        <a href="">
+                        <h3>手机 电话卡</h3>
+                        <em>></em></a>
+                        <div class="content">
+
+                        </div>
+                    </li>
+                    <li>
+                        <a href="">
+                        <h3>手机 电话卡</h3>
+                        <em>></em></a>
+                        <div class="content">
+
+                        </div>
+                    </li>
+                    <li>
+                        <a href="">
+                        <h3>手机 电话卡</h3>
+                        <em>></em></a>
+                        <div class="content">
+
+                        </div>
+                    </li>
+                    <li>
+                        <a href="">
+                        <h3>手机 电话卡</h3>
+                        <em>></em></a>
+                        <div class="content">
+
+                        </div>
+                    </li>
+                    <li>
+                        <a href="">
+                        <h3>手机 电话卡</h3>
+                        <em>></em></a>
+                        <div class="content">
+
+                        </div>
+                    </li>
+                    <li>
+                        <a href="">
+                        <h3>手机 电话卡</h3>
+                        <em>></em></a>
+                        <div class="content">
+
+                        </div>
+                    </li>
+                    <li>
+                        <a href="">
+                        <h3>手机 电话卡</h3>
+                        <em>></em></a>
+                        <div class="content">
+
+                        </div>
+                    </li>
+                    <li>
+                        <a href="">
+                        <h3>手机 电话卡</h3>
+                        <em>></em></a>
+                        <div class="content">
+
+                        </div>
+                    </li>
+                    <li>
+                        <a href="">
+                        <h3>手机 电话卡</h3>
+                        <em>></em></a>
+                        <div class="content">
+
+                        </div>
+                    </li>
+                    
+                </ul>
+            </div>
+            
+            <!-- <div class="text">我的字呢我的字呢我的字呢我的字呢我的字呢我的字呢我的字呢我的字呢</div> -->
+            <!-- 此处为什么不是两个div 一个放左侧导航 一个放图  然后左右浮动排列
+                :因为左侧导航可以隐隐约约的看到轮播图(设置了透明图) ，证明左侧导航是压在了轮播图的上方，所以用定位
+                左侧导航div 建议放在轮播图ul外面，ul内部只允许放li，并且轮播图li会切换图 左侧导航不可能切换
+            -->
+            <span class="leftbtn"><</span>
+            <span class="rightbtn">></span>
+            <!-- 
+                轮播图的左右切换按钮也是利用子绝父相 的技巧来定位的
+                在此处仅仅作为示范案例 
+            -->
+            <ol class="clearfix">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ol>
+        </div>
+    </body>
+</html>
+
+<!-- 
+    在模仿网站的时候，两行文字的基线差值就是行高
+    最后一行的行高可能会多出来 ，利用overflow:hidden 隐藏
+-->

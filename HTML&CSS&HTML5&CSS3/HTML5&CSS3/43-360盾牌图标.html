@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+<!-- 
+    老师做法 :利用 div 限定宽高强迫 img 模块没三个换行  img默认行内块模式 然后各自设定 初始位移 和末尾位移即可
+    个人问题: 注意 translate(,)逗号隔开水平垂直量
+ -->
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        *{  margin: 0; padding:0;
+            /* 初始化  例如 ul 去掉了列表样式 也还会保留4px的padding */
+            list-style-type: none;
+            
+        }
+        body{
+            background:#31965b;
+        }
+        div {
+            width: 450px;
+            height: 470px;
+            margin: 200px auto;
+            background: #31965b;
+        }
+        div ul{
+            width:fit-content;
+            margin: 0 auto;
+        }
+
+        /* 初始状态各自设置 */
+        div img {
+            float: left;
+            transition: transform 1s 0s ease-in-out;
+        }
+
+        img:nth-of-type(1) {
+            transform: translate(-200px, -150px) rotateZ(35deg);
+        }
+
+        img:nth-of-type(2) {
+            transform:  rotateZ(90deg) translate(-280px, 90px);
+        }
+
+        img:nth-of-type(3) {
+            transform: translate(280px, 600px) rotateZ(-90deg);
+        }
+
+        img:nth-of-type(4) {
+            transform:  rotateZ(-90deg) translate(260px, 190px);
+        }
+
+        img:nth-of-type(5) {
+            transform: translate(-280px, 90px) rotateZ(-90deg);
+        }
+
+        img:nth-of-type(6) {
+            transform:  rotateZ(-90deg) translate(270px, 190px);
+        }
+
+        img:nth-of-type(7) {
+            transform: translate(90px, 390px) rotateZ(-90deg);
+        }
+
+        img:nth-of-type(8) {
+            transform:  rotateZ(-90deg) translate(-80px, 120px);
+        }
+
+        img:nth-of-type(9) {
+            transform: translate(100px, -200px) rotateZ(-90deg);
+        }
+
+        div:hover img {
+            float: left;
+            transform: translate(0px, 0px) rotateZ(0deg);
+            /* transform:none 层叠恢复默认状态 */
+            /* hover时的状态 */
+        }
+        .clearfix::after{
+            content: "";
+            display: block;
+            clear:both;
+            height:0;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li class="clearfix">
+                <img src="../images/shield_1_01.png" alt="">
+                <img src="../images/shield_1_02.png" alt="">
+                <img src="../images/shield_1_03.png" alt="">
+            </li>
+            <li>
+                <img src="../images/shield_1_04.png" alt="">
+                <img src="../images/shield_1_05.png" alt="">
+                <img src="../images/shield_1_06.png" alt="">
+            </li>
+            <li>
+                <img src="../images/shield_1_07.png" alt="">
+                <img src="../images/shield_1_08.png" alt="">
+                <img src="../images/shield_1_09.png" alt="">
+            </li>
+        </ul>
+    </div>
+
+</body>
+
+</html>

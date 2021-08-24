@@ -1,0 +1,67 @@
+<!-- 
+    类似安卓的份数设置
+    在CSS中的弹性布局中,可以给每个弹性元素设置 宽度的份数
+    每个弹性元素宽度所占比例就是  分配给自己的份数/弹性元素分配的份数之和
+
+    在弹性盒子中
+    弹性元素不设置宽度高度 , 啥都没有,全靠内容撑开
+    不设置宽度,盒子也无内容撑开的话,啥都没有
+    但是不设置高度的话,设置了宽度,那么宽度会自动弹性补齐到当前的可到达最远宽度 (要考虑换行 不换行 有几行)
+ -->
+
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"> 
+        <title></title>
+        <style>
+            *{
+                 margin: 0;
+                 padding: 0;
+            }
+             div.box{
+                 height:600px;
+                 border: 1px solid black;
+                 width:80%;
+                 margin: 0 auto;
+
+                 display:flex;
+                 
+                 flex-flow:row nowrap;
+            }
+            .box div{
+                width:120px; 
+                /* 弹性元素不设置宽度 用flex-grow 份数取而代之  */
+                /* 没有设置高度,也没有换行发生 ,在普通盒子里就是height:0的盒子 但是到了弹性盒子里面弹性元素会弹性补齐到当前父盒子高度 */
+                /* 份数是针对主轴来说的,也就是分份的主角是主轴 */
+            }
+    
+            .box div:nth-of-type(1){
+                background: red;
+                flex-grow:1;
+            }
+            .box div:nth-of-type(2){
+                background: rgb(175, 129, 129);
+                flex-grow:2;
+                /* 不换行才能成功设置 */
+
+               
+                /* 份数为1 但是假若在div里添加内容 会导致份数生效得  很奇怪  div内文本越多哪怕份数一样 所占宽度也越多*/
+            }
+            .box div:nth-of-type(3){
+                background: rgb(47, 124, 60);
+                flex-grow:1;
+            }
+        
+        </style>
+    </head>
+    
+    <body>
+        <div class="box">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>盒子模型详解</title>
+    </head>
+    <body>
+        <h1>盒子模型</h1>
+         <img src="./images/boxmodel1.png" alt="error">
+        <h1>box-sizing : content-box模型</h1>
+        <img src="./images/content-box.png" alt="error">
+        <h1>box-sizing : border-box模型</h1>
+        <img src="./images/border-box.png" alt="error">
+    </body>
+</html>
+
+<!-- 内容区域content 代表盒子的实际内容 由width宽度和height高度 共同决定尺寸-->
+<!-- 内间距区域padding 代表盒子内容与盒子边框之间的间隔 内间距padding的外部为内边界 -->
+<!-- 边框 border 是盒子的边框属性 -->
+<!-- 外边距margin 代表盒子与相邻盒子边框之间的距离  -->
+
+<!--
+     box-sizing 用来设置盒子的类型
+     默认属性 content-box 内容盒子 
+             width和height 用来设定盒子内容的宽高
+             而盒子的实际面积 要加上内边距padding和边框border
+
+              border-box 边框盒子
+              width和height 用来设定整个盒子的宽高
+              而盒子的实际面积 就是width和height所设定的值
+
+              box-sizing : content-box|border-box|inherit;
+
+(1) content-box ,默认值，可以使设置的宽度和高度值应用到元素的内容框。盒子的width只包含内容。
+
+　　即总宽度=margin+border+padding+width
+
+(2) border-box , 设置的width值其实是除margin外的border+padding+element的总宽度。盒子的width包含border+padding+内容
+
+　　　　即总宽度=margin+width
+
+全局设置 border-box 很好，首先它符合直觉，其次它可以省去一次又一次的加加减减，它还有一个关键作用——让有边框的盒子正常使用百分比宽度。
+
+-->
+
+<!-- 
+        
+    两个上下方向相邻元素框垂直相遇时，外边距会合并，合并后的外边距的高度等于两个发生合并的外边距中较高的那个边距值
+    塌陷
+ -->
+

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>mytaobao1</title>
+        <link rel="stylesheet"  type="text/css" href="./css/reset.css">
+        <link rel="stylesheet"  type="text/css" href="./css/index.css">
+        <!-- 使用外联链接 请注意层叠顺序 -->
+    </head>
+    <body>
+        <div class="header-wrap">
+            <div class="header clearfix">
+                <!-- 此处不添加clearfix 则会导致浮动不结束  两个div高度为零 -->
+                <ul class="list-l">
+                    <li class="one">
+                        <a href="##">亲,请登录</a>
+                    </li>
+                    <li style="margin:0 21px 0 6px">
+                        <a href="##">免费注册</a>
+                    </li>
+                    <li>
+                        <a href="##">手机逛淘宝</a>
+                    </li>
+                    <!-- 此处的间距比较散  没有统一的规格 因此用内联样式决定比较好 也比较直观  -->
+                </ul>
+              <ul class="list-r">
+                <li>
+                    <a href="##">2222222</a>
+                </li>
+              </ul>
+            </div>
+        </div>
+
+        <!--
+             H1 标签通常给logo  并且只出现一次   H1十分重要  浏览器搜索的目的 于此
+             所以H1 给logo 是为了SEO的工作好做
+        --> 
+        <div class="white-wrap">
+            <div class="white">
+                <h1 class="logo">
+                    <a href="##">
+                        <img src="./images/logo.jpg" alt="error">
+                        <!-- 此处img 被重构成 block 会有4px 留白 只留白给a标签 h1不收影响 ？？ 不确定 -->
+                        淘宝网
+                        <!-- 此处的淘宝网 是为了SEO 工作好做 -->
+                        <!-- 隐藏淘宝网的方法
+                             1利用颜色隐藏 设置字体颜色与背景色一样 但实际还是占位置
+                             2 利用overflow:hidden 给logo设置固定宽高 然后隐藏
+                        -->
+                    </a>
+                </h1>
+            </div>
+        </div>
+
+    </body>
+</html>
+
+<!--
+    网页的通栏
+        无固定宽度的盒子
+    网页的版心
+        PC端通常 网页的内容都是左右等宽 且居中的
+        移动端 通常适配屏幕宽度 占满显示
+
+        技巧 通常背景是适配网页大小<body>的盒子box1
+            box1包含版心box2是固定宽度 配合margin 0 auto 来居中 并且不会以为网页大小而导致浮动缩进    
+
+-->
+
+

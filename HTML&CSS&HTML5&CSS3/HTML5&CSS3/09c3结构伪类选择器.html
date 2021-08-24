@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"> 
+        <title></title>
+        <style>
+/*  站在父亲元素的角度, 第一个子元素 并且这个子元素 必须总排位编号第一个 且 是li元素 */
+        /* ul li:first-child{
+            color:red;
+        } */
+
+/*  站在父亲元素的角度, 最后一个子元素 并且这个子元素 必须总排位编号最后一个 且 是li元素 */
+        /* ul li:last-child{
+            color:red;
+        } */
+
+/*  站在父亲元素的角度, 第二个子元素，并且这个子元素是li 且 总排位编号为第二个 */
+        /* ul li:nth-child(2){
+            color:red;
+        } */
+        
+/*  ()内是表达式,可以是odd奇数行 even双数行 2n 3n 4n 这里都是总编号排位 */
+            /* ul li:nth-child(even){
+            color:red;
+        } */
+
+/*  站在父亲元素的角度, 倒数 第表达式个子元素，并且这个子元素是li 且 总排位编号为表达式*/
+        /* ul li:nth-last-child(3){
+            color:red;
+        } */
+
+
+
+/* child 排位编号跟类型都得完全一致 而of-type 排位编号只看同一类型的编号类型肯定得一致  也就是 child受总排位编号的影响 */
+
+/* 站在父亲元素的角度, 第一个li类型的子元素 不用考虑总排位编号 只需要考虑元素类型就可以了 */
+        /* ul li:first-of-type{
+            background: pink;
+        } */
+
+/* 站在父亲元素的角度, 最后一个li类型的子元素 不用考虑总排位编号 只需要考虑元素类型就可以了 */
+        /* ul li:last-of-type{
+            background: pink;
+        } */
+
+/* 站在父亲元素的角度, 第(表达式)个 li类型的子元素 不用考虑总排位编号 只需要考虑元素类型就可以了 */
+        /* odd 奇数 even 偶数 3n 2n+1 */
+        /* ul li:nth-of-type(3){  
+            background: pink;
+        } */
+
+/* 站在父亲元素的角度, 倒数第(表达式)个 li类型的子元素 不用考虑总排位编号 只需要考虑该元素类型排位编号就可以了 */
+        /* ul li:nth-last-of-type(3){
+            background: pink;
+        } */
+/*  站在父亲的角度, 选中完全无内容的p元素  */
+        /* .one p:empty{
+            background: green;
+            width:200px;
+            height:100px;
+        } */
+/*  站在父亲的角度, 唯一子元素 且该元素是span类型*/
+        /* .one span:only-child{
+            background: rgb(42, 77, 175);
+        } */
+/*  站在父亲的角度, 唯一h2类型元素*/
+        /* .one h2:only-child{
+            background: rgb(42, 77, 175);
+        } */
+/*  站在父亲的角度, 选中 排除了(p1样式)的其他p元素，且元素类型是p */
+           .one p:not(.p1){
+            color: red;
+           }
+        </style>
+    </head>
+    
+    <body>
+
+        <ul>
+            <span>水果</span>
+            <li>苹果</li>
+            <li>香蕉</li>
+            <li>草莓</li>
+            <li>雪梨</li>
+            <li>荔枝</li>
+            <li>菠萝</li>
+            <!-- <span>水果</span> -->
+        </ul>
+
+        <div class="one">
+            <p>我是段落</p>
+            <p></p>
+            <p class="p1">我是段落</p>
+            <p>我是段落</p><p>我是段落</p><p>我是段落</p>
+            <p>我是段落</p>
+            <span>我是span</span>
+            <h2>我是h2</h2>
+        </div>
+
+    </body>
+</html>

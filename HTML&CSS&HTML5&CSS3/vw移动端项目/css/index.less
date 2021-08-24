@@ -1,0 +1,203 @@
+// 老师的设计稿是750px的, 所以放大了40倍;
+// 我看的设计稿是600px,个人选择放大了40倍
+
+/*
+    100vw -- 600px
+    1vw --- 6px
+    0.166666666667vw ---- 1px
+    放大40倍
+    6.666666666667vw ---- 40px
+*/
+
+/*
+    左右自适应间距
+    老师使用的是给body 设置 左右 padding 
+    padding的值也运用了rem 来进行自适应
+
+    关键是:
+    ！！！！老师是每个大模块量都在设计图中的宽高
+    然后 宽高/40rem 来达成自适应变化
+    所以,经过反复的转变 除了/40rem 没有其他的变化就完成了自适应
+    注意:margin padding 边距也要注意设置 40rem 
+
+    并且,结构模式相同的元素 要使用列表 配合换行 主轴交叉轴来进行排列
+    轮播图的结构我也给忘了 
+    div ul li a img
+
+    flex是直系父子之间的关系,所以ul 开启空间后要给 li 设置宽高 不能依靠a来撑开li宽高
+    也可以给a 开启弹性空间 
+    但是轮播图中 img 没有量,使用了100%来撑开到body的程度
+    所以百分比和/xrem 要灵活使用
+*/
+
+html{
+    height:100%;
+    font-size:6.66666666666vw;
+    // 放大了40倍,40px = 6.666666666vw = 1rem
+}
+body{
+    height:300%;
+    padding:0 24/40rem 0 25/40rem ;
+    
+}
+
+.header{
+    width:100%;
+    height: 126/40rem;
+    display:flex;
+    flex-direction:row;
+    flex-wrap:nowrap;
+    justify-content:space-between;
+    align-items: center;
+    i,em{
+        font-size: 45/40rem;
+        // 不要带px单位 利用rem去转换
+        // 此处图标文字大小不能设定死值 , 需要自适应大小
+    }
+    span{
+        color:cornflowerblue;
+    }
+}
+
+div.banner{
+    width:100%;
+    height:221/40rem;
+    border-radius: 10/40rem;
+    // 此处可自适应圆角 10/40rem
+    ul{
+        height:100%;
+        // ul是块元素 宽自动撑满banner
+    }
+    li{
+        height:100%;
+        // li是块元素 宽自动撑满ul
+    }
+    img{
+        width:100%;
+        // 让img 伸缩成宽度为li的图片 比例恰好能填满整个li
+    }
+}
+
+// 弹性空间是父子之间的关系 
+
+div.list{
+    height:(32+192+32)/40rem;
+  
+}
+
+div.list ul{
+    height:100%;
+    display: flex;
+    flex-flow:row wrap;
+    justify-content:space-between;
+    align-content:space-around;
+
+}
+
+div.list ul li {
+    width:262/40rem;
+    height:83/40rem;
+    border-radius: 10/40rem;
+   // 此处宽高不能给a设置具体值,因为ul开启弹性空间li的交叉轴不设置宽高的情况下 会填满ul的高度 
+}
+div.list ul li:nth-of-type(1){
+    background: #f97053;
+}
+div.list ul li:nth-of-type(2){
+    background: #d27efd;
+}
+div.list ul li:nth-of-type(3){
+    background: #ff3e74;
+}
+div.list ul li:nth-of-type(4){
+    background: #1bc6fb;
+}
+
+
+.list ul li a{
+    // 扩大a范围
+    display:block;
+    height:100%;
+    color:aliceblue;
+    display:flex;
+    flex-flow:row nowrap;
+    justify-content: flex-start;
+    align-items:center;
+    
+}
+.list ul li a i{
+    font-size:40/40rem;
+    margin-left:20/40rem;
+}
+.list ul li a span{
+    font-size:28/40rem;
+    // 此处不能用百分比,每段文字的宽度不同 应该用自适应的固定值
+}
+
+.last{
+    height:(27+34)/40rem;
+    
+    display:flex;
+    flex-flow:row nowrap;
+    justify-content: space-between;
+    align-items:center;
+    font-size:21/40rem;
+    h3{
+        border-left:3/40rem solid blue;
+        color:#ff3e74;
+        text-indent: 15/40rem;
+    }
+    span{
+        font-size: 16/40rem;
+    }
+}
+
+// 老师的思路:大致设置一个宽度超过body的ul 来装载如此多图片 
+//  ul宽度 = 六个li宽度+5边距 /40rem;
+//  ul外面嵌套一个div(宽度默认body)  设置overflow 
+.photo{
+    overflow-x:scroll;
+}
+.photo ul{  
+    
+    width:((261*6)+(19*5))/40rem;
+    display:flex;
+    justify-content:space-between;
+    // 边框自适应
+
+    li{
+        background:#fff;
+        width:261/40rem;
+        // height:252/40rem;
+        //  靠内容撑开 更好的兼容性 避免屏幕过窄 内容溢出li的尴尬情况 
+        // 写布局时候保留 写完删除 
+        border-radius: 10/40rem;
+
+        box-sizing: border-box;
+        padding:16/40rem;
+        // 盒子尺寸不需要改变 只需要内padding 变成怪异盒子模型
+        img{
+            width:100%;
+            border-radius:10/40rem;
+        }
+        h4{
+            color:lightcoral;
+            font-size:22/40rem;
+            margin:17/40rem  0 17/40rem 0; 
+        }
+        .girl{
+            background: url(../images/girl.png) no-repeat 0 0;
+            height: 33/40rem;
+            background-size: 33/40rem; 
+            // 此处背景图 长宽与.girl 一样宽 并且自适应
+            span{
+                font-size:16/40rem;
+                line-height: 33/40rem;
+                display:block;
+                margin-left:40/40rem;
+                // 边距行高居中自适应 
+            }
+        }
+    }
+}
+

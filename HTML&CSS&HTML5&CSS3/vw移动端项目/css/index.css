@@ -1,0 +1,159 @@
+/*
+    100vw -- 600px
+    1vw --- 6px
+    0.166666666667vw ---- 1px
+    放大40倍
+    6.666666666667vw ---- 40px
+*/
+/*
+    左右自适应间距
+    老师使用的是给body 设置 左右 padding 
+    padding的值也运用了rem 来进行自适应
+
+    关键是:
+    ！！！！老师是每个大模块量都在设计图中的宽高
+    然后 宽高/40rem 来达成自适应变化
+    所以,经过反复的转变 除了/40rem 没有其他的变化就完成了自适应
+    注意:margin padding 边距也要注意设置 40rem 
+
+    并且,结构模式相同的元素 要使用列表 配合换行 主轴交叉轴来进行排列
+    轮播图的结构我也给忘了 
+    div ul li a img
+
+    flex是直系父子之间的关系,所以ul 开启空间后要给 li 设置宽高 不能依靠a来撑开li宽高
+    也可以给a 开启弹性空间 
+    但是轮播图中 img 没有量,使用了100%来撑开到body的程度
+    所以百分比和/xrem 要灵活使用
+*/
+html {
+  height: 100%;
+  font-size: 6.66666666666vw;
+}
+body {
+  height: 300%;
+  padding: 0 0.6rem 0 0.625rem;
+}
+.header {
+  width: 100%;
+  height: 3.15rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.header i,
+.header em {
+  font-size: 1.125rem;
+}
+.header span {
+  color: cornflowerblue;
+}
+div.banner {
+  width: 100%;
+  height: 5.525rem;
+  border-radius: 0.25rem;
+}
+div.banner ul {
+  height: 100%;
+}
+div.banner li {
+  height: 100%;
+}
+div.banner img {
+  width: 100%;
+}
+div.list {
+  height: 6.4rem;
+}
+div.list ul {
+  height: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-content: space-around;
+}
+div.list ul li {
+  width: 6.55rem;
+  height: 2.075rem;
+  border-radius: 0.25rem;
+}
+div.list ul li:nth-of-type(1) {
+  background: #f97053;
+}
+div.list ul li:nth-of-type(2) {
+  background: #d27efd;
+}
+div.list ul li:nth-of-type(3) {
+  background: #ff3e74;
+}
+div.list ul li:nth-of-type(4) {
+  background: #1bc6fb;
+}
+.list ul li a {
+  display: block;
+  height: 100%;
+  color: aliceblue;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+.list ul li a i {
+  font-size: 1rem;
+  margin-left: 0.5rem;
+}
+.list ul li a span {
+  font-size: 0.7rem;
+}
+.last {
+  height: 1.525rem;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.525rem;
+}
+.last h3 {
+  border-left: 0.075rem solid #0000ff;
+  color: #ff3e74;
+  text-indent: 0.375rem;
+}
+.last span {
+  font-size: 0.4rem;
+}
+.photo {
+  overflow-x: scroll;
+}
+.photo ul {
+  width: 41.525rem;
+  display: flex;
+  justify-content: space-between;
+}
+.photo ul li {
+  background: #fff;
+  width: 6.525rem;
+  border-radius: 0.25rem;
+  box-sizing: border-box;
+  padding: 0.4rem;
+}
+.photo ul li img {
+  width: 100%;
+  border-radius: 0.25rem;
+}
+.photo ul li h4 {
+  color: lightcoral;
+  font-size: 0.55rem;
+  margin: 0.425rem 0 0.425rem 0;
+}
+.photo ul li .girl {
+  background: url(../images/girl.png) no-repeat 0 0;
+  height: 0.825rem;
+  background-size: 0.825rem;
+}
+.photo ul li .girl span {
+  font-size: 0.4rem;
+  line-height: 0.825rem;
+  display: block;
+  margin-left: 1rem;
+}

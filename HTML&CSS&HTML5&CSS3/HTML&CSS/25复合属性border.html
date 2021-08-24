@@ -1,0 +1,54 @@
+<!-- 
+    边框的常用属性:
+                边框的宽度
+                border-width:10px
+                边框的样式
+                border-style:solid
+                边框的颜色:
+                border-color:red;
+-->
+
+ <!DOCTYPE HTML>
+<html>
+    <head>
+        <title>border属性</title>
+        <meta charset="utf-8" />
+        <style>
+            div{
+                width:200px;height: 200px;
+                background-color:rgb(86, 161, 223);
+                /* 边框宽度 */
+                border-width: 2px;
+                /* 边框颜色 */
+                border-color: pink;
+                /* 边框样式 solid 实线  dashed 虚线 dotted 点状线*/
+                border-style:solid;
+                /* 复合属性  */
+                /* border: 边框粗细  边框样式 边框颜色 默认*/
+                border:4px solied pink;
+ 
+                /*  
+                    4条边分别设置 粗细 样式 颜色
+                    border-left/top/buttom/right/-width/style/color;
+                    也可以用复合属性
+                    border-top/left/buttom/right : 宽度 样式 颜色;
+                 */
+                border-right-width: 8px;
+                border-top:4px dashed blue;
+                /*  none 去除边框 没有边框 */
+                /* 
+                border的各个属性也可以 复合设置 设置每个条边的具体样式
+                上下-左右 上-左右-下 上-右-下-左
+                 */
+                border-width:6px 10px;
+                border-color:red green blue;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+
+        </div>
+        
+    </body>
+</html>

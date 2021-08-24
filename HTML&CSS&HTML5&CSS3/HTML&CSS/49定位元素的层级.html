@@ -1,0 +1,65 @@
+
+<!-- 
+    定位中的层级
+    z-index:取值范围整数,默认0,数字越大层级越高,可设负数
+    层级相同时,后写的标签会压在先写的标签上面。
+ -->
+
+ <!DOCTYPE html>
+ <html>
+ 
+ <head>
+     <meta charset="UTF-8" />
+     <title>定位中的层级</title>
+     <style>
+         .box{
+             height:600px;
+             width:900px;
+             position:relative;
+             border:1px solid #000;
+             margin: 0 auto;
+         }
+         .span01{
+             height: 100px;
+             width: 200px;
+             position:absolute;
+             left:0;
+             top:0;
+             background: rgb(145, 62, 62);
+             z-index: 0;
+             
+         }
+         .span02{
+            height: 100px;
+             width: 200px;
+             position:absolute;
+             left:0;
+             top:0;
+             background: rgb(118, 131, 255);
+             margin-left:30px;
+             z-index: 0;
+         }
+     </style>
+ </head>
+ 
+ <body>
+     <div class="box">
+         <span class="span01">
+             01
+         </span>
+         <span class="span02">
+             02
+        </span>
+     </div>
+     
+ </body>
+ </html>
+
+ <!-- 
+    定位比浮动好用,能不能网页框架只用定位，不用浮动?
+    答:
+    理论上可以，因为子绝父相 理论上只要找准 参考点和定位坐标就可以完成视觉上的效果
+    但实际操作上相当麻烦，每个按钮都需要各自的定位坐标，所以不推荐
+
+    定位就是给某个元素 精确定位  或者需要覆盖和隐藏显示之类的。
+  -->

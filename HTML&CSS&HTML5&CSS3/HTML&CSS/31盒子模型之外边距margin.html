@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>盒子模型之外边距margin</title>
+    <style>
+        .box{
+            background-image: linear-gradient(to right, #eea2a2 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%);
+        }
+        .box1{
+            display:inline-block;
+            width:500px;
+            height:400px;
+            margin:20px 0px;
+            background:pink url(./images/PaiDaXin.jpg) no-repeat center 0px;
+           
+            /* 
+               margin 是复合属性 语法与padding相同 
+               margin 用来设置盒子与相邻盒子之间的距离
+             */
+        }
+    </style>
+</head>
+<body class="box">
+    <div class="box1"></div>
+    <div class="box1"></div>
+    <p>
+        两个元素哪怕设置成margin=0,也会预留一定的留白,可以通过设置float属性来消除。
+    </p>
+</body>
+</html>
+

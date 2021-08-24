@@ -1,0 +1,136 @@
+<!doctype html>
+ <html>
+     <!-- 个人问题: 3D空间开启比较混乱  但是景深可以很容易的看出来 是否给父元素开启 阴影的3d效果
+          3D空间开启后会出现问题 
+          1旋转的一部分内容不见了 跑到后面被背景色覆盖了 (试试 定位飘起来(不成功) 让背景色降层级-1 (成功)) 因为3d 网页就是立体的了 会被遮挡一部分
+
+          关键:3D阴影的实现 
+          ！！！影子是用一个盒子模拟出来的 
+          因为box-shadow的设置 只有x y 轴的偏移量 所以 3D效果不明显 需要用另外的盒子来 模拟"影子"
+    -->
+     <head>
+         <meta charset="utf-8"> 
+         <title></title>
+         <style>
+            body{
+                 margin:0;padding: 0;
+                 background: #555;
+                 z-index: -1;
+            }
+            /* div.wrap{
+                 开启3D 空间给 div  
+                 transform-style:preserve-3d;
+                 margin:100px auto;
+                 perspective:800px;
+                 width:400px;
+                 height:250px;
+                 position: relative;
+
+            } */
+
+             
+             .box{
+                perspective:800px; 
+                transform-style:preserve-3d;
+                /* 给最外层加了3D空间 一旦移入box 就会覆盖掉 旋转轴上面的内容 */
+                 width:400px;
+                 height:250px;
+                 margin:200px auto;
+                 position: relative;
+             }
+
+             a{
+                 width:400px;
+                 height:250px;
+                 background: url(../images/kenan.jpg) no-repeat 0 0;
+                 
+                 position: absolute; 
+                 top: 0px; 
+                 left: 0px;
+                /* 开启3D 空间给 span 和 before */
+                transform-style:preserve-3d;
+                /* perspective:0px; */
+                /*  有景深效果的是 大图 */
+                 /* 旋转设置 */
+                 transform-origin: 0px 50%;
+                 transition: all 0.8s 0s ease-in-out;
+                 /* box-shadow: 0px 300px 0px 0px black; 无用功 影子是拿其他盒子模拟的  */
+             }
+
+             .box:hover a{
+                 transform:rotateX(80deg);
+             }
+             a span{
+                 display:block;
+                 width: 100%;
+                 height:40px;
+                 background: rgba(70, 70, 70, 0.6);
+                 text-align:center;
+                 font-size:30px;
+                 color:white;
+                 /* 基础设置 */
+                 
+                 /* 动态设置 */
+                 transform-origin: 0 top;
+                 /* 选择转动轴 */
+                 transform:rotateX(-90deg);
+                 position: absolute;
+                 left: 0;
+                 bottom: -40px;
+             }
+             a::before{
+                 content: "";
+                 display:block;
+                 width: 100%;
+                 height:40px;
+                 background: url(../images/kenan.jpg) no-repeat 0px -210px;
+                 
+                  /* 动态设置 */
+                  transform-origin: 0 bottom;
+                 /* 选择转动轴 */
+                 transform:rotateX(90deg);
+                 position: absolute;
+                 left: 0;
+                 bottom: 0;
+             }
+             /* 此处有更好的实现方法  
+             因为斜面 需要两个盒子层叠
+             利用span来完成斜面背景图的设置
+             再利用span的伪类来实现遮罩效果  而不是 a的伪类负责背景图  span实现遮罩  实现逻辑的统一
+             */
+
+             /* 模拟阴影 */
+             /* 盒子阴影会被盒子内容遮住 所以利用毛玻璃属性filter 将盒子内容模糊成阴影一样的效果  */
+             a::after{
+                 content: "";
+                 display: block;
+                 width:100%;
+                 height:100%;
+                 background: rgba(0, 0, 0, 0.664);
+                 box-shadow:0px 0px 30px 2px black ;
+                 filter: blur(30px);
+                 transition: all 0.8s ease-in-out;
+                 
+                 transform:translateY(200px) translateZ(-200px) rotateX(90deg) scale(0.8,0.8);
+             }
+             .box:hover a::after{
+                transform:translateY(50px) translateZ(-120px) rotateX(0deg) scale(0.9,0.9);
+             }
+         </style>
+     </head>
+     
+     <body>
+        <div class="box">
+
+         <!-- <div class="box">
+            <span>真相只有一个</span>
+         </div> -->
+       
+         <a href="##">
+            <span>真相只有一个</span>
+         </a>
+        </div>
+  
+
+     </body>
+ </html>

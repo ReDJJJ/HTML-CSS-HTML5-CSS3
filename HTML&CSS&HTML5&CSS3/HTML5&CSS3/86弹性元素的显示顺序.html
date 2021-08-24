@@ -1,0 +1,63 @@
+<!-- 
+    自定义弹性元素的显示顺序:
+    order:常数 按照正常文档起顺序显示
+
+    就是 没有设置 order的 先按正常先后顺序排列 (因为他们是弹性文档流不是正常文档流), 再排列order:的数字顺序
+    
+ -->
+
+
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"> 
+        <title></title>
+        <style>
+            .box {
+                width:200px;
+                height:200px;
+                border:1px solid rgb(105, 105, 105);
+                display:flex;
+                /*
+                开启弹性布局 
+                
+                .box中的每个span靠内容撑开宽度 , 高度跟随交叉轴的高度
+                */
+            }
+            .box span:nth-of-type(1){
+                background: rgb(207, 101, 172);
+            }
+            .box span:nth-of-type(2){
+                background: red;
+            }
+            .box span:nth-of-type(3){
+                background: yellow;
+                order:1;
+            }
+            .box span:nth-of-type(4){
+                background: green;
+                order:2;
+            }
+            
+            .box span:nth-of-type(5){
+                background: orange;
+                order:3;
+            }
+            
+            .box span:nth-of-type(6){
+                background: lightblue;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            <span>11</span>
+            <span>22</span>
+            <span>33</span>
+            <span>44</span>
+            <span>55</span>
+            <span>66</span>
+        </div>
+
+    </body>
+</html>

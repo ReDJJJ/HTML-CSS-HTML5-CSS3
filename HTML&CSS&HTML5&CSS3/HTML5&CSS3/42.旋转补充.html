@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"> 
+        <title></title>
+        <style>
+            div{
+                width:100px;
+                height:140px;
+                margin:300px auto;
+                position: relative;
+            }
+            div img{
+                display:block;
+                width:100%;
+                position: absolute;
+                top:0;
+                left:0;
+                transform-origin: right top;
+                transition: all 0.8s 0s linear;
+            }
+            div:hover img:nth-last-of-type(1){
+                transform:translate(-50%,0) rotateZ(360deg);
+                /* 回到原来位置 */
+            }
+            div:hover img:nth-last-of-type(2){
+                transform:translate(-50%,0) rotateZ(300deg);
+            }
+            div:hover img:nth-last-of-type(3){
+                transform:translate(-50%,0) rotateZ(240deg);
+            }
+            div:hover img:nth-last-of-type(4){
+                transform:translate(-50%,0) rotateZ(180deg);
+            }
+            div:hover img:nth-last-of-type(5){
+                transform:translate(-50%,0) rotateZ(120deg);
+            }
+            div:hover img:nth-last-of-type(6){
+                transform:translate(-50%,0) rotateZ(60deg);
+                /* rotateZ 的值 是转到的位置的数  而不是转了多少的  */
+            }
+            /* div用来"存储" 扑克牌本身的位置的 因为一会扑克牌要旋转 */
+        </style>
+    </head>
+    
+    <body>
+        <div>
+        <img src="../images/pk1.png" alt="">
+        <img src="../images/pk2.png" alt="">
+        <img src="../images/pk1.png" alt="">
+        <img src="../images/pk2.png" alt="">
+        <img src="../images/pk1.png" alt="">
+        <img src="../images/pk2.png" alt="">
+        <!-- 定位 后写压前写  多重背景图 前些压后写 -->
+        </div>
+    </body>
+</html>

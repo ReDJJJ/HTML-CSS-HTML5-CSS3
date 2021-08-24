@@ -1,0 +1,69 @@
+<!-- 
+    行高
+    一个div被文本撑开,但是div的高度(行高)不是字体的高度
+    而是会预留一些空间 行高稍稍大于字体高度
+
+    行高属性:line-height
+    可以调整文本垂直方向的位置
+    两种方案:元素的height设置
+    1当元素height不设置固定高度,则元素高度会随着文本行高line-height的改变而改变(铺满)
+    2当元素height设置固定高度,则通过line-height:来设置文本的垂直方向位置
+    *当行高等于盒子垂直高度时候,文本是垂直居中的状态。或者是文本就是处于行高的居中状态height=line-height 就是视觉居中
+    个人理解:行高就是文本一行所占的垂直高度,与元素高度不同.
+ -->
+
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta char="UTF-8">
+    <title>行高</title>
+    <style>
+        .div1 {
+            background-color: rgb(117, 95, 67);
+        }
+
+        .div2 {
+            background-color: darkgray;
+            font-size: 30px;
+            font-weight: 700;
+            line-height: 100px;
+        }
+
+        .div3 {
+            background-color: rgb(45, 70, 77);
+            font-size: 30px;
+            font-weight: 700;
+            height: 90px;
+            line-height: 100px;
+            /* 无视觉间距 line-height :1em /1 2em 纯数字就是字体大小倍数和em效果一致 */ 
+        }
+    </style>
+</head>
+
+<body>
+    <img src="" alt="">
+    <div class="div1">默认行高略微大于字体大小</div>
+    <div class="div2">行高和块高度需要分清楚<br>行高时针对文本的而 块高度针对整个div</div>
+    <div class="div3">固定div的宽度，调整line-height改变文本垂直位置</div>
+    <ul >
+        <li>
+            列表项
+        </li>
+        <li>
+            列表项
+        </li>
+        <li>
+            列表项
+        </li>
+    </ul>
+</body>
+
+</html>
+
+<!-- 
+    文本分为四条线: 顶线 中线 基线 底线
+    文本行间距:基线到基线的距离
+    启发:行高应当是调整行间距的。
+    若字体之间无视觉间距，那么行高应该是一个字的大小1em 而不是0px 0px基线重合 字体就重合了
+ -->

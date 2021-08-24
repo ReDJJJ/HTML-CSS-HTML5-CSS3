@@ -1,0 +1,76 @@
+*{
+    margin:0;
+    padding:0;
+    list-style-type: none;
+}
+
+
+@media only all and (min-width:767px) {
+
+.nav-wrap{
+    width:100%;
+    height:48px;
+}
+.topnav{
+    padding: 0 15px 0;
+    height:100%;
+    background:black;
+    display:flex;
+    flex-direction: row;
+    flex-wrap:nowrap;
+    justify-content:space-between;
+    align-items:center;
+
+    position: relative;
+
+    span{
+    font-size:32px;
+    color:rgb(219, 219, 219);
+    
+    // position:absolute;
+    // top:50%;
+    // transform:translateY(-50%);
+    // right:20%;
+    // span绝对定位后,脱离文档流,ul居中在flex布局独享,ul整体居中
+    }
+
+    span:hover{
+        color:gray;
+    }
+
+    h1,span:nth-of-type(1){
+    //  logo 和第一个菜单图标消失 并且不占位置的消失;
+    display:none;
+    }
+
+    ul{
+        // 整个ul的宽高是不变的 老师版本也如此 
+        height:30px;
+        width:600px;
+        margin:0 auto;
+        
+        display:flex;
+        flex-flow:row nowrap;
+        justify-content:space-between;
+    }
+
+    ul li{
+      
+        text-align:center;
+        // 把整个a看成整个文本
+        // li就靠a内容来撑开了 ,然后弹性布局 由ul开启
+        // li原本是块内元素,但是开启弹性布局后宽高就靠a来撑开了
+    }
+    ul li a{
+       color:aliceblue;
+       text-decoration:none;
+       line-height:30px;
+        // li就靠a内容来撑开了 ,然后弹性布局 由ul开启
+    }
+
+}
+
+
+
+
+}

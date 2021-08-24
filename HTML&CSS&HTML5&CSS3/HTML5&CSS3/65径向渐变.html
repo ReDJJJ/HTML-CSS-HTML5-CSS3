@@ -1,0 +1,153 @@
+<!-- 
+
+    径向渐变: 线性渐变是一条渐变轴,而径向渐变由多条渐变轴由圆心向外发散  组合而成
+                                          沿着圆心由内向外的进行渐变
+    径向渐变: 默认从圆心到最远角的距离 为渐变距离
+
+    径向渐变:
+    radial-gradient:(径向渐变设置 , 颜色)
+    1颜色:
+    颜色设置和线性渐变相同的设置
+    2径向渐变设置  径向渐变设置:形状 渐变点的选择 渐变圆心的选择 三者用空格隔开
+    radial-gradient:(形状 渐变距离 渐变圆心位置 , 颜色)  background: radial-gradient(circle  cloest-side at 50px 50px,red,blue);
+        2.1 形状 渐变形状可分为circle  圆形 ellipse 椭圆
+        正方形一直是圆形(圆形也是椭圆的一种)  长方形默认椭圆,可设置成圆形
+        2.2 渐变距离 渐变距离分为四种
+        closest-side: 圆心到最近边设置为渐变距离,然后最近边渐变距离 扫出个圆;
+        farthest-side:最远边设置为渐变距离,然后最远边渐变距离 扫出个圆;
+        closest-corner: 圆心到最近角为渐变距离 ，扫圆
+        farthest-corner:圆心到最远角为渐变距离 ，扫圆
+
+        默认情况圆心 为盒子的几何中心 所以后两者搭配 渐变圆心位置 来使用
+        2.3 圆心渐变位置 
+        at xpx xpx x% x%  水平和垂直  支持实值和百分比
+
+         重复径向渐变
+        repeating—radial-gradient(circle at 50% 50% closet-corner,red 30%,blue 60%);
+         重复不能设置形状 
+         重复过渡区域 纯色区域舍弃
+-->
+
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"> 
+        <title></title>
+        <style>
+            /* 形状 */
+            .box1{
+                width:300px;
+                height:300px;
+                margin:20px auto;
+                border:1px solid #333;
+                color:white;
+                display:inline-block;
+                background-image:radial-gradient(red,blue);
+            }
+
+            .box2{
+                width:300px;
+                height:200px;
+                margin:20px auto;
+                border:1px solid #333;
+                color:white;   display:inline-block;
+                background-image:radial-gradient(red,blue);
+            }
+
+            .box3{
+                width:300px;
+                height:200px;
+                margin:20px auto;
+                border:1px solid #333;
+                color:white;   display:inline-block;
+                background-image:radial-gradient(circle,red,blue);
+            }
+            .box4{
+                width:300px;
+                height:300px;
+                margin:20px auto;
+                border:1px solid #333;
+                color:white;   display:inline-block;
+                background: radial-gradient(ellipse ,red,blue);
+            }
+            /* 距离 */
+            .box5{
+                width:300px;
+                height:200px;
+                margin:20px auto;
+                border:1px solid #333;
+                color:white;   display:inline-block;
+                background: radial-gradient(circle farthest-corner,red,blue);
+            }
+            .box6{
+                width:300px;
+                height:200px;
+                margin:20px auto;
+                border:1px solid #333;
+                color:white;   display:inline-block;
+                background: radial-gradient(circle closest-corner,red,blue);
+            }
+            .box7{
+                width:300px;
+                height:200px;
+                margin:20px auto;
+                border:1px solid #333;
+                color:white;   display:inline-block;
+                background: radial-gradient(circle farthest-side ,red,blue);
+            }
+            .box8{
+                width:300px;
+                height:200px;
+                margin:20px auto;
+                border:1px solid #333;
+                color:white;   display:inline-block;
+                background: radial-gradient(circle closest-side,red,blue);
+            }
+            /* 位置  */
+            .box9{
+                width:300px;
+                height:200px;
+                margin:20px auto;
+                border:1px solid #333;
+                color:white;   display:inline-block;
+                background: radial-gradient(circle at 50px 50px,red,blue);
+            }
+            .box10{
+                width:300px;
+                height:200px;
+                margin:20px auto;
+                border:1px solid #333;
+                color:white;   display:inline-block;
+                background:radial-gradient(circle farthest-side at 30% 60%,red 0% ,blue 50% ,green 100%)
+            }
+            
+            .box11{
+                width:300px;
+                height:200px;
+                margin:20px auto;
+                border:1px solid #333;
+                color:white;   display:inline-block;
+                background:repeating-radial-gradient(red 30%,blue 60%);
+            }
+        </style>
+    </head>
+    
+    <body>
+            <div class="box1">默认正方形径向渐变 圆形</div>
+            <div class="box2">默认长方形径向渐变 椭圆</div>
+            <div class="box3">长方形设置形状circle圆形 渐变</div>
+            <div class="box4">正方形设置形状ellipse椭圆形渐变 圆形也是椭圆一种</div>
+
+            <hr><hr>
+            <div class="box5">设置了最远角为渐变距离(默认情况)</div>
+            <div class="box6">设置了最近角为渐变距离  没有配合 圆心位置使用 所以四角距离一样 </div>
+            <div class="box7">设置了最远边为渐变距离</div>
+            <div class="box8">设置了最近边为渐变距离</div>
+            <hr><hr>
+            <div class="box9">改变了圆心位置</div>
+            <div class="box10">综合</div>
+            <div class="box11">重复</div>
+
+
+    </body>
+</html>

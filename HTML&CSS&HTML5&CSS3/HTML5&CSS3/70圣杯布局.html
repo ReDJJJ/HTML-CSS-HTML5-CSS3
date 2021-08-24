@@ -1,0 +1,78 @@
+<!-- 
+    此前的布局 有个问题 
+    自适应的部分的内容是装在 content这个div盒子里的
+
+    坏处:相当于内容装在了 .center(中间)盒子内的.content(内容盒子)里面 ,对网址的搜索排名 没有好处。
+
+    圣杯布局在 双飞翼的基础上进行小型改造 使得内容可以直接放在.center盒子
+
+    圣杯:左右空间就像两个把手 不覆盖center的任何空间 ,前面的布局都是覆盖的
+
+    思路:
+        给最外层的.box大盒子 添加padding 空出左右空间 在利用相对定位 位移左右侧即可 
+        为什么不用绝对定位:假若有多个左右侧 绝对定位不方便 相对定位就是在浮动排列好的基础上移动 比较简单
+ -->
+
+<!doctype html>
+ <html>
+     <head>
+         <meta charset="utf-8"> 
+         <title></title>
+         <style>
+             *{margin:0;padding:0;}
+             .box{
+                
+                min-width: 600px;
+                /* 内容宽度和最小内容宽度可以同时生效  */
+                height:600px;
+                background: #ccc;
+                padding:0 200px 0 400px;
+                /* 大盒子添加padding 腾出空间 */
+             }
+             .center{
+                width:100%;
+                /* 自适应 */
+                height:100%;
+                float:left;
+                background: yellow;
+             }
+             .left1,.left2,.right{
+                width:200px;
+                height:100%;
+                float:left;
+             }
+             /* 下面在margin移动的基础上 在通过相对定位来移动  */
+             .left1{
+                 background: lightblue;
+                 margin-left:-100%;
+
+                 position:relative; 
+                 left:-400px;
+
+             }
+             .left2{
+                background:lightcoral;
+                margin-left:-100%;
+                position:relative; 
+                 left:-200px;
+             }
+             .right{
+                 background:lightsalmon;
+                 margin-left:-200px;
+                 position:relative; 
+                 left:200px;
+            }
+         </style>
+     </head>
+     
+     <body>
+         <div class="box">
+            <div class="center">内容内容</div>
+            <div class="left1">左1</div>
+            <div class="left2">左2</div>
+            <div class="right">右1</div>
+         </div>
+         
+
+     </body>
+ </html>

@@ -1,0 +1,120 @@
+<!-- 
+    弹性布局: 也叫伸缩布局 flex布局 
+
+    弹性布局: 父级与子级 之间的关系 (不包括隔代关系 单纯指父子)
+
+    弹性布局中: 要弄清楚 主轴的方向 ！！！ 是水平/垂直  从左到右 还是 右到左  还是上到下 还是下到上
+    
+    align-content:中 stretch伸展
+
+    此处的换行 意思是  有没有开启换行 即 flex-wrap:wrap/no-wrap
+
+    至于开启换行后有没有发生了换行现象 ,看父盒子和弹性元素的配合咯 
+ -->
+
+ <!doctype html>
+ <html>
+     <head>
+         <meta charset="utf-8"> 
+         <title></title>
+         <style>
+             *{
+                 margin: 0;
+                 padding: 0;
+            }
+             div.box1{
+                
+                 
+                 border: 2px solid black;
+                 /* 创建弹性布局  */
+                 display:flex;
+                 flex-wrap:wrap; 
+                 
+            }
+            div.box2{
+                /* 弹性元素在交叉轴的位置分布 和主轴类似  都是排列完后 整体进行移动  */
+                height:500px;
+                width: 400px;
+                /* 六个盒子宽度 600px   */
+                margin-top:20px;
+                border: 2px solid black;
+                 /* 创建弹性布局  */
+                display:flex;
+                flex-wrap:wrap;
+                /* 开启换行 */
+
+                /* 
+                     align-content在开启换行后才有效 
+                    元素在交叉轴的位置 align-content (换行情况) 
+                    align-content:flex-start  按照主轴顺序排列 并且换行后 居交叉轴开始 
+                    后面的以此类推
+                */
+                /* 主轴 左至右 交叉轴 上至下  开启换行后 align-content:限定换行后的弹性元素'整体'在交叉轴的位置*/
+                align-content:flex-start;/*交叉轴开始*/
+                align-content:flex-end;/*交叉轴结束*/
+                align-content: center; /*交叉轴中间*/
+                align-content:space-around; /*空隙包围元素*/
+                align-content:space-between; /*元素包围空隙*/
+                align-content:stretch; 
+                /* 
+                    stretch 伸展 : 默认值 
+                    弹性元素在换行后在交叉轴上的距离相同(弹性元素设置了高度),相当于平分了交叉轴 
+                    当不设置弹性元素高度时候,在不换行时候,高度和交叉轴相同,在换行时候,交叉轴高度会均分
+
+                    默认情况 stretch 就是换行均分交叉轴高度嘛 ,而元素本身高度就看是否设置了高度,若设置了固定高度,则为固定高度的基础上再平分交叉轴
+                */
+            }
+            .box1 div,.box2 div{
+                
+                width:100px;
+                height:100px;
+                /*
+                 若div弹性元素 不设置高度又不换行  默认情况(align-content:stretch)则div会弹性铺满父盒子的交叉轴(垂直 上之下)的高度 铺满交叉轴的高度是弹性盒子本身的弹性产生的现象 而不是交叉轴位置产生的现象
+                 若div弹性元素 设置了高度又换行了,则每行弹性元素均分父盒子的交叉轴(垂直 上之下)的高度
+                */
+                
+            }
+    
+            .box1 div:nth-of-type(1), .box2 div:nth-of-type(1){
+                background: red;
+            }
+            .box1 div:nth-of-type(2),.box2 div:nth-of-type(2){
+                background: rgb(175, 129, 129);
+            }
+            .box1 div:nth-of-type(3),.box2 div:nth-of-type(3){
+                background: rgb(47, 124, 60);
+            }
+            .box1 div:nth-of-type(4),.box2 div:nth-of-type(4){
+                background: rgb(78, 62, 151);
+            }
+            .box1 div:nth-of-type(5),.box2 div:nth-of-type(5){
+                background: rgb(211, 142, 64);
+            }
+            .box1 div:nth-of-type(6),.box2 div:nth-of-type(6){
+                background: rgb(253, 71, 198);
+            }
+        
+            
+         </style> 
+     </head>
+     
+     <body>
+         <div class="box1">
+             <div>11</div>
+             <div>22</div>
+             <div>33</div>
+             <div>44</div>
+             <div>55</div>
+             <div>66</div>
+         </div>
+         <div class="box2">
+    
+            <div>11</div>
+            <div>22</div>
+            <div>33</div>
+            <div>44</div>
+            <div>55</div>
+            <div>66</div>
+        </div>
+     </body>
+ </html>

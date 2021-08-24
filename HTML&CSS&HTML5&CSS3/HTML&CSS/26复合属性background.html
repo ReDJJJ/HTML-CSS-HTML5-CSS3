@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>复合属性background</title>
+    <style>
+       div{
+           margin:300px;
+           width: 900px ; height: 1200px;
+           /* 单属性  */                                                                                                                                                                                                                                                                                    
+           /* 背景颜色 */
+           background-color:beige;
+           border:6px solid pink;
+           /* 背景图 */
+           background-image: url(./images/PaiDaXin.jpg);
+           /* a标签用href img用src 背景图用url() */
+           /* 背景图会默认平铺  使用 background-repeat 来控制平铺 */
+           /* 背景图跟元素大小无关系,默认会直接铺满 ,默认位置左上 */
+           background-repeat:no-repeat;
+            /* 背景图的位置 background-position */
+            /* 水平:left center right 正值向右 负值向左*/ 
+            /* 垂直: top buttom 正值向下 负值向上*/  
+           background-position:left top;
+           /* 
+                left top 也可以用 像素点代替
+                相当于 默认左上为(0，0)远点 background-position:xpx ypx 相当于 距离(0,0) 水平向右移xpx 垂直向下ypx xy可以是负值,负数就是向左 向上移动
+            */
+
+
+            /* 
+                复合属性 background: yellow url(背景图) repeat 0px 10px
+                background: 背景色 背景图url 是否平铺 位置
+             */
+             background:pink url(./images/PaiDaXin.jpg) repeat-x 0px 40px;
+       }
+    </style>
+</head>
+<body>
+    <div>
+            背景图不占位置！背景图不占位置！
+            背景图不占位置！
+            背景图不占位置！
+            背景图不占位置！
+            背景图不占位置！
+            背景图不占位置！
+            背景图不占位置！
+            背景图不占位置！背景图不占位置！
+            背景图不占位置！
+            背景图不占位置！
+            背景图不占位置！
+            背景图不占位置！
+            背景图不占位置！
+            背景图不占位置！
+            背景图不占位置！背景图不占位置！
+            背景图不占位置！
+            背景图不占位置！
+            背景图不占位置！
+            背景图不占位置！
+            背景图不占位置！
+            背景图不占位置！
+            背景图不占位置！背景图不占位置！
+            背景图不占位置！
+            背景图不占位置！
+            背景图不占位置！
+            背景图不占位置！
+            背景图不占位置！
+            背景图不占位置！
+            背景图不占位置！背景图不占位置！
+            背景图不占位置！
+            背景图不占位置！
+            背景图不占位置！
+            背景图不占位置！
+            背景图不占位置！
+            背景图不占位置！
+            背景图不占位置！
+            背景图不占位置！
+            背景图不占位置！
+            背景图不占位置！
+            背景图不占位置！
+            背景图不占位置！
+            背景图不占位置！
+            背景图不占位置！
+    </div>
+</body>
+</html>

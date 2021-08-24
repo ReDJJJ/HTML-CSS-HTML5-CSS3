@@ -1,0 +1,221 @@
+<!-- 
+    第一个没难度 不说了
+
+    第二个 个人做法  两个层叠的ul   每个四个角装了 一个小圆点li  其中一个ul 旋转45度  静态的loading图标 
+           我tm真的是铸币 
+           一个ul包含所有li 每个li包含一个span 小圆点   每个li旋转不同角度 形成圆 不就好了
+
+           关键问题:每次刷新网页 原点都是原来的大小透明度 瞬间切换到 动画的0.7伸缩  显得不流畅
+           怎么样让每次刷新页面 原点就是动画开始时候伸缩 0.7的状态呢
+
+           动画外属性 ？ 个人尝试并不能解决 动画外属性 似乎只能解决 动画开始前后的位置问题 
+
+           所以要手动修改设置 默认状态的大小为动画0.7的伸缩 然后再修改动画的伸缩
+ -->
+<!doctype html>
+ <html>
+     <head>
+         <meta charset="utf-8"> 
+         <title></title>
+         <style>
+             *{margin:0;padding:0; list-style: none;}
+             body{
+                 background: #ED5565;
+                
+             }
+             .top{
+                width:80px;
+                height:80px;
+                background: white;
+                margin:200px auto;
+                filter:blur(1px);
+                animation:top 2s 0s ease-in-out infinite normal;
+             }
+             @keyframes top {
+                0%{
+                    transform:rotateX(0deg);
+                }
+                50%{
+                    transform:rotateX(180deg) rotateY(0deg);
+                }
+                100%{
+                    transform:rotateX(180deg) rotateY(180deg);
+                    /* 此处X轴 180deg不能少写 以为这 50-100 过程 X轴不动 只动Y轴 */
+                }
+             }
+             .bottom>ul {
+                width:10px;
+                height:50px;
+                margin:0 auto;
+               position: relative;
+
+                /* transform-origin: bottom;
+                animation:dandian 2s 0s linear infinite normal;
+                animation-timing-function:steps(240); */
+                /* 单点 循环 */
+             }
+
+             .bottom>ul li{
+                 width:10px;
+                 height:40px;
+                 position: absolute;
+                 top: 0;
+                 left:0;
+                 transform-origin:bottom;
+                 /* 我的圆圈这么小是有原因的 因为我没改变旋转轴  使得旋转轴是默认的 z轴中心 */
+             }
+                /* 
+                各自的动画 除了延时都一样
+                li 负责圆形的形成 span负责远点动画 
+                */
+             .bottom>ul li:nth-of-type(1){
+                 transform:rotate(0deg);
+                
+             }
+             .bottom>ul li:nth-of-type(2){
+                 transform:rotate(45deg);
+                 
+             }
+             .bottom>ul li:nth-of-type(3){
+                 transform:rotate(90deg);
+                
+             }
+             .bottom>ul li:nth-of-type(4){
+                 transform:rotate(135deg);
+               
+             }
+             .bottom>ul li:nth-of-type(5){
+                 transform:rotate(180deg);
+               
+             }
+             .bottom>ul li:nth-of-type(6){
+                 transform:rotate(225deg);
+               
+             }
+             .bottom>ul li:nth-of-type(7){
+                 transform:rotate(270deg);
+               
+             }
+             .bottom>ul li:nth-of-type(8){
+                 transform:rotate(315deg);
+               
+             }
+             
+             .bottom>ul li:nth-of-type(1) span{
+                animation:donghua 3.2s 0s linear infinite alternate;
+             }
+             .bottom>ul li:nth-of-type(2) span{
+                 
+                 animation:donghua 3.2s .4s linear infinite alternate;
+             }
+             .bottom>ul li:nth-of-type(3) span{
+                 
+                 animation:donghua 3.2s .8s linear infinite alternate;
+             }
+             .bottom>ul li:nth-of-type(4) span{
+               
+                 animation:donghua 3.2s 1.6s linear infinite alternate;
+             }
+             .bottom>ul li:nth-of-type(5) span{
+                 
+                 animation:donghua 3.2s 2.0s linear infinite alternate;
+             }
+             .bottom>ul li:nth-of-type(6) span{
+                
+                 animation:donghua 3.2s 2.4s linear infinite alternate;
+             }
+             .bottom>ul li:nth-of-type(7) span{
+                 
+                 animation:donghua 3.2s 2.8s linear infinite alternate;
+             }
+             .bottom>ul li:nth-of-type(8) span{
+               
+                 animation:donghua 3.2s 3.2s linear infinite alternate;
+             }
+            
+             /* 此处更优秀的写法 应该时li共用一个 animation复合属性 
+                然后每个li 只层叠 animation 的单属性  animation-delay:xs 即可
+             */
+           
+             @keyframes donghua{
+                 0%{
+                     opacity:0.3;
+                     transform:scale(0.2);
+                     /* 缩放 位置并不会改变 但是 手动改宽高就有可能改动位置 */
+                 }
+    
+                 100%{
+                     opacity:1;
+                     transform:scale(1.7);
+                 }
+             }
+             
+           
+             /* 先做单点循环的转圈  */
+             .bottom>ul li span{
+                display: block;
+                width:10px;
+                height:10px;
+                background: white;
+                border-radius:50%;
+                animation-fill-mode:both;
+                opacity: 0.3;
+                transform:scale(0.5);
+                /* 以适配 动画开始的状态 */
+             }
+             /* @keyframes dandian{
+                 form{
+                    transform:rotate(0deg);
+                    opacity: 1;
+                 }
+                
+                 to{
+                    transform:rotate(360deg);
+                    opacity: 0;
+                 }
+            } */
+
+         </style>
+     </head>
+     
+     <body>
+         <div class="top"></div>
+         <div class="bottom">
+             <ul>
+                <li>
+                    <span>
+                    </span>
+                </li>
+                <li>
+                    <span>
+                    </span>
+                </li>
+                <li>
+                    <span>
+                    </span>
+                </li>
+                <li>
+                    <span>
+                    </span>
+                </li>
+                <li>
+                    <span>
+                    </span>
+                </li>
+                <li>
+                    <span>
+                    </span>
+                </li>
+                <li>
+                    <span>
+                    </span>
+                </li>
+                <li>
+                    <span>
+                    </span>
+                </li>
+               
+             </ul>
+         </div>
+     </body>
+ </html>

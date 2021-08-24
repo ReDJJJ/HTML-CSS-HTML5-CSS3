@@ -1,0 +1,110 @@
+/* wrap 包裹的意思 */
+.header-wrap{
+    
+    height:35px;
+    border-bottom: 1px solid #eee;
+   
+}
+/* 直接固定高度35px */
+
+.header{
+	width: 1190px;
+	height: 35px;
+	margin: 0 auto;
+}
+/* 版心 固定宽度 居中 */
+
+.header .list-l{
+	float:left;
+}
+/* 设置浮动类 是赋值给ul的 因为版心左侧和右侧 各有导航栏 ul不浮动会占据整个版心 */
+/* 不用设置宽度 浮动高宽由内容直接撑开 */
+
+
+.header .list-l li{
+	float:left;
+	/* border:1px solid blue; */
+}
+    /* 设置li为浮动  */
+
+.header .list-l li a{
+	line-height: 35px;
+	display: block;
+	/* border:1px solid red; */
+}   
+    /* 给a设置行高=父元素高度 文字居中 并且块级显示铺满撑开li */
+
+.header .list-l .one{
+	margin-left: 6px;
+}
+    /* 给第一个li 左边距 6px */
+
+.header .list-l .one a{
+	color:#f40;
+}
+    /* 
+	a的标签颜色比较特别 a不继承 
+	给第一个li中的超链接 设置为linked为淘宝色  默认hover已经重构为淘宝色了
+	 */
+
+.header .list-r{
+	float:right;
+    line-height: 35px;
+}
+    /* 右浮动 */
+
+.white-wrap {
+	background: #fff;
+	height :150px ;
+}
+
+.white{
+	
+	width:1190px;
+	height: 150px;
+	margin:0px auto;
+}
+
+
+/* 插入图方式 */
+/* 版心 固定宽高 居中 */
+.white-wrap .white .logo{
+	margin: 38px 0px 0px 22px;
+	float:left;
+	height:58px ;
+	overflow: hidden;
+}
+/*
+ 横向布局  将h1设置成 浮动
+ 全靠内容撑开宽高
+ 后面配合固定高度和溢出来隐藏SEO 文本
+*/
+.white-wrap .white .logo a{
+	display:block;
+	
+}
+/* 将a转换成块元素  图片的4px留白会被加入此 */
+/* -------------------------------------------------------------------------------
+   背景图方式 */
+/* .white .logo{
+	float:left;
+} */
+/* 背景图方式还是h1浮动 */
+/* 背景图方式 淘宝我文字默认浮动左上 
+	在a标签中  首行缩进 横向移动位置  移出屏幕外面
+	但是padding-top =  logo背景图高度 这样子padding 带着背景图出现 并且会挤出文本 在配合h1固定宽度 和溢出
+*/
+
+
+/* .white .logo a{
+	text-indent: -9999px;
+	height:58px;
+	width:145px;
+	display:block;
+	background: white url(../images/logo.jpg) no-repeat 0 0;
+} */
+
+/* 背景图不会撑开内容 所以a要块化 并固定宽高  使得logo正常显示 */
+
+/* 
+----------------------------------------------------------------------------------------- */

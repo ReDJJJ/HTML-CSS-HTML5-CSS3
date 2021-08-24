@@ -1,0 +1,68 @@
+<!-- 
+    以前设置主轴交叉轴位置 无论换行不换行 都是整体(根据轴方向排列过)进行位置迁移
+
+    若想针对单个弹性元素 在交叉轴上的位置 怎么办
+    1首要条件  flex-wrap:nowrap 不换行
+    2在目标弹性选择器中 align-self:flex-start center flex-end  交叉轴的起始 中间 结束 等等.
+
+ -->
+
+ 
+ <!doctype html>
+ <html>
+     <head>
+         <meta charset="utf-8"> 
+         <title></title>
+         <style>
+             *{
+                 margin: 0;
+                 padding: 0;
+            }
+             div.box{
+                 border: 1px solid black;
+                 display:flex;
+                 height:600px;
+                 flex-flow:row nowrap;
+            }
+            .box div{
+                width:120px; 
+                height:120px;
+                /* 之前想让 div 并列排序 需要给子元素div添加浮动  */
+            }
+    
+            .box div:nth-of-type(1){
+                background: red;
+            }
+            .box div:nth-of-type(2){
+                background: rgb(175, 129, 129);
+                align-self:center;
+                /* 不换行才能成功设置 */
+            }
+            .box div:nth-of-type(3){
+                background: rgb(47, 124, 60);
+            }
+            .box div:nth-of-type(4){
+                background: rgb(78, 62, 151);
+            }
+            .box div:nth-of-type(5){
+                background: rgb(211, 142, 64);
+            }
+            .box div:nth-of-type(6){
+                background: rgb(253, 71, 198);
+            }
+        
+            
+         </style> 
+     </head>
+     
+     <body>
+         <div class="box">
+             <div>11</div>
+             <div>22</div>
+             <div>33</div>
+             <div>44</div>
+             <div>55</div>
+             <div>66</div>
+         </div>
+     </body>
+ </html>

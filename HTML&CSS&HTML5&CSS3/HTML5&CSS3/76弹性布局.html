@@ -1,0 +1,84 @@
+<!-- 
+    弹性布局: 也叫伸缩布局 flex布局 
+
+    弹性布局: 父级与子级 之间的关系 (不包括隔代关系 单纯指父子)
+
+    学这个玩意儿:记住
+    弹性元素: 不设置宽高情况下,会共同填满父盒子的宽高
+
+    排列顺序123456789...永远由 主轴的方向决定(水平 垂直 左至右 右至左 上至下 下至上)
+    
+    排列位置 分两个方向 主轴和交叉轴  位置的分布都是 换行或者不换行后  整体在主轴 和 交叉轴上面的分布  
+
+ --> 
+
+ <!doctype html>
+ <html>
+     <head>
+         <meta charset="utf-8"> 
+         <title></title>
+         <style>
+             *{
+                 margin: 0;
+                 padding: 0;
+            }
+             div.box{
+                 border: 1px solid black;
+                 display:flex;
+                 
+                 /* 子元素想变为弹性元素,需要给父元素转换 显示模式 display:flex */
+
+                 /* 
+                 弹性布局 分方向,方向由两个轴共同控制 
+                 主轴: 默认水平方向  从左到右
+                 交叉轴、侧轴: 默认垂直方向  从上至下 
+                 主轴和交叉轴的位置 在设置了 弹性方向后 有可能会进行交替 替换
+                 
+                 弹性方向 flex-direction 设置在父元素 
+                 row: 水平方向 ,从左至右  (排列方式类似子元素群体左浮动)
+                 column: 垂直方向 ,从上至下    此时主轴侧轴对调 主轴为column 从上至下  侧轴为row
+                 row-reverse: 水平方向 , 从右至左  (排列方向类似于 子元素群体右浮动) 主轴不变还是水平  但是起始方向变了
+                 column-reverse:垂直方向 从下至上
+                 */
+                 flex-direction: column-reverse;
+            }
+            .box div{
+                width:120px; 
+                height:120px;
+                /* 之前想让 div 并列排序 需要给子元素div添加浮动  */
+            }
+    
+            .box div:nth-of-type(1){
+                background: red;
+            }
+            .box div:nth-of-type(2){
+                background: rgb(175, 129, 129);
+            }
+            .box div:nth-of-type(3){
+                background: rgb(47, 124, 60);
+            }
+            .box div:nth-of-type(4){
+                background: rgb(78, 62, 151);
+            }
+            .box div:nth-of-type(5){
+                background: rgb(211, 142, 64);
+            }
+            .box div:nth-of-type(6){
+                background: rgb(253, 71, 198);
+            }
+        
+            
+         </style> 
+     </head>
+     
+     <body>
+         <div class="box">
+             <div>11</div>
+             <div>22</div>
+             <div>33</div>
+             <div>44</div>
+             <div>55</div>
+             <div>66</div>
+         </div>
+     </body>
+ </html>

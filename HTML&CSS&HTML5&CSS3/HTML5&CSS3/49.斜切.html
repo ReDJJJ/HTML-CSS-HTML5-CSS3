@@ -1,0 +1,53 @@
+<!--
+    
+    斜切就是拿来做 倾斜或者 平行四边形的效果
+    但是里面的内容也会被斜切(可以用鼠标划过文本看看) 上次那个明日方舟的首页 斜切好像就是这个效果 ！！！！！！！！
+    但个人感觉不是重点 
+    但视觉效果很好看 因为字是"立体"的
+    
+    单置斜切的 宽度或高度有一方是固定不变的  注意观察
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"> 
+<title>菜鸟教程(runoob.com)</title> 
+<style> 
+div
+{
+	width:200px;
+	height:200px;
+    margin:100px auto;
+	background-color:pink;
+	border:1px solid black;
+}
+div.box2{
+    /* 
+
+    单位deg
+    单值  共同斜切
+    双值  水平 垂直 分别斜切  
+    正值 向右 或 向下   负值  向左 或 向上
+
+直观感受:斜切 聚焦点看右下角 水平正值 右下角往右边扯 负值往左边扯 垂直同理 正值往下扯 负值往上扯
+
+   斜切是实打实的面积的变化 所以会影响阴影 之类的
+    */
+    /* transform:skewX(0deg); */
+    /* transform:skewY(0deg); */
+    transform:skew(10deg,10deg);
+    box-shadow:2px 2px 0px 0px rgb(0, 0, 0);
+    /* 测试阴影 */
+}
+
+</style>
+</head>
+<body>
+
+<div>Hello. This is a DIV element.</div>
+
+<div class="box2">Hello. This is a DIV element.</div>
+
+</body>
+</html>

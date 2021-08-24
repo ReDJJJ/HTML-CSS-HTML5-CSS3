@@ -1,0 +1,44 @@
+<!-- 
+    以前的精灵图, 盒子大小刚刚好设置成精灵图的各部分大小,然后通过位移定位出来的
+    但是显示生活中,可以盒子大小不完全贴合精灵图的各部分大小,那么出来PS单独切图还有以下办法
+
+    用一个额外的宽高刚刚好为精灵图各部分大小的盒子,先"裁切"(装载) 所需的精灵图的各个部分
+    然后该盒子再父盒子里面 进行各种设置
+
+    为什么不能直接限定背景图大小来 裁切:
+    因为background-size 是和img 的缩放一样的,只放大缩小,并不会删减或增加内容
+
+ -->
+
+ <html>
+     <HEAD>
+     <meta charset="UTF-8">
+     <title></title>
+     <style>
+         div.box{
+             width:200px;
+             height:200px;
+             border:1px solid black;
+             margin:100px auto;
+
+            
+         }
+
+         div.box2{
+             width:38px;
+             height:70px;
+             border:1px solid red;
+             background:url(./image/sprite.png) no-repeat 0 0;
+             margin: auto;
+         }
+     </style>
+    </HEAD>
+    <body>
+            <div class="box">
+                <!-- 用一个额外的盒子box2 先裁切出java图标  -->
+                <div class="box2">
+
+                </div>
+            </div>
+    </body>
+ </html>

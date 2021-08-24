@@ -1,0 +1,75 @@
+<!-- 
+    本节介绍HTML5 新增语义标签
+    header头部标签
+    nav 导航标签
+    section 区域标签
+    aside 侧边栏标签
+    article 文字内容标签
+    footer 页底标签
+    以上标签 作用跟div一样 划分区域,只不过标签自带了语义，可以说是细分的div了
+    很多框架 也只使用div 配合类与类名进行区分
+ -->
+
+<!doctype html>
+ <html>
+     <head>
+         <meta charset="utf-8"> 
+         <title></title>
+         <style>
+             *{
+                 padding:0;
+                 margin-top:10px !important;
+             }
+             header{
+                width:1000px;
+                height:60px;
+                margin:0 auto;
+                background: rgb(255, 170, 170);
+             }
+             nav{
+                 width:1000px;
+                 height:200px;
+                 margin:0 auto;
+                 background: rgb(172, 157, 255);
+             }
+             section{
+                 width:1000px;
+                 height: 610px;
+                 margin:0 auto;
+                 background: rgb(85, 192, 253);
+             }
+             aside{
+                 width:300px;
+                 height:600px;
+                 float:left;
+                 background:rgb(68, 224, 133)
+             }
+             article{
+                 width:690px;
+                 height:600px;
+                 float:right;
+                 background: rgb(255, 244, 86);
+             }
+             footer{
+                 width:1000px;
+                 height:300px;
+                 margin:0 auto;
+                 background: rgb(255, 91, 62);
+             }
+
+         </style>
+     </head>
+     
+     <body>
+         <header>头部标签header</header>
+         <nav>导航栏标签nav</nav>
+         <section>
+            <aside>侧边栏aside</aside>
+            <article>文章标签article</article>
+        </section>
+        <footer>
+            页底标签footer
+        </footer>
+
+     </body>
+ </html>

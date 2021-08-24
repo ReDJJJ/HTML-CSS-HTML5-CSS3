@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <!-- 
+            动态响应式布局 
+            看到适应宽度就要想到百分比
+            1先确定 有几个状态 
+            2每个状态的静态状态时怎么样的
+            3通过媒体查询分别写入 每个状态
+         -->
+    <!-- 
+            项目状态: 
+            网页比较大的时候,4个一排并列 其实就是4个平分窗口宽度嘛！！！！！ 百分25% 
+            中规中矩时 2个一排并列 百分之50 
+            最小的时候,1个一排 百分之100
+
+            理解:媒体查询只能更改 CSS样式的内容  不能更改HTML 元素的多与少 
+            最后无法再缩小(其实是浏览器无法再缩小 所以不算一种状态)
+
+            最后一个难题:每个li之间的间距 ,调padding-right  但是背景图也会填满padding 并且托大了li面积 发生挤兑 调margin-right 会发生挤兑
+                        个人解决方案:
+                        li改成怪异盒子,前三个li填入padding,并将背景图限定在content 内容才能显示 
+                        有个问题:前三个和最后一个 背景图显示长度不一样  并且背景图不居中
+                        
+                        老师的解决方法:
+                        用透明右边框border来模拟外边距 
+                        并且给每个li都添加透明右边框来模拟 (解决了个人问题的背景图显示长度不一致)
+                        然后给body 设置一个 top 和left的padding , 右边padding 视觉效果由最后一个li的右边框来模拟
+                        最后每个li 添加margin-bottom
+                        
+                        看来老师的解决方法也很怪异
+          -->
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            list-style-type: none;
+        }
+
+        body {
+            background: #333;
+            padding:10px 0px 0px 10px;
+        }
+
+        .clearfix::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        ul {
+            background:#333;
+            width:100%;
+            /* 宽度 填满 父元素的 content  */
+        }
+
+        ul li {
+            height:200px;
+            /* 宽度变的同时保持高度不变 */
+            float:left;
+            /* 模拟边距设置 */
+            margin-bottom:10px;
+            box-sizing: border-box;
+            /* 设置怪异盒子模型后 背景图-clip也会设置成 border-box 背景图边框可见  需要在下面取消掉 */
+            border-right:10px solid transparent;
+        }
+
+        ul li:nth-of-type(1){
+            background: url(./image/1.jpg) no-repeat center center;
+            background-clip:content-box;
+            /* background-clip 会被background 层叠掉 需要注意 */
+            /* 背景图居中 */
+        }
+
+        ul li:nth-of-type(2){
+            background: url(./image/2.jpg) no-repeat center center;
+            background-clip:content-box;
+            /* 背景图居中 */
+        }
+
+        ul li:nth-of-type(3){
+            background: url(./image/3.jpg) no-repeat center center;
+            background-clip:content-box;
+            /* 背景图居中 */
+        }
+
+        ul li:nth-of-type(4){
+            background: url(./image/4.jpg) no-repeat center center;
+            background-clip:content-box;
+            
+            /* 背景图居中 */
+        }
+
+        /* ul li img{
+            width:100%;
+            插入图跟随父元素大小  
+            display:block;
+        } */
+        /* 有个问题 li的width 按比例自适应变化大小  那么会不会导致li里的img 比例变形？ 
+            li 父元素大小变了 但是img大小还是默认大小 会超出父元素  所以要给img限定大小 
+            但是 给img 限定width为100%跟随父元素li的宽度 会导致img 比例变形
+            并且发现 窗口变小的同时  图片变小 比例不变 并且 一直居中 所以改用居中的背景图来做 
+            背景图的大小和元素的大小 无直接关系 并且可以保持居中 
+        */
+        @media only all and (min-width:1200px){
+            ul li{
+                width:25%;
+            }
+        }
+        @media only all and (min-width:750px) and (max-width:1200px){
+            ul li{
+                width:50%;
+            }
+        }
+        @media only all and (min-width:0px) and (max-width:750px){
+            ul li{
+                width:100%;
+            }
+        }
+        
+    </style>
+</head>
+
+<body>
+    <ul class="clearfix">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+
+</html>

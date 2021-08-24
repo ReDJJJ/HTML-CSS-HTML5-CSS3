@@ -1,0 +1,100 @@
+<!-- 
+    弹性布局: 也叫伸缩布局 flex布局 
+
+    弹性布局: 父级与子级 之间的关系 (不包括隔代关系 单纯指父子)
+
+    弹性布局中: 要弄清楚 主轴的方向 ！！！ 是水平/垂直  从左到右 还是 右到左  还是上到下 还是下到上
+
+ -->
+
+ <!doctype html>
+ <html>
+     <head>
+         <meta charset="utf-8"> 
+         <title></title>
+         <style>
+             *{
+                 margin: 0;
+                 padding: 0;
+            }
+             div.box1{
+                
+                 
+                 border: 2px solid black;
+                 /* 创建弹性布局  */
+                 display:flex;
+                 /* 弹性元素在主轴 是否换行 
+                    flex-wrap:nowrap 不换行 (默认值)  当父元素盛不下默认状态的弹性元素 , 弹性元素会自适应的调整自身宽或高
+                    flex-wrap:wrap 换行 , 当父元素盛不下默认状态的弹性元素,弹性元素不会自适应调整宽高,而是直接换行(类似于左浮动元素)
+                    flex-wrap:wrap-reverse 反向换行 ,当父元素盛不下弹性元素,弹性元素会对称换行,从另一侧开始换行,并保持排列顺序 
+                 */
+                 flex-wrap:wrap; 
+                 /* 默认值  */
+            }
+            div.box2{
+                /* 父元素写死宽度 所以.box2里面的div不会形变*/
+                height:500px;
+                width: 400px;
+                /* 刚好六个盒子宽度 600px   */
+                margin-top:20px;
+                border: 2px solid black;
+                 /* 创建弹性布局  */
+                 display:flex;
+                 flex-wrap:wrap-reverse;
+
+
+
+                 /* flex-direction: column;
+                 flex-wrap:wrap-reverse; */
+                 /* 此处换行后 是平分了 宽度 涉及交叉轴的位置 后面详细说明  */
+            }
+            .box1 div,.box2 div{
+                
+                width:100px;
+                height:100px;
+                
+            }
+    
+            .box1 div:nth-of-type(1), .box2 div:nth-of-type(1){
+                background: red;
+            }
+            .box1 div:nth-of-type(2),.box2 div:nth-of-type(2){
+                background: rgb(175, 129, 129);
+            }
+            .box1 div:nth-of-type(3),.box2 div:nth-of-type(3){
+                background: rgb(47, 124, 60);
+            }
+            .box1 div:nth-of-type(4),.box2 div:nth-of-type(4){
+                background: rgb(78, 62, 151);
+            }
+            .box1 div:nth-of-type(5),.box2 div:nth-of-type(5){
+                background: rgb(211, 142, 64);
+            }
+            .box1 div:nth-of-type(6),.box2 div:nth-of-type(6){
+                background: rgb(253, 71, 198);
+            }
+        
+            
+         </style> 
+     </head>
+     
+     <body>
+         <div class="box1">
+             <div>11</div>
+             <div>22</div>
+             <div>33</div>
+             <div>44</div>
+             <div>55</div>
+             <div>66</div>
+         </div>
+         <div class="box2">
+    
+            <div>11</div>
+            <div>22</div>
+            <div>33</div>
+            <div>44</div>
+            <div>55</div>
+            <div>66</div>
+        </div>
+     </body>
+ </html>

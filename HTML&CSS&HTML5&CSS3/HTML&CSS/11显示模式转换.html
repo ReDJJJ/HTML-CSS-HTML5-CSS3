@@ -1,0 +1,50 @@
+<!-- 
+    显示模式:display
+    行内显示模式:display:inline;
+    块内显示模式:display:block;
+    行内块显示模式:display:inline-block;
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>显示模式转换</title>
+    <style>
+        div{
+            width: 200px;
+            height: 100px;
+            background-color:pink;
+            display: inline-block;
+            /* 转换成行内块 一行多个 */
+        }
+        span{
+            width:200px ;
+            height: 100px;
+            background-color:paleturquoise;
+            display:block;
+            /* 行内元素 变块内元素 长宽拥有了意义 */
+        }
+
+        .tran{
+            height:auto;
+            background-color:pink;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+<!-- 
+    显示模式转换 
+-->
+    <div></div><div></div>
+    <br><br><br><br>
+    <div class="tran">如果块级元素里包含有行内元素或者行内块元素，要想设置行内元素水平居中对齐，此时可以将行内元素看成是父元素中的文本，即利用 text-align: center;属性就可以将行内元素设置成水平居中。具体的看下面的例子：</div><br>
+    <div class="tran"style="text-align: center"><a href="##">helloworld</a></div><br>
+    <div class="tran"><a href="##">helloworld</a></div>
+    
+    <!-- 这就是以前为什么 text-align感觉文字能跑到中间的原因 因为被块元素包含了 行内元素a就是一个文字 那么相对于块元素也就是居中  或者把a块化 然后文字居中 -->
+    
+</body>
+</html>

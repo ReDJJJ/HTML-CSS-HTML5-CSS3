@@ -1,0 +1,34 @@
+<!-- 
+    chorme的普通标签 默认标准字体大小为16px;
+    而chrome默认的最小字号是12px; 哪怕设置得字号小于12号字,还是12号px
+
+    font-size: <12px   =12px;
+
+ -->
+
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"> 
+        <title></title>
+        <style>
+            html{
+                font-size: 1px;
+                /* 根文档下的字体设置 rem小于12px  显示字体时rem会自动转化为12px 但是rem就是1px 看div 的宽度就知道了 */
+            }
+            div{
+                width:1rem;
+                background: blue;
+                /* 宽度1rem 由于1rem设置字号小于12px  所以1rem 规划为12px 旧版本的 , 不过好像新版支持如此设定了 font-size可以设定为小于12px,也就是1rem单位可以小于12px ,但是字体显示还是12px,  */
+            }
+        </style>
+    </head>
+    
+    <body>
+        <DIV>
+            我是一个字体
+        </DIV>
+        
+
+    </body>
+</html>

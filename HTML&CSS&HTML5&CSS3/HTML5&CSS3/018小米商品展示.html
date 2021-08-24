@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+
+<!-- 以后伪元素 没显示  就是 content 内容忘记写了！！！！！！！！！！！！！！！！！！！！！ -->
+<!-- 
+     视觉选中边框不能给img的原因 ,当hover设置成 box-sizing:border-box时候
+     边框会侵占img的位置,导致错误,哪怕你背景图也不管用,背景图只会铺满content 和 padding 
+     所以边框要给li 而li的content变小后， img子元素溢出显示 和 被border侵占content的父元素li 同一大小
+ -->
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: #333;
+        }
+
+        .clearfix::after {
+            content: "";
+            display: block;
+            height: 0;
+            clear: both;
+        }
+
+        .box1>li {
+            list-style-type: none;
+            float: left;
+            margin-right: 15px;
+            
+            position: relative;
+            /* width:316px;
+            height:174px;
+            box-sizing: border-box; */
+            /* 
+                单单设置一个border-sizing是无用的 
+               需要配合固定宽高才能发挥作用，完成商品展示界面
+            */
+        }
+
+        .box1>li a>img {
+            border-radius: 20px;
+        }
+        .box1>li a{
+            background: blue;
+        }
+
+        .box1>li:hover{
+          
+            /* 怪异盒子模型 内减模型 */
+            /* border:10px solid rgba(165, 35, 35, 0.4); */
+
+            /* 个人遇到的问题:border-box 模型 中 虽然不会改变盒子大小 ,但是生成了border边框 边框无论如何都占位置的 会导致偏移 个人无法解决 */
+            /* tmd老师也无法解决  因为border无论哪种盒子模型都占据位置，而盒子内容肯定是要避开 border 和 padding 的 
+               所以还是利用绝对定位不占位置配合怪异盒子模型实现
+            */
+        }
+
+        img{
+            display: block;
+            /* 取消img 4px 留白 */
+        }
+/* 利用span元素实现方法 */
+        ul li span:nth-last-child(2){
+            width: 100%;
+            height:100%;
+            box-sizing: border-box;
+            /* border-box 要配合固定宽高 ,否则一样先会被内容撑开  然后再加padding和border */
+
+            position:absolute;
+            top: 0;
+            left: 0;
+        }
+        ul li span:nth-last-child(2):hover{
+            border:10px solid rgba(253, 223, 223, 0.5);
+            border-radius:20px;
+        }
+    /* 利用伪元素实现方法   */
+        ul li:nth-of-type(3):before{
+            content:"";
+            /* 本人卡了很久  为什么before 不显示  因为伪元素没有写content:"" */
+            width: 100%;
+            height:100%;
+            box-sizing: border-box;
+            /* display:block;  */
+            /* 设置了绝对定位就不用display */
+
+            /* 伪元素默认行内元素 宽高不起作用 */
+            position:absolute;
+            top: 0;
+            left: 0;
+        }
+
+        /* ul li:nth-of-type(3):hover::before{
+            display:block;
+        } */
+        ul li:nth-of-type(3):hover::before{
+            border:10px solid rgba(255, 210, 210, 0.5);
+            border-radius:20px;
+        }
+        /* 
+        个人用了两种方法来实现 1利用显示隐藏 2利用hover状态
+        还没弄清除 应该用显示隐藏来完成 
+        */
+
+    </style>
+</head>
+
+<body>
+    <ul class="box1 clearfix">
+        <li>
+            <span></span>
+            <!-- 这里是无内容标签 那可以利用 伪元素啊 -->
+            <a href="##" class="clearfix"><img src="../images/xiaomisp1.jpg" alt=""></a>
+        </li>
+        <li>
+            <span></span>
+            <a href="##" class="clearfix"><img src="../images/xiaomisp2.jpg" alt=""></a>
+        </li>
+        <li>
+           <!-- 无span  利用伪元素 -->
+            <a href="##" class="clearfix"><img src="../images/xiaomisp3.jpg" alt=""></a>
+        </li>
+    </ul>
+</body>
+
+</html>
+
+<!-- 这个做得绕了很多弯路 积累的经验
+     绝对定位记得找父亲
+     box-sizing 通常需要配合固定宽高使用 才能保持盒子总面积不变
+     伪元素可以替代 无内容标签 
+     伪元素一定要设置 content 内容属性 
+     子元素可以超过父元素 overflow就是解决这个问题的
+
+     然后 发现盒子压盒子情况的出现 使用定位来完成！！！！  
+     并且 而盒子类型仅仅决定盒子大小 类型  不能达到盒子压盒子的功能
+-->
+<!-- 
+    span和伪类应该给a标签内,通过事件冒泡来达到点击a的作用。
+ -->

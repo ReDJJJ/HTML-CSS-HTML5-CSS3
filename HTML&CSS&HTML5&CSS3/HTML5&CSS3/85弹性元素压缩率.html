@@ -1,0 +1,76 @@
+<!-- 
+    压缩率:flex-shrink:常数
+    压缩率:0 完全不压缩 不给压缩的空间
+    与份数一样设置在所需弹性元素
+
+    压缩率数值的计算
+
+    当整个盒子宽度不足,需要元素压缩的时候,所需压缩的总px值 / 压缩率份数 = 每份压缩率的实际压缩距离
+    每个盒子的压缩数值 =  每份压缩率的实际压缩距离 * 自身所占压缩率的份数
+
+    
+ -->
+
+ <!doctype html>
+ <html>
+     <head>
+         <meta charset="utf-8"> 
+         <title></title>
+         <style>
+            *{
+                  margin: 0;
+                  padding: 0;
+             }
+              div.box{
+                  height:400px;
+                  border: 1px solid black;
+                  width: 400px;
+                  margin: 200px auto;
+ 
+                  display:flex;
+                  
+                  flex-flow:row nowrap;
+             }
+             .box div{
+                 width:200px; 
+                 /* 弹性元素不设置宽度 用flex-grow 份数取而代之  */
+                 /* 没有设置高度,也没有换行发生 ,在普通盒子里就是height:0的盒子 但是到了弹性盒子里面弹性元素会弹性补齐到当前父盒子高度(交叉轴高度)
+                 
+                 */
+             }
+     
+             .box div:nth-of-type(1){
+                 background: red;
+                 flex-shrink: 0;
+             }
+             .box div:nth-of-type(2){
+                 background: rgb(175, 129, 129);
+                 flex-shrink: 1;
+                 /* 不换行才能成功设置 */
+
+             }
+             .box div:nth-of-type(3){
+                 background: rgb(47, 124, 60);
+                 flex-shrink: 2;
+             }
+            
+             /* 
+                父元素400px 弹性元素一共600px;
+                多出来的200px 
+                红色压缩率份数为0 完全不压缩
+                第二个压缩率份数为1 总份数为3 所以分担1/3的压缩内容
+                第三个 承担2/3的压缩内容
+             */
+         
+         </style>
+     </head>
+     
+     <body>
+         <div class="box">
+             <div></div>
+             <div></div>
+             <div></div>
+         </div>
+ 
+     </body>
+ </html>

@@ -1,0 +1,107 @@
+<!-- 
+    XYZ轴 是相对元素本身 第一视角固定的
+
+    元素想3D显示,给父元素添加transform-style:preserve-3d;
+    元素想近大远小，给父元素添加perspecet(透视):xpx (800-1500);
+
+    有时候想3D效果明显,得两者都添加,有时候只需要一方
+
+    位移的补充:位移有translateX ,Y ,Z三个方向 
+    Z轴正值 为元素第一人称向前  负值为元素第一人称向后
+
+
+ -->
+
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        .box {
+            width: 600px;
+            height: 600px;
+            margin: 100px auto;
+            background: url(../images/zb.png) no-repeat 0 0;
+            position: relative;
+        }
+
+        .zoo {
+            width: 400px;
+            height: 400px;
+            border: 3px dashed rosybrown;
+            /* 居中 */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            /* 给.cat 类添加景深和3D */
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            
+        }
+
+        .box .zoo .cat {
+            width: 200px;
+            height: 200px;
+
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -100px;
+            margin-top: -100px;
+            background: url(../images/03.jpg) no-repeat 0 0;
+
+            transition:all 1s 0s linear; 
+
+            /* 此处给.cat 类添加 3D和景深 让cat的子元素dog 能够3D显示景深效果 */
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            /* perspcetive 透视效果 和 transform-style 开启3D空间  都是给3D元素的父盒子加 */
+
+            /* 整个cat类  猫背景图和插入图狗 一起旋转至侧面 */
+            transform-origin: center 0px;
+            transform:rotateY(45deg);
+            /* 只在cat类设置 旋转不够明显 给cat类的父元素zoo添加景深和3D */
+            
+        }
+
+        .box .zoo  .dog{
+            width: 200px;
+            height: 200px;
+            transition:all 1s 0s linear; 
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -100px;
+            margin-top: -100px;
+/* 旋转 想显示 景深效果 父元素加上perspec:xpx */
+            transform-origin: 0px top;
+            transform: translateZ(20px) rotateX(10deg);
+        }
+
+        .box .zoo:hover .cat{
+            transform:rotateY(360deg);
+        }
+
+        .box .zoo:hover .dog{
+            transform:translateZ(100px) rotateX(45deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="zoo">
+            <div class="cat">
+            <img src="../images/06.jpg" alt="" class="dog">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>交集选择器</title>
+        <style>
+            .box1{
+                color:red;
+            }
+            .box2{
+                color:blue;
+            }
+            .box1.box2{
+                color:green;
+                font-size:20px
+            }
+        </style>
+    </head>
+    <body>
+        <!-- 
+            类选择器 .类名{
+                就是简单的类选择器
+            }
+
+            后代选择器 .box h5{
+                中间用空格间隔  代表这box 的后代中的h5的样式
+            }
+            伪类选择器 :linked hover actived visited{
+                表示类不同状态下的样式
+            }
+            交集选择器 h5.box1{
+                中间无间隔表示交集, 即是h5标签 又是box1 类的元素的样式
+            }
+         -->
+
+         <div class="box1">我是box1</div>
+         <div class="box2">我是box2</div>
+         <div class="box1 box2">我是box1box2的交集</div>
+    </body>
+</html>
